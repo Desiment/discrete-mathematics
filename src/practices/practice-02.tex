@@ -1,0 +1,40 @@
+%
+\documentclass[a4paper,12pt,twoside]{article}
+\input{configuration/preamble.tex}
+\input{configuration/teaching/preamble-practices}
+
+\setboolean{ShowHint}{true}
+\setboolean{ShowSolution}{false}
+
+\renewcommand{\PracticeSubject}{Дискретная математика}
+\renewcommand{\PracticeName}{Функции, множества и счётность}
+\renewcommand{\PracticeGroup}{ПАДИИ}
+\renewcommand{\PracticeCourse}{1}
+\renewcommand{\PracticeDate}{31 января 2025}
+
+
+\begin{document}
+\begin{?}
+    Пусть множество $A$ конечно, а множество $B$ счетно. Докажите, что тогда множество функций $f\colon A \to B$ счетно.
+\end{?}
+\begin{?}
+    Функция называется периодической, если для некоторого $T \neq 0$ и любого $x$ выполняется равенство $f(x) = f(x + T) = f(x - T)$. Докажите, что множество периодических функций $f \colon \Z \to \Z$  счетно.
+\end{?}
+\begin{?}
+    Докажите, что множество точек строгого локального максимума любой функции вещественного аргумента конечно или счётно.
+\end{?}
+\begin{?}
+    Докажите, что множество точек разрыва неубывающей функции вещественного аргумента конечно или счётно.
+\end{?}
+\begin{?}
+    Говорят, что $g \colon B \to A$ является левой обратной (соответственно правой обратной) к $f$, если $g \circ f = \mathrm{id}_{A}$ (соответственно $f \circ g = \mathrm{id}_{B}$).
+    \begin{enumerate}[noitemsep, topsep=0pt, parsep=0pt]
+        \item Приведите примеры, когда левая обратная не является правой обратной и наоборот.
+        \item Может ли такое случиться для конечных множеств?
+        \item Может ли быть так, что у одной функции есть и левая и правая обратные, но они различны?
+        \item Для каких функций существует левая обратная?
+        \item Для каких функций существует правая обратная? 
+    \end{enumerate}
+\end{?}
+\end{document}
+
