@@ -1,0 +1,60 @@
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+    %uncomment if require: \path (0,300); %set diagram left start at 0, and has height of 300
+
+    %Shape: Circle [id:dp1921063798851721] 
+    \draw  [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ] (155,98.12) .. controls (155,95.61) and (157.03,93.59) .. (159.53,93.59) .. controls (162.04,93.59) and (164.07,95.61) .. (164.07,98.12) .. controls (164.07,100.62) and (162.04,102.65) .. (159.53,102.65) .. controls (157.03,102.65) and (155,100.62) .. (155,98.12) -- cycle ;
+    %Shape: Circle [id:dp8652635011551058] 
+    \draw  [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ] (181.52,98.12) .. controls (181.52,95.61) and (183.55,93.59) .. (186.05,93.59) .. controls (188.56,93.59) and (190.59,95.61) .. (190.59,98.12) .. controls (190.59,100.62) and (188.56,102.65) .. (186.05,102.65) .. controls (183.55,102.65) and (181.52,100.62) .. (181.52,98.12) -- cycle ;
+    %Shape: Circle [id:dp8623282721223469] 
+    \draw  [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ] (208.04,98.12) .. controls (208.04,95.61) and (210.07,93.59) .. (212.57,93.59) .. controls (215.08,93.59) and (217.11,95.61) .. (217.11,98.12) .. controls (217.11,100.62) and (215.08,102.65) .. (212.57,102.65) .. controls (210.07,102.65) and (208.04,100.62) .. (208.04,98.12) -- cycle ;
+    %Shape: Ellipse [id:dp020419695192863463] 
+    \draw  [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ] (258.83,98.12) .. controls (258.83,95.61) and (260.86,93.59) .. (263.36,93.59) .. controls (265.86,93.59) and (267.89,95.61) .. (267.89,98.12) .. controls (267.89,100.62) and (265.86,102.65) .. (263.36,102.65) .. controls (260.86,102.65) and (258.83,100.62) .. (258.83,98.12) -- cycle ;
+    %Shape: Ellipse [id:dp11816007249809068] 
+    \draw  [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ] (285.35,98.12) .. controls (285.35,95.61) and (287.38,93.59) .. (289.88,93.59) .. controls (292.38,93.59) and (294.41,95.61) .. (294.41,98.12) .. controls (294.41,100.62) and (292.38,102.65) .. (289.88,102.65) .. controls (287.38,102.65) and (285.35,100.62) .. (285.35,98.12) -- cycle ;
+    %Shape: Ellipse [id:dp4205387163345178] 
+    \draw  [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ] (311.87,98.12) .. controls (311.87,95.61) and (313.9,93.59) .. (316.4,93.59) .. controls (318.9,93.59) and (320.93,95.61) .. (320.93,98.12) .. controls (320.93,100.62) and (318.9,102.65) .. (316.4,102.65) .. controls (313.9,102.65) and (311.87,100.62) .. (311.87,98.12) -- cycle ;
+    %Straight Lines [id:da026922449121584924] 
+    \draw    (159.53,98.12) -- (204.11,149.47) ;
+    %Straight Lines [id:da8983098768084075] 
+    \draw    (186.05,98.12) -- (204.11,149.47) ;
+    %Straight Lines [id:da21513302357225061] 
+    \draw    (212.57,98.12) -- (204.11,149.47) ;
+    %Straight Lines [id:da7886172229669357] 
+    \draw    (263.36,98.12) -- (204.11,149.47) ;
+    %Straight Lines [id:da6905896783140681] 
+    \draw    (289.88,98.12) -- (204.11,149.47) ;
+    %Straight Lines [id:da32271448226012756] 
+    \draw    (316.4,98.12) -- (204.11,149.47) ;
+    %Straight Lines [id:da2837579216161594] 
+    \draw    (316.4,98.12) -- (272.95,149.47) ;
+    %Straight Lines [id:da05098195672731398] 
+    \draw    (289.88,98.12) -- (272.95,149.47) ;
+    %Straight Lines [id:da5002434110311629] 
+    \draw    (263.36,98.12) -- (272.95,149.47) ;
+    %Straight Lines [id:da699911204190933] 
+    \draw    (212.57,98.12) -- (272.95,149.47) ;
+    %Straight Lines [id:da09564444275351702] 
+    \draw    (186.05,98.12) -- (272.95,149.47) ;
+    %Straight Lines [id:da5903079702954108] 
+    \draw    (159.53,98.12) -- (272.95,149.47) ;
+    %Straight Lines [id:da4329261536324003] 
+    \draw  [dash pattern={on 4.5pt off 4.5pt}]  (240.93,105.8) -- (272.95,149.47) ;
+    %Straight Lines [id:da17885326378980726] 
+    \draw  [dash pattern={on 4.5pt off 4.5pt}]  (240.93,105.8) -- (204.11,149.47) ;
+    %Shape: Circle [id:dp9211501253525605] 
+    \draw  [fill={rgb, 255:red, 255; green, 255; blue, 255 }  ,fill opacity=1 ] (199.58,149.47) .. controls (199.58,146.96) and (201.61,144.93) .. (204.11,144.93) .. controls (206.61,144.93) and (208.64,146.96) .. (208.64,149.47) .. controls (208.64,151.97) and (206.61,154) .. (204.11,154) .. controls (201.61,154) and (199.58,151.97) .. (199.58,149.47) -- cycle ;
+    %Shape: Ellipse [id:dp39534451676131077] 
+    \draw  [fill={rgb, 255:red, 255; green, 255; blue, 255 }  ,fill opacity=1 ] (268.42,149.47) .. controls (268.42,146.96) and (270.45,144.93) .. (272.95,144.93) .. controls (275.45,144.93) and (277.48,146.96) .. (277.48,149.47) .. controls (277.48,151.97) and (275.45,154) .. (272.95,154) .. controls (270.45,154) and (268.42,151.97) .. (268.42,149.47) -- cycle ;
+
+    % Text Node
+    \draw (232.08,89.57) node [anchor=north west][inner sep=0.75pt]   [align=left] {...};
+    % Text Node
+    \draw (206.11,154.47) node [anchor=north west][inner sep=0.75pt]   [align=left] {$\displaystyle a$};
+    % Text Node
+    \draw (274.95,152.47) node [anchor=north west][inner sep=0.75pt]   [align=left] {$\displaystyle b$};
+    % Text Node
+    \draw (150.11,77.47) node [anchor=north west][inner sep=0.75pt]   [align=left] {$\displaystyle 1$};
+    % Text Node
+    \draw (320.11,80.47) node [anchor=north west][inner sep=0.75pt]   [align=left] {$\displaystyle n$};
+\end{tikzpicture}

@@ -1,0 +1,50 @@
+%
+\documentclass[a4paper,12pt,twoside]{article}
+\input{configuration/preamble.tex}
+\input{configuration/teaching/preamble-homework}
+
+\setboolean{ShowHint}{false}
+\setboolean{ShowSolution}{false}
+
+\renewcommand{\PracticeSubject}{Дискретная математика}
+\renewcommand{\PracticeGroup}{ПМИ}
+\renewcommand{\PracticeCourse}{2}
+\renewcommand{\HWname}{ДЗ №2, матричная теорема}
+\renewcommand{\HWnumber}{2}
+\renewcommand{\Deadline}{05 февраля в 23:59}
+
+
+\begin{document}
+\begin{?}\ \\
+    \task{0.5 балла} Постройте дерево, отвечающее последовательности Прюфера $(1, 7, 2, 2, 2, 2)$
+\end{?}
+\begin{?}\ \\
+    \task{0.5 балла} Докажите, что граф Петерсена имеет 2000 остовных деревьев.
+\end{?} 
+\begin{?}\ \\
+    \task{2 балла}  Подсчитайте количество остовных деревьев в графе $W_n$ «колесо» (на рис. 1 изображен пример для  $n = 6$).
+    \begin{figure}[H]
+        \centering
+        \includetikz{homeworks-02-img-01.tikz}
+        \caption{Граф $W_6$}
+    \end{figure}
+\end{?}
+\begin{?}\ \\
+    \task{2 балла} Пусть $G$ двудольный граф, все степени вершин которого четны. Докажите что в этом случае $\mathrm{st}(G)$ также четно.
+\end{?}
+\begin{?}\ \\
+    \task{5 баллов} Пусть $G$ --- некоторый граф на $n$ вершинах, $L(G)$ его матрица Лапласа. Докажите что
+    \begin{tasklist}
+        \item[1] $\det L(G) = 0$;
+        \item[1] $L(G) + L(\overline{G}) = L(K_n)$;
+        \item[1] если $\lambda > 0$ --- собственное число $L(G)$ алгебраической кратности $k$, то $n - \lambda$ собственное число матрицы $L(\overline{G})$ такой же кратности;
+        \item[1] если $0$ -- собственное число $L(G)$ алгебраической кратности $k$, то $n$ --- собственное число матрицы $L(\overline{G})$ кратности $k-1$;
+        \item[1] Выведете из предыдущего пункта число остовных деревьев графа $K_{n, m}$, записав количество остовных деревьев через собственные числа $L(K_{n, m})$.
+    \end{tasklist}
+\end{?}
+
+\subsection*{Бонус}
+\begin{?}\ \\
+    \task{4 балла} Докажите что алгебраическая кратность 0 как собственного числа матрицы Лапласа это в точности количество компонент связности графа $G$
+\end{?}
+\end{document}

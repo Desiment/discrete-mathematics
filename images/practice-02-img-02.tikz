@@ -1,0 +1,46 @@
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+    %uncomment if require: \path (0,300); %set diagram left start at 0, and has height of 300
+    %Straight Lines [id:da8447458130773842] 
+    \draw    (359.4,128.4) -- (279.56,72.15) ;
+    %Shape: Ellipse [id:dp5952065262195692] 
+    \draw  [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ] (279.56,67.78) .. controls (281.98,67.78) and (283.93,69.73) .. (283.93,72.15) .. controls (283.93,74.56) and (281.98,76.52) .. (279.56,76.52) .. controls (277.15,76.52) and (275.19,74.56) .. (275.19,72.15) .. controls (275.19,69.73) and (277.15,67.78) .. (279.56,67.78) -- cycle ;
+    %Shape: Ellipse [id:dp23892608406057647] 
+    \draw  [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ] (321.3,67.78) .. controls (323.72,67.78) and (325.67,69.73) .. (325.67,72.15) .. controls (325.67,74.56) and (323.72,76.52) .. (321.3,76.52) .. controls (318.89,76.52) and (316.93,74.56) .. (316.93,72.15) .. controls (316.93,69.73) and (318.89,67.78) .. (321.3,67.78) -- cycle ;
+    %Shape: Ellipse [id:dp38020466923796103] 
+    \draw  [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ] (390.56,67.78) .. controls (392.98,67.78) and (394.93,69.73) .. (394.93,72.15) .. controls (394.93,74.56) and (392.98,76.52) .. (390.56,76.52) .. controls (388.15,76.52) and (386.19,74.56) .. (386.19,72.15) .. controls (386.19,69.73) and (388.15,67.78) .. (390.56,67.78) -- cycle ;
+    %Shape: Ellipse [id:dp345256065933931] 
+    \draw  [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ] (433.3,67.78) .. controls (435.72,67.78) and (437.67,69.73) .. (437.67,72.15) .. controls (437.67,74.56) and (435.72,76.52) .. (433.3,76.52) .. controls (430.89,76.52) and (428.93,74.56) .. (428.93,72.15) .. controls (428.93,69.73) and (430.89,67.78) .. (433.3,67.78) -- cycle ;
+    %Straight Lines [id:da378811833300136] 
+    \draw    (359.4,128.4) -- (321.3,72.15) ;
+    %Straight Lines [id:da44739744148355] 
+    \draw    (359.4,128.4) -- (390.56,72.15) ;
+    %Straight Lines [id:da5688873578896141] 
+    \draw    (359.4,128.4) -- (433.3,72.15) ;
+    %Straight Lines [id:da2984456166655194] 
+    \draw    (321.3,72.15) -- (279.56,72.15) ;
+    %Straight Lines [id:da07190559895603865] 
+    \draw    (433.3,72.15) -- (390.56,72.15) ;
+    %Straight Lines [id:da56238686779793] 
+    \draw  [dash pattern={on 4.5pt off 4.5pt}]  (390.56,72.15) -- (369.93,72.15) ;
+    %Straight Lines [id:da09624617985604322] 
+    \draw  [dash pattern={on 4.5pt off 4.5pt}]  (341.93,72.15) -- (321.3,72.15) ;
+    %Straight Lines [id:da6699441197747775] 
+    \draw  [dash pattern={on 4.5pt off 4.5pt}]  (345.93,78.78) -- (359.4,128.4) ;
+    %Straight Lines [id:da696197553430709] 
+    \draw  [dash pattern={on 4.5pt off 4.5pt}]  (368.93,79.37) -- (359.4,128.4) ;
+    %Shape: Ellipse [id:dp9593514982880491] 
+    \draw  [fill={rgb, 255:red, 255; green, 255; blue, 255 }  ,fill opacity=1 ] (359.4,133.62) .. controls (356.51,133.62) and (354.18,131.28) .. (354.18,128.4) .. controls (354.18,125.52) and (356.51,123.18) .. (359.4,123.18) .. controls (362.28,123.18) and (364.62,125.52) .. (364.62,128.4) .. controls (364.62,131.28) and (362.28,133.62) .. (359.4,133.62) -- cycle ;
+
+    % Text Node
+    \draw (361.4,131.62) node [anchor=north west][inner sep=0.75pt]   [align=left] {$\displaystyle 0$};
+    % Text Node
+    \draw (262.4,59.62) node [anchor=north west][inner sep=0.75pt]   [align=left] {$\displaystyle 1$};
+    % Text Node
+    \draw (441.4,59.62) node [anchor=north west][inner sep=0.75pt]   [align=left] {$\displaystyle n$};
+    % Text Node
+    \draw (316.4,48.62) node [anchor=north west][inner sep=0.75pt]   [align=left] {$\displaystyle 2$};
+    % Text Node
+    \draw (374.4,48.62) node [anchor=north west][inner sep=0.75pt]   [align=left] {$\displaystyle n-1$};
+\end{tikzpicture}

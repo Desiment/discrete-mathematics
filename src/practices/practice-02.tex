@@ -1,0 +1,240 @@
+%
+\documentclass[a4paper,12pt,twoside]{article}
+\input{configuration/preamble.tex}
+\input{configuration/teaching/preamble-practices}
+
+\setboolean{ShowHint}{false}
+\setboolean{ShowSolution}{false}
+
+\renewcommand{\PracticeSubject}{Дискретная математика}
+\renewcommand{\PracticeName}{Остовные деревья}
+\renewcommand{\PracticeGroup}{ПМИ}
+\renewcommand{\PracticeCourse}{2}
+\renewcommand{\PracticeDate}{27 янвая 2025}
+
+\begin{document}
+\begin{?}
+    Рассмотрим 3-регулярный граф $G_m$, представляющий собой ожерелье из $m$ графов \enquote{воздушный змей} (на рис.~1 приведен пример для $m = 6$). Подсчитайте количество остовных деревьев в таком графе для произвольного значения параметра $m>1$.
+    \begin{figure}[h]
+        \centering
+        \includetikz{practice-02-img-01.tikz}
+        \caption{}
+    \end{figure}
+\end{?}
+\begin{solution}{}
+    Поймем как устроены остовные деревья в таком графе. Чтобы получить остовное дерево, надо, условно говоря, разомкнуть циклы во всех воздушных змеях и один \enquote{общий цикл}. Это можно сделать двумя способами. 
+    \begin{enumerate}[noitemsep,topsep=0pt,parsep=0pt]
+        \item Разорвать одно из связывающих \enquote{воздушных змеев} ребер и в каждом воздушном змее выбрать остовное дерево.
+        \item Выбрать один из воздушных змеев, разомкнуть по нему и во всех оставшихся построить остовное дерево (в случае если $m > 1$).
+    \end{enumerate}
+    Схематично это изображено на рисунке ниже.
+    \begin{center}
+        \includetikz{practice-02-solution-img-01.tikz}
+    \end{center}
+
+    Начнем с того что посчитаем, сколькими способами можно выбрать остовное дерево в каждом воздушном змее. Матрица Лапласа для графа воздушного змея $G_1$ есть:
+    \[
+        L(G_1) = \begin{pmatrix}
+            2  & -1 &  0 & -1 \\
+            -1 &  3 & -1 & -1 \\
+            0  & -1 &  2 & -1 \\
+            -1 & -1 & -1 &  3
+        \end{pmatrix}
+    \]
+    По матричной теореме \(\mathrm{st}(G_1)\) есть:
+    \[
+        \mathrm{st}(G_1) = \abs{\det(L_{4, 4}(G_1))} = \left|\begin{vmatrix}
+            2  & -1 &  0 \\
+            -1 &  3 & -1 \\
+            0  & -1 &  2\\
+        \end{vmatrix}\right| = 8
+    \]
+    Значит, для $G_m$ есть $m \cdot 8^m$ остовных деревьев первого вида. Для того чтобы найти количество остовных деревьев второго вида, необходимо подсчитать сколько есть способов в $G_1$ составить остовный лес из двух компонент разделяющий вершины степени 2. 
+    \newpage 
+    \noindent Схематично эти способы изображены на рисунке ниже
+    \begin{center}
+        \includetikz{practice-02-solution-img-02.tikz}
+    \end{center}
+    Итого остовных деревьев второго вида \(8 \cdot m \cdot 8^{m-1} = m \cdot 8^m\) и значит \(\mathrm{st}(G_m) = 2m \cdot 8^n\) (если $m > 1$).
+
+    \noindent \textbf{Ответ}: \(\mathrm{st}(G_m) = 2m \cdot 8^n\)
+\end{solution}
+
+\begin{?} Подсчитайте
+    \begin{itemize}[noitemsep, topsep=0pt, parsep=0pt]
+        \item количество остовных деревьев графа $K_{2,3}$.
+        \item количество остовных деревьев графа $K_{2,n}$.
+        \item количество остовных деревьев графа $K_{m,n}$.
+    \end{itemize}
+\end{?}
+\begin{solution}{}
+Для начала комбинаторно посчитаем число остовных деревьев графа $K_{2,n}$. 
+\begin{center}
+    \includetikz{practice-02-solution-img-03.tikz}
+\end{center}
+Заметим что в остовном дереве всегда будет путь $a \to b$, и так как граф двудольный этот путь всегда будет иметь вид $a \rightsquigarrow i \rightsquigarrow b$, $i \in \set{1, \ldots, n}$. Значит каждое остовное дерево имеет следующий вид. Между вершинами $a$ и $b$ находится одна смежная вершина $i$, а все вершины из $\set{1, \ldots, n} \setminus \set{i}$ являются либо листами $a$, либо листами $b$. Итого: $n$ способов выбрать смежную вершину, и $2^{n-1}$ способ развесить оставшиеся как листы.
+
+\begin{center}
+    \includetikz{practice-02-solution-img-04.tikz}
+\end{center}
+
+\noindent \textbf{Ответ}: \(\mathrm{st}(K_{2, n}) = n \cdot 2^{n -1}\).
+
+
+Для подсчета $\mathrm{st}(K_{n, m})$ воспользуемся матричной теоремой. Матрица Лапласа графа $K_{n,m}$ это блочная матрица следующего вида. 
+\[
+    L(K_{n, m})=  \begin{pmatrix}
+        m I_{n} & \mathds{1}_{n \times m} \\
+        \mathds{1}_{m \times n} & n I_{m}
+    \end{pmatrix},
+\]
+где $\mathds{1}_{n \times m}$ матрица $n \times m$ с единицей во всех ячейках. Определитель её минора можно расписать как определитель блочной матрицы:
+\[
+    \det(L_{1, 1}) = \begin{vmatrix}
+        m I_{n-1} & \mathds{1}_{(n-1) \times m} \\
+        \mathds{1}_{m \times (n-1)} & n I_{m}
+    \end{vmatrix} = \det\mleft( m I_{n-1} \mright) \cdot \det\mleft(n I_{m} - \mathds{1}_{m \times (n-1)} \cdot (m I_{n-1})^{-1} \cdot \mathds{1}_{(n-1) \times m}\mright)
+\]
+понятно что $\det\mleft( m I_{n-1} \mright) = m^{n-1}$, найдем второй множитель. Для этого запишем:
+\[
+    M_{n, m} = \mathds{1}_{m \times (n-1)} \cdot (m I_{n-1})^{-1} \cdot \mathds{1}_{(n-1) \times m} = \mathds{1}_{m \times (n-1)} \cdot \mleft(\frac{1}{m} I_{n-1}\mright) \cdot \mathds{1}_{(n-1) \times m} = \frac{1}{m} \mathds{1}_{m \times (n-1)}  \cdot \mathds{1}_{(n-1) \times m} = \frac{n-1}{m} \cdot \mathds{1}_{m \times m}
+\]
+Тогда
+\begin{multline*}
+    M_{n,m} = n I_{m} - \mathds{1}_{m \times (n-1)} \cdot (m I_{n-1})^{-1} \cdot \mathds{1}_{(n-1) \times m} = \frac{1}{m}\mleft(nm I_{m} - (n-1)\mathds{1}_{m \times m} \mright) =\\= \frac{1}{n}
+    \begin{pmatrix}
+        nm - (n - 1) & -(n - 1)     & \vdots  & -(n - 1) \\
+        -(n - 1)     & nm - (n - 1) & \vdots & -(n - 1) \\
+         \cdots      & \cdots       & \ddots & \vdots \\
+        -(n - 1)     &-(n - 1)      & \cdots &  nm - (n - 1) \\
+    \end{pmatrix}
+\end{multline*}
+Начнем преобразовать эту матрицу. Для начала вычтем последний столбец из всех остальных:
+\[
+    M_{n, m} \sim \frac{1}{m}\begin{pmatrix}
+    nm    & 0     & \vdots & 0      & -(n-1)\\
+    0     & nm    & \vdots & 0      & -(n-1)\\
+   \cdots &\cdots & \ddots & \vdots & \vdots \\
+    0     & 0     & \cdots &  nm    & -(n-1)\\
+    -nm   & -nm   & \cdot  & -nm    & nm -(n-1) 
+\end{pmatrix}
+\]
+Теперь прибавим к последнему ряду все предыдущие:
+\[
+    M_{n, m} \sim \frac{1}{m}\begin{pmatrix}
+    nm    & 0     & \vdots & 0      & -(n-1)\\
+    0     & nm    & \vdots & 0      & -(n-1)\\
+   \cdots &\cdots & \ddots & \vdots & \vdots \\
+    0     & 0     & \cdots &  nm    & -(n-1)\\
+    0     & 0     & \cdot  & 0      & nm - m(n-1)
+\end{pmatrix}
+\]
+Имеем \(nm - m(n-1) = m\), получили что:
+\[
+    M_{n, m} \sim \begin{pmatrix}
+    n    & 0     & \vdots & 0      & -\frac{1}{m}(n-1)\\
+    0     & n    & \vdots & 0      & -\frac{1}{m}(n-1)\\
+   \cdots &\cdots & \ddots & \vdots & \vdots \\
+    0     & 0     & \cdots &  n    & -\frac{1}{m}(n-1)\\
+    0     & 0     & \cdot  & 0      & 1
+\end{pmatrix}
+\]
+В частности \(\det M_{n, m} = n^{m - 1}\) и тогда:
+\[
+    L_{1, 1} = \det\mleft( m I_{n-1} \mright) \cdot \det M_{n, m} = m^{n-1}n^{m-1}
+\]
+
+\noindent \textbf{Ответ}: \(\mathrm{st}(K_{m, n}) =  m^{n-1}n^{m-1}\).
+\end{solution}
+
+\begin{?}
+    Подсчитайте количество остовных деревьев графа $G_n$ «веер» (см.~рис.~2). Можно ли выразить это количество через числа Фибоначчи?
+    \begin{figure}[H]
+        \centering
+        \includetikz{practice-02-img-02.tikz}
+    \end{figure}
+\end{?}
+\begin{solution}{}
+    Воспользуемся рекуррентным соотношением: $\mathrm{st}(G) = \mathrm{st}(G \ast e) + \mathrm{st}(G - e)$ для любого ребра $e$ (стягивание должно давать при этом граф с кратными ребрами). Будем рассматривать ребро $(0; n)$. Получившийся после его стягивания граф назовем $L_{n-1}$.  Тогда можем схематично изобразить вывод рекуррентного соотношения:
+
+    \vspace{12pt}
+
+    \begin{center}
+        \includetikz{practice-02-solution-img-05.tikz}
+    \end{center}
+
+    \vspace{12pt}
+
+    \noindent Получили что:
+    \[
+        \begin{cases}
+            \mathrm{st}(G_n) = \mathrm{st}(G_{n-1}) + \mathrm{st}(L_{n-1}) \\
+            \mathrm{st}(L_n) = \mathrm{st}(G_{n}) + \mathrm{st}(L_{n-1}) \\
+        \end{cases}
+    \]
+    Сделаем небольшие алгебраические преобразования:
+    \[
+        \begin{cases}
+            \mathrm{st}(G_n) - \mathrm{st}(G_{n-1}) = \mathrm{st}(L_{n-1}) \\
+            \mathrm{st}(L_n) - \mathrm{st}(G_{n}) = \mathrm{st}(L_{n-1}) \\
+        \end{cases}
+    \]
+    Откуда \(\mathrm{st}(L_n) = 2 \mathrm{st}(G_n) - \mathrm{st}(G_{n-1})\), и значит
+    \[
+        \mathrm{st}(G_n) = 3 \cdot \mathrm{st}(G_{n-1}) - \mathrm{st}(G_{n-2})
+    \] 
+    Мы также имеем что $\mathrm{st}(G_1) = 1, \mathrm{st}(L_1) = 2, \mathrm{st}(G_2) = 3,  \mathrm{st}(L_1) = 5$. Честно решая рекуррентное соотношение или методом пристального взгляда можно заметить что $\mathrm{st}(G_n) = F_{2n - 1}, \mathrm{st}(L_n) = F_{2n}$, где $F_{k}$ --- $k$-ое число Фибоначчи.
+    
+    \noindent\textbf{Ответ} $\mathrm{st}(G_n) = F_{2n - 1}$.
+\end{solution}
+
+\begin{?}
+    Используя матричную теорему о деревьях, подсчитайте количество всех деревьев на $n$ вершинах.
+\end{?}
+\begin{solution}{}
+    Запишем матрицу Лапласа для $K_n$:
+    \[
+        L(K_{n}) = \begin{pmatrix}
+            n - 1  &   - 1  &   - 1  & \ldots &  - 1   \\
+              - 1  & n - 1  &   - 1  & \vdots &  - 1   \\
+            \cdots & \cdots & \ddots & \vdots & \vdots \\
+              -1   & \cdots & \cdots &  n - 1 &   -1   \\
+              -1   & \cdots & \cdots &    - 1 &  n - 1 \\
+        \end{pmatrix}
+    \]
+    Необходимо найти определитель её минора. Возьмем $L_{1, 1}$, понятно что:
+    \[
+        \det(L_{1, 1}) = \det\mleft(nI_{n - 1} - \mathds{1}_{(n - 1) \times (n - 1)}\mright)
+    \]
+    Посмотрим на матрицу $\mathds{1}_{(n - 1) \times (n - 1)}$. Её ранг равен 1, и при этом:
+    \[
+        \mathds{1}_{(n - 1) \times (n - 1)} \cdot \begin{pmatrix}
+            1 \\ \vdots \\ 1
+        \end{pmatrix} = \begin{pmatrix}
+            n - 1 \\ \vdots \\ n - 1
+        \end{pmatrix} 
+    \]
+    поэтому её собственные числа это $(n - 1)$ кратности 1 и $0$ кратности $n - 2$. В частности, эта матрица может быть диагонализирована сопряжением на какую-то матрицу $P$:
+    \[
+        P^{-1} \cdot \mathds{1}_{(n - 1) \times (n - 1)} \cdot P = \begin{pmatrix}
+            n - 1  & 0      & \cdots & 0 \\
+              0    & 0      & \vdots & \vdots \\
+            \vdots & \cdots & \ddots &  0  \\
+              0    & \cdots &   0    &  0
+        \end{pmatrix} = \mathrm{diag}(n-1, 0, \ldots, 0)
+    \]
+    Но тогда, по свойствам определителя
+    \begin{multline*}
+        \det(L_{1, 1}) = \det(P^{-1} \cdot L_{1, 1} \cdot P) =  \det\big(\underbrace{P^{-1} \cdot nI_{n - 1} \cdot P}_{ nI_{n - 1} } - \underbrace{P^{-1} \cdot \mathds{1}_{(n - 1) \times (n - 1)} \cdot P}_{\mathrm{diag}(n-1, 0, \ldots, 0)}\big) = \\ \det(\mathrm{diag}(1, n, \ldots, n)) = n^{n-2}
+    \end{multline*}
+\end{solution}
+\begin{?}
+    Подсчитайте количество различных непомеченных остовных деревьев графа $K_{2,n}$.
+\end{?}
+\begin{solution}{}
+    Структура остовных деревьев для такого графа была описана во второй задаче. Так как вершины теперь непочемены, чтобы задать дерево надо указать сколько листьев у одной вершины и другой вершины из доли с двумя вершинами. Иначе говоря, нас интересует количество неупорядоченных пар $x, y$ таких что $x + y = n - 1$ ($x$ и $y$ --- количество листьев). Таких пар: $\ceil{\frac{n}{2}}$. 
+
+    \noindent\textbf{Ответ} $\ceil{\frac{n}{2}}$.
+\end{solution}
+\end{document}
+
