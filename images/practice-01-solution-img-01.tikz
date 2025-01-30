@@ -1,0 +1,215 @@
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+    %uncomment if require: \path (0,300); %set diagram left start at 0, and has height of 300
+    %Shape: Rectangle [id:dp6516808880619287] 
+    \draw  [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ] (132.57,74.21) -- (152.18,74.21) -- (152.18,93.81) -- (132.57,93.81) -- cycle ;
+    %Shape: Rectangle [id:dp5551185700527854] 
+    \draw  [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ] (152.18,74.21) -- (171.78,74.21) -- (171.78,93.81) -- (152.18,93.81) -- cycle ;
+    %Shape: Rectangle [id:dp2964061798580926] 
+    \draw  [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ] (171.78,74.21) -- (191.39,74.21) -- (191.39,93.81) -- (171.78,93.81) -- cycle ;
+    %Shape: Rectangle [id:dp897296712222571] 
+    \draw  [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ] (191.39,74.21) -- (210.99,74.21) -- (210.99,93.81) -- (191.39,93.81) -- cycle ;
+    %Shape: Square [id:dp4114365197241616] 
+    \draw  [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ] (132.57,93.81) -- (152.18,93.81) -- (152.18,113.42) -- (132.57,113.42) -- cycle ;
+    %Shape: Square [id:dp015614589621755437] 
+    \draw  [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ] (152.18,93.81) -- (171.78,93.81) -- (171.78,113.42) -- (152.18,113.42) -- cycle ;
+    %Shape: Rectangle [id:dp10419111699007799] 
+    \draw  [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ] (171.78,93.81) -- (191.39,93.81) -- (191.39,113.42) -- (171.78,113.42) -- cycle ;
+    %Shape: Square [id:dp6106696748315703] 
+    \draw  [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ] (191.39,93.81) -- (210.99,93.81) -- (210.99,113.42) -- (191.39,113.42) -- cycle ;
+    %Shape: Square [id:dp5165644509260385] 
+    \draw  [color={rgb, 255:red, 206; green, 206; blue, 206 }  ,draw opacity=1 ] (230.6,93.81) -- (250.2,93.81) -- (250.2,113.42) -- (230.6,113.42) -- cycle ;
+    %Shape: Rectangle [id:dp7487230197280035] 
+    \draw  [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ] (132.57,35) -- (152.18,35) -- (152.18,54.6) -- (132.57,54.6) -- cycle ;
+    %Shape: Rectangle [id:dp3819913331293494] 
+    \draw  [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ] (152.18,35) -- (171.78,35) -- (171.78,54.6) -- (152.18,54.6) -- cycle ;
+    %Shape: Rectangle [id:dp28787977613037286] 
+    \draw  [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ] (171.78,35) -- (191.39,35) -- (191.39,54.6) -- (171.78,54.6) -- cycle ;
+    %Shape: Rectangle [id:dp8099449757151818] 
+    \draw  [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ] (191.39,35) -- (210.99,35) -- (210.99,54.6) -- (191.39,54.6) -- cycle ;
+    %Shape: Rectangle [id:dp1701460629016449] 
+    \draw  [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ] (132.57,54.6) -- (152.18,54.6) -- (152.18,74.21) -- (132.57,74.21) -- cycle ;
+    %Shape: Rectangle [id:dp9005586580570204] 
+    \draw  [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ] (152.18,54.6) -- (171.78,54.6) -- (171.78,74.21) -- (152.18,74.21) -- cycle ;
+    %Shape: Rectangle [id:dp45437320756191335] 
+    \draw  [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ] (171.78,54.6) -- (191.39,54.6) -- (191.39,74.21) -- (171.78,74.21) -- cycle ;
+    %Shape: Rectangle [id:dp6993204512913094] 
+    \draw  [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ] (191.39,54.6) -- (210.99,54.6) -- (210.99,74.21) -- (191.39,74.21) -- cycle ;
+    %Shape: Rectangle [id:dp7468288650625967] 
+    \draw  [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ] (132.57,153.21) -- (152.18,153.21) -- (152.18,172.81) -- (132.57,172.81) -- cycle ;
+    %Shape: Rectangle [id:dp8327413576982088] 
+    \draw  [color={rgb, 255:red, 206; green, 206; blue, 206 }  ,draw opacity=1 ] (171.78,153.21) -- (191.39,153.21) -- (191.39,172.81) -- (171.78,172.81) -- cycle ;
+    %Shape: Rectangle [id:dp19110970174207287] 
+    \draw  [color={rgb, 255:red, 206; green, 206; blue, 206 }  ,draw opacity=1 ] (191.39,153.21) -- (210.99,153.21) -- (210.99,172.81) -- (191.39,172.81) -- cycle ;
+    %Shape: Rectangle [id:dp012654173652025369] 
+    \draw  [color={rgb, 255:red, 206; green, 206; blue, 206 }  ,draw opacity=1 ] (210.99,153.21) -- (230.6,153.21) -- (230.6,172.81) -- (210.99,172.81) -- cycle ;
+    %Shape: Rectangle [id:dp256358557587095] 
+    \draw  [color={rgb, 255:red, 206; green, 206; blue, 206 }  ,draw opacity=1 ] (230.6,153.21) -- (250.2,153.21) -- (250.2,172.81) -- (230.6,172.81) -- cycle ;
+    %Shape: Square [id:dp9720522747872717] 
+    \draw  [color={rgb, 255:red, 206; green, 206; blue, 206 }  ,draw opacity=1 ] (152.18,172.81) -- (171.78,172.81) -- (171.78,192.42) -- (152.18,192.42) -- cycle ;
+    %Shape: Rectangle [id:dp5054796626148808] 
+    \draw  [color={rgb, 255:red, 206; green, 206; blue, 206 }  ,draw opacity=1 ] (171.78,172.81) -- (191.39,172.81) -- (191.39,192.42) -- (171.78,192.42) -- cycle ;
+    %Shape: Square [id:dp28645708454504226] 
+    \draw  [color={rgb, 255:red, 206; green, 206; blue, 206 }  ,draw opacity=1 ] (191.39,172.81) -- (210.99,172.81) -- (210.99,192.42) -- (191.39,192.42) -- cycle ;
+    %Shape: Rectangle [id:dp6023360872651131] 
+    \draw  [color={rgb, 255:red, 206; green, 206; blue, 206 }  ,draw opacity=1 ] (210.99,172.81) -- (230.6,172.81) -- (230.6,192.42) -- (210.99,192.42) -- cycle ;
+    %Shape: Square [id:dp08856353433568276] 
+    \draw  [color={rgb, 255:red, 206; green, 206; blue, 206 }  ,draw opacity=1 ] (230.6,172.81) -- (250.2,172.81) -- (250.2,192.42) -- (230.6,192.42) -- cycle ;
+    %Shape: Rectangle [id:dp7222594267133433] 
+    \draw  [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ] (132.57,114) -- (152.18,114) -- (152.18,133.6) -- (132.57,133.6) -- cycle ;
+    %Shape: Rectangle [id:dp9037573677871114] 
+    \draw  [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ] (152.18,114) -- (171.78,114) -- (171.78,133.6) -- (152.18,133.6) -- cycle ;
+    %Shape: Rectangle [id:dp8300457651577349] 
+    \draw  [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ] (171.78,114) -- (191.39,114) -- (191.39,133.6) -- (171.78,133.6) -- cycle ;
+    %Shape: Rectangle [id:dp24541090590736614] 
+    \draw  [color={rgb, 255:red, 206; green, 206; blue, 206 }  ,draw opacity=1 ] (210.99,114) -- (230.6,114) -- (230.6,133.6) -- (210.99,133.6) -- cycle ;
+    %Shape: Rectangle [id:dp16692401363255271] 
+    \draw  [color={rgb, 255:red, 206; green, 206; blue, 206 }  ,draw opacity=1 ] (230.6,114) -- (250.2,114) -- (250.2,133.6) -- (230.6,133.6) -- cycle ;
+    %Shape: Rectangle [id:dp13606074021002468] 
+    \draw  [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ] (132.57,133.6) -- (152.18,133.6) -- (152.18,153.21) -- (132.57,153.21) -- cycle ;
+    %Shape: Rectangle [id:dp8096649382084697] 
+    \draw  [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ] (152.18,133.6) -- (171.78,133.6) -- (171.78,153.21) -- (152.18,153.21) -- cycle ;
+    %Shape: Rectangle [id:dp5540732195234557] 
+    \draw  [color={rgb, 255:red, 206; green, 206; blue, 206 }  ,draw opacity=1 ] (191.39,133.6) -- (210.99,133.6) -- (210.99,153.21) -- (191.39,153.21) -- cycle ;
+    %Shape: Rectangle [id:dp20270204083314813] 
+    \draw  [color={rgb, 255:red, 206; green, 206; blue, 206 }  ,draw opacity=1 ] (210.99,133.6) -- (230.6,133.6) -- (230.6,153.21) -- (210.99,153.21) -- cycle ;
+    %Shape: Rectangle [id:dp7147407572681954] 
+    \draw  [color={rgb, 255:red, 206; green, 206; blue, 206 }  ,draw opacity=1 ] (230.6,133.6) -- (250.2,133.6) -- (250.2,153.21) -- (230.6,153.21) -- cycle ;
+    %Shape: Rectangle [id:dp830672930071013] 
+    \draw  [color={rgb, 255:red, 206; green, 206; blue, 206 }  ,draw opacity=1 ] (250.57,74.21) -- (270.18,74.21) -- (270.18,93.81) -- (250.57,93.81) -- cycle ;
+    %Shape: Rectangle [id:dp41357083230004066] 
+    \draw  [color={rgb, 255:red, 206; green, 206; blue, 206 }  ,draw opacity=1 ] (270.18,74.21) -- (289.78,74.21) -- (289.78,93.81) -- (270.18,93.81) -- cycle ;
+    %Shape: Rectangle [id:dp6890436471954382] 
+    \draw  [color={rgb, 255:red, 206; green, 206; blue, 206 }  ,draw opacity=1 ] (289.78,74.21) -- (309.39,74.21) -- (309.39,93.81) -- (289.78,93.81) -- cycle ;
+    %Shape: Rectangle [id:dp401228874478752] 
+    \draw  [color={rgb, 255:red, 206; green, 206; blue, 206 }  ,draw opacity=1 ] (309.39,74.21) -- (328.99,74.21) -- (328.99,93.81) -- (309.39,93.81) -- cycle ;
+    %Shape: Rectangle [id:dp40551634364671485] 
+    \draw  [color={rgb, 255:red, 206; green, 206; blue, 206 }  ,draw opacity=1 ] (328.99,74.21) -- (348.6,74.21) -- (348.6,93.81) -- (328.99,93.81) -- cycle ;
+    %Shape: Rectangle [id:dp561483172739828] 
+    \draw  [color={rgb, 255:red, 206; green, 206; blue, 206 }  ,draw opacity=1 ] (348.6,74.21) -- (368.2,74.21) -- (368.2,93.81) -- (348.6,93.81) -- cycle ;
+    %Shape: Square [id:dp6021652754084512] 
+    \draw  [color={rgb, 255:red, 206; green, 206; blue, 206 }  ,draw opacity=1 ] (250.57,93.81) -- (270.18,93.81) -- (270.18,113.42) -- (250.57,113.42) -- cycle ;
+    %Shape: Square [id:dp2478862008714353] 
+    \draw  [color={rgb, 255:red, 206; green, 206; blue, 206 }  ,draw opacity=1 ] (270.18,93.81) -- (289.78,93.81) -- (289.78,113.42) -- (270.18,113.42) -- cycle ;
+    %Shape: Rectangle [id:dp13628656030237418] 
+    \draw  [color={rgb, 255:red, 206; green, 206; blue, 206 }  ,draw opacity=1 ] (289.78,93.81) -- (309.39,93.81) -- (309.39,113.42) -- (289.78,113.42) -- cycle ;
+    %Shape: Square [id:dp6944599954276409] 
+    \draw  [color={rgb, 255:red, 206; green, 206; blue, 206 }  ,draw opacity=1 ] (309.39,93.81) -- (328.99,93.81) -- (328.99,113.42) -- (309.39,113.42) -- cycle ;
+    %Shape: Rectangle [id:dp3310856557977955] 
+    \draw  [color={rgb, 255:red, 206; green, 206; blue, 206 }  ,draw opacity=1 ] (328.99,93.81) -- (348.6,93.81) -- (348.6,113.42) -- (328.99,113.42) -- cycle ;
+    %Shape: Square [id:dp0037230132032386454] 
+    \draw  [color={rgb, 255:red, 206; green, 206; blue, 206 }  ,draw opacity=1 ] (348.6,93.81) -- (368.2,93.81) -- (368.2,113.42) -- (348.6,113.42) -- cycle ;
+    %Shape: Rectangle [id:dp5741503447769318] 
+    \draw  [color={rgb, 255:red, 206; green, 206; blue, 206 }  ,draw opacity=1 ] (289.78,35) -- (309.39,35) -- (309.39,54.6) -- (289.78,54.6) -- cycle ;
+    %Shape: Rectangle [id:dp6080458731006713] 
+    \draw  [color={rgb, 255:red, 206; green, 206; blue, 206 }  ,draw opacity=1 ] (309.39,35) -- (328.99,35) -- (328.99,54.6) -- (309.39,54.6) -- cycle ;
+    %Shape: Rectangle [id:dp07998134063890983] 
+    \draw  [color={rgb, 255:red, 206; green, 206; blue, 206 }  ,draw opacity=1 ] (328.99,35) -- (348.6,35) -- (348.6,54.6) -- (328.99,54.6) -- cycle ;
+    %Shape: Rectangle [id:dp4839903061361126] 
+    \draw  [color={rgb, 255:red, 206; green, 206; blue, 206 }  ,draw opacity=1 ] (348.6,35) -- (368.2,35) -- (368.2,54.6) -- (348.6,54.6) -- cycle ;
+    %Shape: Rectangle [id:dp2764973385033649] 
+    \draw  [color={rgb, 255:red, 206; green, 206; blue, 206 }  ,draw opacity=1 ] (270.18,54.6) -- (289.78,54.6) -- (289.78,74.21) -- (270.18,74.21) -- cycle ;
+    %Shape: Rectangle [id:dp38992915352442337] 
+    \draw  [color={rgb, 255:red, 206; green, 206; blue, 206 }  ,draw opacity=1 ] (289.78,54.6) -- (309.39,54.6) -- (309.39,74.21) -- (289.78,74.21) -- cycle ;
+    %Shape: Rectangle [id:dp9124474285869668] 
+    \draw  [color={rgb, 255:red, 206; green, 206; blue, 206 }  ,draw opacity=1 ] (309.39,54.6) -- (328.99,54.6) -- (328.99,74.21) -- (309.39,74.21) -- cycle ;
+    %Shape: Rectangle [id:dp6721748292177481] 
+    \draw  [color={rgb, 255:red, 206; green, 206; blue, 206 }  ,draw opacity=1 ] (328.99,54.6) -- (348.6,54.6) -- (348.6,74.21) -- (328.99,74.21) -- cycle ;
+    %Shape: Rectangle [id:dp10366718426721988] 
+    \draw  [color={rgb, 255:red, 206; green, 206; blue, 206 }  ,draw opacity=1 ] (348.6,54.6) -- (368.2,54.6) -- (368.2,74.21) -- (348.6,74.21) -- cycle ;
+    %Shape: Rectangle [id:dp8310230235365414] 
+    \draw  [color={rgb, 255:red, 206; green, 206; blue, 206 }  ,draw opacity=1 ] (250.57,153.21) -- (270.18,153.21) -- (270.18,172.81) -- (250.57,172.81) -- cycle ;
+    %Shape: Rectangle [id:dp4925422296571056] 
+    \draw  [color={rgb, 255:red, 206; green, 206; blue, 206 }  ,draw opacity=1 ] (270.18,153.21) -- (289.78,153.21) -- (289.78,172.81) -- (270.18,172.81) -- cycle ;
+    %Shape: Rectangle [id:dp3363151534908373] 
+    \draw  [color={rgb, 255:red, 206; green, 206; blue, 206 }  ,draw opacity=1 ] (289.78,153.21) -- (309.39,153.21) -- (309.39,172.81) -- (289.78,172.81) -- cycle ;
+    %Shape: Rectangle [id:dp43226257276425883] 
+    \draw  [color={rgb, 255:red, 206; green, 206; blue, 206 }  ,draw opacity=1 ] (309.39,153.21) -- (328.99,153.21) -- (328.99,172.81) -- (309.39,172.81) -- cycle ;
+    %Shape: Rectangle [id:dp9588601355348676] 
+    \draw  [color={rgb, 255:red, 206; green, 206; blue, 206 }  ,draw opacity=1 ] (328.99,153.21) -- (348.6,153.21) -- (348.6,172.81) -- (328.99,172.81) -- cycle ;
+    %Shape: Rectangle [id:dp5770674983030433] 
+    \draw  [color={rgb, 255:red, 206; green, 206; blue, 206 }  ,draw opacity=1 ] (348.6,153.21) -- (368.2,153.21) -- (368.2,172.81) -- (348.6,172.81) -- cycle ;
+    %Shape: Square [id:dp24922386976044542] 
+    \draw  [color={rgb, 255:red, 206; green, 206; blue, 206 }  ,draw opacity=1 ] (250.57,172.81) -- (270.18,172.81) -- (270.18,192.42) -- (250.57,192.42) -- cycle ;
+    %Shape: Square [id:dp2524505764438294] 
+    \draw  [color={rgb, 255:red, 206; green, 206; blue, 206 }  ,draw opacity=1 ] (270.18,172.81) -- (289.78,172.81) -- (289.78,192.42) -- (270.18,192.42) -- cycle ;
+    %Shape: Rectangle [id:dp7145616754424349] 
+    \draw  [color={rgb, 255:red, 206; green, 206; blue, 206 }  ,draw opacity=1 ] (289.78,172.81) -- (309.39,172.81) -- (309.39,192.42) -- (289.78,192.42) -- cycle ;
+    %Shape: Square [id:dp32655485245862814] 
+    \draw  [color={rgb, 255:red, 206; green, 206; blue, 206 }  ,draw opacity=1 ] (309.39,172.81) -- (328.99,172.81) -- (328.99,192.42) -- (309.39,192.42) -- cycle ;
+    %Shape: Rectangle [id:dp15490207207632478] 
+    \draw  [color={rgb, 255:red, 206; green, 206; blue, 206 }  ,draw opacity=1 ] (328.99,172.81) -- (348.6,172.81) -- (348.6,192.42) -- (328.99,192.42) -- cycle ;
+    %Shape: Square [id:dp40875150105690405] 
+    \draw  [color={rgb, 255:red, 206; green, 206; blue, 206 }  ,draw opacity=1 ] (348.6,172.81) -- (368.2,172.81) -- (368.2,192.42) -- (348.6,192.42) -- cycle ;
+    %Shape: Rectangle [id:dp27592766734469043] 
+    \draw  [color={rgb, 255:red, 206; green, 206; blue, 206 }  ,draw opacity=1 ] (250.57,114) -- (270.18,114) -- (270.18,133.6) -- (250.57,133.6) -- cycle ;
+    %Shape: Rectangle [id:dp5586859737647847] 
+    \draw  [color={rgb, 255:red, 206; green, 206; blue, 206 }  ,draw opacity=1 ] (270.18,114) -- (289.78,114) -- (289.78,133.6) -- (270.18,133.6) -- cycle ;
+    %Shape: Rectangle [id:dp5591148466473552] 
+    \draw  [color={rgb, 255:red, 206; green, 206; blue, 206 }  ,draw opacity=1 ] (289.78,114) -- (309.39,114) -- (309.39,133.6) -- (289.78,133.6) -- cycle ;
+    %Shape: Rectangle [id:dp9001686453509463] 
+    \draw  [color={rgb, 255:red, 206; green, 206; blue, 206 }  ,draw opacity=1 ] (309.39,114) -- (328.99,114) -- (328.99,133.6) -- (309.39,133.6) -- cycle ;
+    %Shape: Rectangle [id:dp015272070995244746] 
+    \draw  [color={rgb, 255:red, 206; green, 206; blue, 206 }  ,draw opacity=1 ] (328.99,114) -- (348.6,114) -- (348.6,133.6) -- (328.99,133.6) -- cycle ;
+    %Shape: Rectangle [id:dp7516679940537159] 
+    \draw  [color={rgb, 255:red, 206; green, 206; blue, 206 }  ,draw opacity=1 ] (348.6,114) -- (368.2,114) -- (368.2,133.6) -- (348.6,133.6) -- cycle ;
+    %Shape: Rectangle [id:dp6962460809022668] 
+    \draw  [color={rgb, 255:red, 206; green, 206; blue, 206 }  ,draw opacity=1 ] (250.57,133.6) -- (270.18,133.6) -- (270.18,153.21) -- (250.57,153.21) -- cycle ;
+    %Shape: Rectangle [id:dp7672772064033833] 
+    \draw  [color={rgb, 255:red, 206; green, 206; blue, 206 }  ,draw opacity=1 ] (270.18,133.6) -- (289.78,133.6) -- (289.78,153.21) -- (270.18,153.21) -- cycle ;
+    %Shape: Rectangle [id:dp2308310630158703] 
+    \draw  [color={rgb, 255:red, 206; green, 206; blue, 206 }  ,draw opacity=1 ] (289.78,133.6) -- (309.39,133.6) -- (309.39,153.21) -- (289.78,153.21) -- cycle ;
+    %Shape: Rectangle [id:dp9236648171477837] 
+    \draw  [color={rgb, 255:red, 206; green, 206; blue, 206 }  ,draw opacity=1 ] (309.39,133.6) -- (328.99,133.6) -- (328.99,153.21) -- (309.39,153.21) -- cycle ;
+    %Shape: Rectangle [id:dp38182612828269913] 
+    \draw  [color={rgb, 255:red, 206; green, 206; blue, 206 }  ,draw opacity=1 ] (328.99,133.6) -- (348.6,133.6) -- (348.6,153.21) -- (328.99,153.21) -- cycle ;
+    %Shape: Rectangle [id:dp12513156876013132] 
+    \draw  [color={rgb, 255:red, 206; green, 206; blue, 206 }  ,draw opacity=1 ] (348.6,133.6) -- (368.2,133.6) -- (368.2,153.21) -- (348.6,153.21) -- cycle ;
+    %Shape: Rectangle [id:dp5815846326255363] 
+    \draw  [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ] (210.99,74.21) -- (230.6,74.21) -- (230.6,93.81) -- (210.99,93.81) -- cycle ;
+    %Shape: Rectangle [id:dp8520091931996363] 
+    \draw  [color={rgb, 255:red, 255; green, 0; blue, 0 }  ,draw opacity=1 ] (230.6,74.21) -- (250.2,74.21) -- (250.2,93.81) -- (230.6,93.81) -- cycle ;
+    %Shape: Rectangle [id:dp7184018125152591] 
+    \draw  [color={rgb, 255:red, 255; green, 0; blue, 0 }  ,draw opacity=1 ] (210.99,93.81) -- (230.6,93.81) -- (230.6,113.42) -- (210.99,113.42) -- cycle ;
+    %Shape: Rectangle [id:dp9118530077494247] 
+    \draw  [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ] (210.99,35) -- (230.6,35) -- (230.6,54.6) -- (210.99,54.6) -- cycle ;
+    %Shape: Rectangle [id:dp36418992050335497] 
+    \draw  [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ] (230.6,35) -- (250.2,35) -- (250.2,54.6) -- (230.6,54.6) -- cycle ;
+    %Shape: Rectangle [id:dp6630788365883717] 
+    \draw  [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ] (210.99,54.6) -- (230.6,54.6) -- (230.6,74.21) -- (210.99,74.21) -- cycle ;
+    %Shape: Rectangle [id:dp9545062700702416] 
+    \draw  [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ] (230.6,54.6) -- (250.2,54.6) -- (250.2,74.21) -- (230.6,74.21) -- cycle ;
+    %Shape: Rectangle [id:dp7293275485935422] 
+    \draw  [color={rgb, 255:red, 255; green, 0; blue, 0 }  ,draw opacity=1 ] (152.18,153.21) -- (171.78,153.21) -- (171.78,172.81) -- (152.18,172.81) -- cycle ;
+    %Shape: Square [id:dp7671473654884229] 
+    \draw  [color={rgb, 255:red, 255; green, 0; blue, 0 }  ,draw opacity=1 ] (132.57,172.81) -- (152.18,172.81) -- (152.18,192.42) -- (132.57,192.42) -- cycle ;
+    %Shape: Rectangle [id:dp03840115431731528] 
+    \draw  [color={rgb, 255:red, 255; green, 0; blue, 0 }  ,draw opacity=1 ] (191.39,114) -- (210.99,114) -- (210.99,133.6) -- (191.39,133.6) -- cycle ;
+    %Shape: Rectangle [id:dp2818817672009737] 
+    \draw  [color={rgb, 255:red, 255; green, 0; blue, 0 }  ,draw opacity=1 ] (171.78,133.6) -- (191.39,133.6) -- (191.39,153.21) -- (171.78,153.21) -- cycle ;
+    %Shape: Rectangle [id:dp8084957128308148] 
+    \draw  [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ] (250.57,35) -- (270.18,35) -- (270.18,54.6) -- (250.57,54.6) -- cycle ;
+    %Shape: Rectangle [id:dp9532585868575381] 
+    \draw  [color={rgb, 255:red, 255; green, 0; blue, 0 }  ,draw opacity=1 ] (250.57,54.6) -- (270.18,54.6) -- (270.18,74.21) -- (250.57,74.21) -- cycle ;
+    %Shape: Rectangle [id:dp4409887487684805] 
+    \draw  [color={rgb, 255:red, 255; green, 0; blue, 0 }  ,draw opacity=1 ] (270.18,35) -- (289.78,35) -- (289.78,54.6) -- (270.18,54.6) -- cycle ;
+    %Shape: Axis 2D [id:dp11743014532246376] 
+    \draw  (122.57,193.06) -- (387.74,193.06)(132.74,24.06) -- (132.74,202.42) (380.74,188.06) -- (387.74,193.06) -- (380.74,198.06) (127.74,31.06) -- (132.74,24.06) -- (137.74,31.06)  ;
+
+    % Text Node
+    \draw (136.57,155.81) node [anchor=north west][inner sep=0.75pt]   [align=left] {1};
+    % Text Node
+    \draw (137.57,137.21) node [anchor=north west][inner sep=0.75pt]   [align=left] {2};
+    % Text Node
+    \draw (156.18,137.21) node [anchor=north west][inner sep=0.75pt]   [align=left] {3};
+    % Text Node
+    \draw (137.18,116.21) node [anchor=north west][inner sep=0.75pt]   [align=left] {4};
+    % Text Node
+    \draw (156.18,116.6) node [anchor=north west][inner sep=0.75pt]   [align=left] {5};
+    % Text Node
+    \draw (175.78,116.6) node [anchor=north west][inner sep=0.75pt]   [align=left] {6};
+    % Text Node
+    \draw (114.66,28) node [anchor=north west][inner sep=0.75pt]   [align=left] {$\displaystyle i$};
+    % Text Node
+    \draw (386.66,197) node [anchor=north west][inner sep=0.75pt]   [align=left] {$\displaystyle j$};
+\end{tikzpicture}
