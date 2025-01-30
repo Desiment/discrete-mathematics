@@ -1,0 +1,55 @@
+\usepackage{iftex}
+
+%% Разрешить компиляцию только с движком LuaTex
+\ifLuaTeX
+\else
+    \newlinechar 64\relax
+    \errorcontextlines -1\relax
+    \immediate\write20{@
+        ************************************************@
+        * LuaLaTex is required to compile this document.@
+        * Sorry!@
+        ************************************************}%
+    \batchmode\read -1 to \@tempa
+\fi
+
+%% Для русификации достаточно подключить пакет fontspec и
+%% выбрать Unicode шрифт в котором есть кириллические глифы. Ниже
+%% основным шрифтом выбирается Unicode версия шрифта Computer Modern с заcечками
+\usepackage{fontspec}
+\setmainfont{CMU Serif}
+\setsansfont{CMU Sans Serif}
+\setmonofont{CMU Typewriter Text}
+
+%% В XeLaTex или LuaLaTeX альтернативой известного пакета babel является пакет polyglossia.
+%% Теперь у нас будут переносы слов
+\usepackage{polyglossia}
+\setdefaultlanguage{russian}
+\setotherlanguage{english}
+
+\usepackage[autostyle]{csquotes} % Правильные кавычки в зависимости от языка
+\usepackage{totcount}
+\usepackage{setspace}
+
+% ToDo:
+% [] MathNote   : \sum[] syntax
+% [] MathNote   : \tikzmatrix 
+% [] Layout     : A4 geometry
+% [] Layout     : Define colors
+% [] References : Load knowledge
+% [] References : Create simple clever refs
+% [] Fix hidding enviroment
+
+%Отключить предупреждения об кастномной использовании пакетов "You have requested package..."
+\usepackage{silence}
+\WarningFilter{latex}{You have requested package}
+
+\usepackage{xparse}
+\usepackage{configuration/floats}
+\usepackage{configuration/layout}
+\usepackage{configuration/references}
+\usepackage{configuration/mathnote}
+
+\sloppy
+% Окружения для набора задач
+\input{configuration/teaching/preamble-common}

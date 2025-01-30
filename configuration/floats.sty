@@ -1,0 +1,161 @@
+\ProvidesPackage{floats}
+
+%%%%%%%%%%%%%%%%%%%%%%
+%% Floating objects %%
+%%%%%%%%%%%%%%%%%%%%%%
+
+\RequirePackage[table]{xcolor}
+\RequirePackage{float}
+
+\RequirePackage{multirow}
+\RequirePackage{colortbl}
+\RequirePackage{makecell}
+\RequirePackage{longtable}
+
+\RequirePackage{graphicx}
+\RequirePackage{pdfpages}
+\RequirePackage{wrapfig}
+
+\RequirePackage{caption} % Настройка подписей "не текста"
+\RequirePackage{subcaption} % Подписи для разделенного "не текста"
+
+\RequirePackage{adjustbox}
+
+%% Листинки 
+\usepackage{listings} % Позволяет вставлять код в документ
+% Перевод заголовков в листингах
+\renewcommand\lstlistingname{Листинг}
+\renewcommand\lstlistlistingname{Листинги}
+% Отступ перед подписью листинга
+\DeclareCaptionFormat{listing}{
+    \hspace{15pt}#1#2#3
+}
+\captionsetup[lstlisting]{
+    format=listing,
+    margin=0pt
+}
+\lstset{
+    mathescape=true,
+    identifierstyle=\ttfamily,
+    keywordstyle=\bfseries,
+    commentstyle=\scriptsize\rmfamily,
+    basewidth={0.5em,0.5em},
+    fontadjust=true,
+}
+% Требует Python с пакетом pygmentize, зато позволяет верстать очень годные листинги с синтаксической подсветкой
+\RequirePackage[newfloat]{minted}
+% Запретим minted подсвечивать по его мнению лексические ошибки
+\AtBeginEnvironment{minted}{\dontdofcolorbox}
+\def\dontdofcolorbox{\renewcommand\fcolorbox[4][]{##4}}
+% Общая настройка
+\SetupFloatingEnvironment{listing}{name=Листинг}
+\SetupFloatingEnvironment{listing}{listname=Листинги}
+\captionsetup[listing]{
+    format=listing,
+    margin=0pt,
+    font={bf}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+%%        TikZ         %%
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\RequirePackage{tikz}
+\RequirePackage{pgfplots}
+\pgfplotsset{%
+  every tick label/.append style = {font=\tiny},
+  every axis label/.append style = {font=\scriptsize}
+}
+\pgfplotsset{compat = newest}
+\usepgfplotslibrary{fillbetween}
+\usetikzlibrary{intersections}
+\newcommand{\includetikz}[1]{%
+  \input{images/tikz/#1}%
+}
+
+% Библиотека для экстернализации tikz-графики и других графических объектов
+% Стандаратная библиотека externalize больше не поддерживается и там нет нужных
+% вещей, например поддержки относительных путей
+\RequirePackage{memoize} 
+
+
+% `tikz-cd` is necessary to draw commutative diagrams.
+\RequirePackage{tikz-cd}
+% `amssymb` is necessary for `\lrcorner` and `\ulcorner`.
+\RequirePackage{amssymb}
+% `calc` is necessary to draw curved arrows.
+\usetikzlibrary{calc}
+% `pathmorphing` is necessary to draw squiggly arrows.
+\usetikzlibrary{decorations.pathmorphing}
+
+% A TikZ style for curved arrows of a fixed height, due to AndréC.
+\tikzset{curve/.style={settings={#1},to path={(\tikztostart)
+    .. controls ($(\tikztostart)!\pv{pos}!(\tikztotarget)!\pv{height}!270:(\tikztotarget)$)
+    and ($(\tikztostart)!1-\pv{pos}!(\tikztotarget)!\pv{height}!270:(\tikztotarget)$)
+    .. (\tikztotarget)\tikztonodes}},
+    settings/.code={\tikzset{quiver/.cd,#1}
+        \def\pv##1{\pgfkeysvalueof{/tikz/quiver/##1}}},
+    quiver/.cd,pos/.initial=0.35,height/.initial=0}
+
+% TikZ arrowhead/tail styles.
+\tikzset{tail reversed/.code={\pgfsetarrowsstart{tikzcd to}}}
+\tikzset{2tail/.code={\pgfsetarrowsstart{Implies[reversed]}}}
+\tikzset{2tail reversed/.code={\pgfsetarrowsstart{Implies}}}
+% TikZ arrow styles.
+\tikzset{no body/.style={/tikz/dash pattern=on 0 off 1mm}}
+
+
+
+%%%% Graphics
+
+%% Шрифт подписи (caption) = 12pt
+\RequirePackage[font=small,labelfont=bf]{caption}
+
+\DeclareGraphicsExtensions{.pdf,.png,.jpg}
+
+\newlength{\figurewidth}
+\setlength{\figurewidth}{0.9\linewidth}
+
+\newlength{\wrapfigurewidth}
+\setlength{\wrapfigurewidth}{0.4\linewidth}
+
+%% Быстрая вставка изображений
+%% 
+\newcommand*{\insertfigure}[4][h]{%
+    \begin{figure}[#1]
+        {\centering
+            \input{#2}%  
+            \par
+        }%
+        \caption{#3}
+        \label{#4}
+    \end{figure}%
+}
+\newcommand*{\insertwrapfigure}[4]{%
+    \begin{wrapfigure}{#1}{\wrapfigurewidth}
+        {\centering
+            \input{#2}%  
+        }\par
+        \caption{#3}
+        \label{#4}
+    \end{wrapfigure}%
+}
+\newcommand*{\insertfigureP}[4][h]{%
+    \begin{figure}[#1]
+        \includegraphics[\figurewidth]{#2}%  
+        \caption{#3}%
+        \label{#4}%
+    \end{figure}%
+}
+\newcommand*{\insertwrapfigureP}[4]{%
+    \begin{wrapfigure}{#1}{\wrapfigurewidth}
+        \includegraphics[\figurewidth]{#2}%  
+        \caption{#3}%
+        \label{#4}%
+    \end{wrapfigure}%
+}
+
+%%% Tables
+
+%%% Custom table
+

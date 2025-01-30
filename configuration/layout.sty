@@ -1,0 +1,33 @@
+\ProvidesPackage{configuration/layout}
+
+%%%%%%%%%%%%%%%%%
+%% Page layout %%
+%%%%%%%%%%%%%%%%%
+\RequirePackage{fancyhdr} % Настройка колонтиутулов 
+\RequirePackage{multicol} % Текст в несколько колонок
+\setlength{\columnsep}{1cm}
+
+\RequirePackage{stackengine} % Вертикальные стеки из box-ов
+\RequirePackage{enumitem} % Списки
+\RequirePackage{rotating} % Повороты страницы
+
+\renewcommand*{\thefootnote}{\arabic{footnote})} % Сноски нумеруются (арабскими) цифрами
+\renewcommand*{\emph}[1]{\textit{#1}} % Выделенение текста --- курсивом
+\RequirePackage{geometry} % Настройка страницы
+\geometry{%
+  a4paper,
+  margin=1cm,
+  includefoot,
+  includehead
+}
+
+%%%%%%%%%%%%
+%% Разное %%
+%%%%%%%%%%%%
+\RequirePackage{afterpage} % Выполнение команд после разрыва страниц
+\RequirePackage{pdflscape} % Правильное отображение альбомной страницы в pdf файле
+\RequirePackage{microtype} % Полезные типографические ништячки, по-хорошему требует LuaLaTeX
+\RequirePackage[normalem]{ulem} % Дополнительные варианты форматирования текста, например подчеркивание или зачеркивание
+\RequirePackage[autostyle]{csquotes} % Правильные кавычки в зависимости от языка
+\RequirePackage[useregional]{datetime2} % Форматирование дат
+

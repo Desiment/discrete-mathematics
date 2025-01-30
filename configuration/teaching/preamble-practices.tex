@@ -1,0 +1,21 @@
+\newcommand{\PracticeSubject}{}
+\newcommand{\PracticeName}{}
+\newcommand{\PracticeGroup}{}
+\newcommand{\PracticeCourse}{}
+\newcommand{\PracticeDate}{}
+
+
+\AtBeginDocument{%
+    % Метаданные:
+    \title{\PracticeName}%
+    \date{\PracticeDate}%
+    % Настраиваем колонтитулы
+    \pagestyle{fancy}%
+    \lhead{\PracticeGroup, курс \PracticeCourse}%
+    \chead{\PracticeSubject. Практика}%
+    \rhead{\PracticeDate}%
+
+    % Название практики
+    \section*{\strtitle}
+}
+\mmzset{memo dir = images/cache/\jobname}
