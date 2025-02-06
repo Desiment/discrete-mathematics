@@ -1,0 +1,426 @@
+\documentclass{article}
+\input{configuration/preamble.tex}
+
+\title{Понятие мощности множества. Три теоремы Кантора}
+\author{Михаил Михайлов}
+\date{\today}
+\newcommand{\ie}{т{.}~e{.}}
+\newcommand{\card}{\mathrm{card}}
+\mmzset{memo dir = images/cache/\jobname}
+\makeatletter
+\def\renewtheorem#1{%
+  \expandafter\let\csname#1\endcsname\relax
+  \expandafter\let\csname c@#1\endcsname\relax
+  \gdef\renewtheorem@envname{#1}
+  \renewtheorem@secpar
+}
+\def\renewtheorem@secpar{\@ifnextchar[{\renewtheorem@numberedlike}{\renewtheorem@nonumberedlike}}
+\def\renewtheorem@numberedlike[#1]#2{\newtheorem{\renewtheorem@envname}[#1]{#2}}
+\def\renewtheorem@nonumberedlike#1{  
+\def\renewtheorem@caption{#1}
+\edef\renewtheorem@nowithin{\noexpand\newtheorem{\renewtheorem@envname}{\renewtheorem@caption}}
+\renewtheorem@thirdpar
+}
+\def\renewtheorem@thirdpar{\@ifnextchar[{\renewtheorem@within}{\renewtheorem@nowithin}}
+\def\renewtheorem@within[#1]{\renewtheorem@nowithin[#1]}
+\makeatother
+
+\renewtheorem{theorem}{Теорема}[section]
+\newtheorem*{defnotation}{Нотация}
+\newtheorem{axiom}{Аксиома}
+
+\newcommand{\lxor}{\oplus}
+\newcommand{\excludeor}{\bowtie}
+%Set Theory
+\newcommand{\class}[1]{\set{#1}}
+\newcommand{\UniversalClass}{\mathfrak{V}}
+\newcommand{\InductiveClass}{\mathrm{Ind}}
+
+\newcommand{\Union}{\bigcup}
+\newcommand{\Intersect}{\bigcap}
+
+% Функции:
+\newcommand{\MapTo}[3]{#1\colon #2 \to #3}
+\newcommand{\setdiff}{\Delta}
+
+\newcommand{\ran}[1]{\mathrm{ran}\left(#1\right)}
+\newcommand{\rfield}[1]{\mathrm{field}\left(#1\right)}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+\section{Отношения, отображения и соответствия}
+
+\subsection{Отношения}
+\begin{definition}
+    \label{def:relation}
+    Пусть \(X_1, X_2, \ldots, X_n\) --- фиксированные множества.
+    
+    \begin{enumerate}
+        \item \textbf{Отношением \(R\) на \(X_1, X_2, \ldots, X_n\)} называется подмножество \(X_1 \times \ldots \times X_n\). Факт связи \(x_1, \ldots, x_n\) обозначается как \(R(x_1, \ldots, x_n)\) или \(x_1 R x_2\), если \(n = 2\).
+        \item \(R\) --- \(n\)-арное отношение на \(X\), если отношение \(R\) задано на \(X^n\).
+        \item \textbf{Диагональю} называется подмножество \(X^n\): \(\Delta \coloneq \set{(x,\ldots, x)\,|\, x \in X}\). Диагональ на \(X^2\) --- отношение равенства.
+        \item Бинарное отношение на \(X\) называется:
+            \begin{itemize}
+                \item \textbf{рефлексивным}, если: \(\forall x \in X: x R x \);
+                \item \textbf{симметричным}, если: \(\forall x, y \in X: (x R y \Rightarrow y R x)\);
+                \item \textbf{антисимметричным} если: \(\forall x, y \in X: x R y \,\land\, y R x \Rightarrow x = y\);
+                \item \textbf{транзитивным}, если: \(\forall x, y, z \in X: (x R y \land y R z \Rightarrow x R z)\).
+            \end{itemize}
+    \end{enumerate}
+\end{definition}
+    
+\begin{definition}
+    \label{def:relation-fields}
+    Пусть \(R\) --- отношение на \(X, Y\)
+    \begin{enumerate}
+        \item \textbf{Областью определения} \(R\) называется множество \(\dom{R}\) всех \(x \in X\), таких что для них есть хотя бы один \(y \in Y\) такой что \(x R y\) 
+        \[\dom{R} \coloneq \set{x \in X\,|\, \exists y \in Y: (x, y) \in R }\]
+        \item \textbf{Областью значений} \(R\) называется множество \(\ran{R}\) всех \(y \in Y\), таких что для них есть хотя бы один \(x \in X\) такой что \(x R y\)  
+        \[\ran{R} \coloneq \set{y \in Y\,|\, \exists x \in X: (x, y) \in R }\]
+        \item \textbf{Областью действия} \(R\) называется множество \(\rfield{R} \coloneq \dom{R} \cup \ran{R}\)
+    \end{enumerate}
+\end{definition}
+    
+\subsubsection{Примеры отношений}
+    TBD 
+
+
+\subsection{Отображения и соответствия}
+\begin{definition}  
+    \label{def:maps}
+    Пусть \(X, Y\) --- множества. \(R\) --- отношение на \(X \times Y\)
+
+    Отношение \(R\) называют \textbf{соответствием из множества \(X\) в множество \(Y\)}
+    
+    \textbf{Отображение} --- соответствие \(D\) такое, что "для каждого \(x\) есть только один \(y\)"\,: \[\forall\, a \in X: \exists!\, b \in Y: (a, b) \in D\].
+\end{definition}
+\begin{defnotation}
+    Отображение \(f\) из \(X\) в \(Y\) мы будем обозначать как \(\MapTo{f}{X}{Y}\). 
+    
+    Если известно какому элементу какой сопоставляется можно использовать нотацию вида:
+    \begin{align*}
+        &\MapTo{f}{X}{Y}\\
+        &x \mapsto y
+    \end{align*}
+\end{defnotation}
+
+\begin{definition}
+    \label{def:image-preimage}
+    Пусть \(f: X \rightarrow Y\) отображение:
+    \begin{itemize}
+        \item \textbf{Образ \(A \subset X\)} --- множество всех \(y \in Y\) "получаемых из \(A\)"\,: \(f(A) = \set{y \in Y \,|\, y = f(x), x \in A}\)
+        \item \textbf{Прообраз \(B \subset Y\)} --- множество всех \(x \in X\) "для которых образ есть \(y\) из \(B\)"\,: \(f^{-1}(B) = \set{x \in X | f(x) \in B}\)
+    \end{itemize}
+\end{definition}
+
+\begin{definition}
+    \label{def:inj-surj-bij-maps}
+        Пусть \(f: X \rightarrow Y\) отображение:
+    \begin{itemize}
+        \item \(f\) \textbf{инъекция} если: 
+        \[\forall\, a_1, a_2 \in X: f(a_1) = f(a_2) \Rightarrow a_1 = a_2\]
+        \item \(f\) \textbf{сюръекция} если
+        \[\forall\, b \in Y: f^{-1}(b) \neq \varnothing\]
+        \item \(f\) \textbf{биекция} если \(f\) оно сюръекция и инъекция одновременно.
+    \end{itemize}
+\end{definition}
+
+\begin{proposition}[Свойства образа]
+    \label{prop:image-properties}
+    Пусть \(f: X \rightarrow Y\). Тогда 
+    \begin{itemize}
+        \item \(\forall A, B \subset X\): \(f(A \cup B) = f(A) \cup f(B)\)
+        \item \(\forall \set{A_i}_{i \in I},\, A_i \subset X\):  \(f(\bigcup_{i \in I} A_i) = \bigcup_{i \in I} f(A_i)\)
+    \end{itemize}
+    Так же, \(f\) инъективно тогда и только тогда, когда:  \(\forall A, B \subset X\): \(f(A \cap B) = f(A) \cap f(B)\)
+\end{proposition}
+\begin{proof}
+    Тривиально (используется прямое вычисление и определения)
+\end{proof}
+
+\begin{proposition}[Свойства прообраза]
+    \label{prop:preimage-properties}
+    Пусть \(f: X \rightarrow Y\). Тогда 
+    \begin{itemize}
+        \item \(\forall A, B \subset Y\): \(f^{-1}(A \cup B) = f^{-1}(A) \cup f^{-1}(B)\)
+        \item \(\forall A, B \subset Y\): \(f^{-1}(A \cap B) = f^{-1}(A) \cap f^{-1}(B)\)
+        \item \(\forall A, B \subset Y\): \(f^{-1}(A \setminus B) = f^{-1}(A) \setminus f^{-1}(B)\)
+        \item \(\forall A, B \subset Y\): \(f^{-1}(A \Delta B) = f^{-1}(A) \Delta f^{-1}(B)\)
+        \item \(\forall \set{A_i}_{i \in I},\, A_i \subset Y\):  \(f^{-1}(\bigcup_{i \in I} A_i) = \bigcup_{i \in I} f^{-1}(A_i)\)
+        \item \(\forall \set{A_i}_{i \in  I},\, A_i \subset Y\):  \(f(\bigcap_{i \in I} A_i) = \bigcap_{i \in  I} f(A_i)\)
+    \end{itemize}
+\end{proposition}
+\begin{proof}
+    Тривиально (используется прямое вычисление и определения).
+\end{proof}
+
+\begin{definition}
+    \label{def:comp-map}
+    Пусть дана последовательность отображений: \(X \xrightarrow[]{f} Y \xrightarrow[]{g} Z\). Тогда можно определить композицию \(g \circ f: X \rightarrow Z,\, x \mapsto g(f(x))\). 
+\end{definition}
+
+Определение на языке теории множеств
+\begin{definition}
+    \label{def:comp-rel}
+    Пусть \(\Delta \subset X \times Y\), \(\Gamma \subset Y \times Z\) --- соответствия. Их композиция: \[\Delta \circ \Gamma = \set{(x, z) \in X \times Z | \exists\, y: (x, y) \in \Delta \land (y, z) \in \Gamma}\]
+\end{definition}
+\begin{remark}
+    \label{rem:notation}
+    Нотация записи слева-направо (\(\Delta \circ \Gamma\)) более естественна так как в большой последовательности функций удобнее думать про то, какое отображение применяется первым, а не последним. Однако, в нотации в смысле отображений, мы будем пользоваться записью справа-налево
+\end{remark}
+
+\begin{proposition}
+    \label{prop:comp-ass}
+    Композиция отображений ассоциативная операция. Пусть заданы отображения \(X \xrightarrow[]{f} Y \xrightarrow[]{g} Z \xrightarrow[]{h} T\). Тогда \(h \circ (g \circ f) = (h \circ g) \circ f\).
+\end{proposition}
+\begin{proof}
+    Пусть \(y = g(h(x))\):
+    \[h \circ (g \circ f)  = f(g(h(x))) = f(y)\]
+    \[(h \circ g) \circ f = f(y)\]
+\end{proof}
+
+\begin{?}
+    Докажите предложение \ref{prop:comp-ass} в смысле определения \ref{def:comp-rel}.
+\end{?}
+
+\begin{definition}
+    \label{def:inverse-map}
+    \textbf{Тождественным отображением} \(\mathrm{id}_X: X \rightarrow X\) отображение такое, что \(\forall x \in X:\, \mathrm{id}_X(x) = x\). Эквивалентное определение \(\mathrm{id}_X = \set{(x, x) | x \in X} \subset X \times X\).    \\
+    Пусть \(f: X \rightarrow Y,\ g: Y \rightarrow X\).
+    \begin{itemize}
+        \item \(g\) --- \textbf{левое обратное} отображение к \(f\) если \(g \circ f = \mathrm{id}_X\)
+        \item \(g\) --- \textbf{правое обратное} отображение к \(f\) если \(f \circ g = \mathrm{id}_Y\)
+        \item \textbf{Обратное отображение} \(g: g \circ f = \mathrm{id}_X \land f \circ g = \mathrm{id}_Y\).
+    \end{itemize}
+\end{definition}
+
+\begin{theorem}[о существовании обратных отображений]
+    \label{th:inverse-map-existance}
+    Пусть \(X \neq \varnothing\)
+    У отображения \(f: X \rightarrow Y\) есть левое обратное тогда и только тогда, когда \(f\) --- инъекция. У отображения \(f\) есть правое обратное отображение тогда и только тогда, когда \(g\) --- сюръекция. \(f\) обратимо если \(f\) --- биекция. 
+\end{theorem}
+\begin{proof} Докажем в каждую из сторон:
+    \begin{itemize}
+        \item Если \(f\) --- обратима слева, то \(f\) инъективна. Имеем \(\exists\, g: g \circ f = \mathrm{id}_X\). Если \(f\) --- инъекция, то \(f(x_1) = f(x_2) \Rightarrow x_1 = x_2\). Но \[f(x_1) = f(x_2) \Rightarrow g(f(x_1)) = g(f(x_2)) \Rightarrow \mathrm{id}_X x_1 = \mathrm{id}_X x_2 \Rightarrow x_1 = x_2\]
+        \item Если  \(f\) инъективна, то \(f\) обратима слева. \(Y_1 = Y \setminus f(X)\). Выберем \(x_0 \in X\) Определим
+        \[
+        g(y) = \begin{cases} x: \set{x} = f^{-1}(y), y \in f(X) \ \text{т.к. в этом случае прообраз будет состоять из одного элемента} \\
+        x_0, y \in Y_1 \end{cases}
+        \]
+        Тогда \(g \circ f = \mathrm{id}_X\)
+        \item Если \(f\) --- обратима справа, то \(f\) сюръективна. Имеем \(\exists\, g: f \circ g = \mathrm{id}_Y\). Пусть \(y_0 \in Y\). Проверим, что \(g(y_0) \in f^{-1}(y_0)\): 
+        \[g(y_0) \in f^{-1}(y_0) \Leftrightarrow f(g(y_0)) \in \set{y_0} \Leftrightarrow f(g(y_0)) = y_0\]
+        \item Если \(f\) --- сюръективна, то \(f\) обратима справа. Возьмем \(y_0 \in Y\). Определим \(g(y_0)\) --- возьмем из множества \(f^{-1}(y_0)\) один элемент \(x_0\). Полагаем \(g(y_0) = x_0\)
+        \[(f \circ g)(y_0) = f(g(y_0)) = f(x_0) = y_0 = \mathrm{id}_Y(y_0)\]
+        То есть \(f \circ g = \mathrm{id}_Y\)
+    \end{itemize}
+\end{proof}
+
+\begin{proposition}
+    \label{prop:comp-properties}
+    Свойства композиции. Пусть \(f: X \rightarrow Y, g: Y \rightarrow Z\).
+    \begin{enumerate}
+        \item Если \(f\), \(g\) --- инъективны, то \(g \circ f\) --- иънективно.
+        \item Если \(f\), \(g\) --- cюръективны, то \(g \circ f\) --- сюръективно.
+        \item Если \(g \circ f\) --- сюръективна, то \(g\) --- сюръективна.
+        \item Если \(g \circ f\) --- инъективно, то \(f\) --- инъективна.
+        \item \((g \circ f) (A) = g(f(A)), \forall\, A \subset X\).
+        \item \((g \circ f)^{-1}(A) = f^{-1}(g^{-1}(A)), \forall\, A \subset Z\)
+        \item Если \(f, g\) обратимы, то \(g \circ f\) обратима. 
+    \end{enumerate}
+\end{proposition}
+\begin{proof} Докажем каждое свойство: 
+
+    \textbf{Свойство 1}: По определению. 
+    
+    \textbf{Свойство 2}: По определению. 
+    
+    \textbf{Свойство 3}: Если \(g\) не сюръективна, то существует \(z \in Z\) такой, что \(g^{-1}(z) = \varnothing\). Но так как \(g \circ f\) сюръективна, для \(z\) существует по крайне мере один \(x\) такой что \(g(f(x)) = z\). Тогда \(f(x) \in g^{-1}(z)\). Противоречие.
+    
+    \textbf{Свойство 4}: Если \(f\) не инъективна, то \(\exists x_1 \ne x_2: f(x_1) = f(x_2)\), но тогда \(g \circ f (x_1) = g \circ f (x_2)\), т.е. \(g \circ f\) не инъективно. Противоречие. 
+    
+    \textbf{Свойство 5}: По определению. 
+    
+    \textbf{Свойство 6}: В силу свойства 5 имеем \((g \circ f)(A) = g(f(A)) \Rightarrow (g \circ f)^{-1}(Z) = f^{-1} \circ g^{-1} = f^{-1}\left(g^{-1}(Z)\right)\)
+    
+    \textbf{Свойство 7}: Известно, что функция обратима тогда и только тогда, когда она инъективна (см. теорему \ref{th:inverse-map-existance}), а значит свойство равносильно свойству 1.
+\end{proof}
+
+
+\begin{remark*}
+    Можно говорить об соответствиях и отображения, область действия которых является собственным классом, т.е. $\rfield{f}$ не является множеством. Для того чтобы это делать, необходимо ввести понятие упорядоченной пары двух собственных классов (что будет сделано ниже) и сказать что TBD 
+\end{remark*}
+
+\subsection{Отношения эквивалентности}
+    
+    \begin{definition}
+        \label{def:equiv-rel}
+        \(X\) --- фиксированное множество, \(R\) --- бинарное отношение на \(X\)
+        \begin{itemize}
+            \item Отношение \(R\) на \(X\) называется \textbf{отношением эквивалентности}, если оно симметрично, транзитивно, рефлективно.
+             \item Пусть \(R\) --- отношение эквивалентности на \(X\). \textbf{Классом эквивалентности} \({[x_0]}_R\) элемента \(x_0 \in X\) называется множество \(\set{x \in X | x R x_0}\). 
+        \end{itemize}
+    \end{definition}
+    
+    \begin{definition}
+        \label{def:equiv-rel-map}
+        Пусть задано отображение \(f: X \rightarrow Y\). Отношение \(x_1 \sim x_2 \xLeftrightarrow[]{\text{\tiny def}} f(x_1) = f(x_2)\) мы будем называть отношением \textbf{равнообразности}.
+    \end{definition}
+    \begin{remark}
+        \label{rem:equiv-rel-map}
+        Равнообразность --- отношение эквивалентности. 
+    \end{remark}
+    
+    \begin{proposition}
+        \label{prop:equiv-classes-intersect}
+        Пусть \(\sim\) --- отношение эквивалентности на множестве \(X\). Тогда 
+        \begin{enumerate}
+            \item Если \(a \sim b,\ a, b \in X\), то \([a] = [b]\).
+            \item Если \(a \not \sim b\), то \([a] \cap [b] = \varnothing\). 
+        \end{enumerate}
+    \end{proposition}
+    \begin{proof}
+        Пусть \(x \in X\) и:
+        \begin{itemize}
+            \item \(a \sim b\) и \(x: x \in [a] \land x \not\in [b]\). Так как \(x \sim a\) и \(a \sim b\), то \(x \sim b\). Но тогда \(x \in [b]\), противоречие условию. Значит таких \(x\) нет. 
+            \item \(a \not\sim b\) и \(x \in [a] \cap [b]\). Но тогда \(a \sim x\) и \(b \sim x\), а значит \(a \sim b\), противоречие условию. Значит таких \(x\) нет. 
+        \end{itemize}
+    \end{proof}
+    
+    \begin{corollary}
+        \label{rem:quotient-set-partition}
+        \(X\) является объединением не пересекающихся классов эквивалентности по отношению \(\sim\). Иначе говоря, \(\sim\) задает разбиение \(X\) на классы эквивалентности. 
+    \end{corollary}
+    
+    \begin{definition}
+        \label{def:transerval}
+        \textbf{Трансерваль} ---- множество, содержащие по одному представителю из каждого класса эквивалентности. 
+    \end{definition}
+    
+    \begin{definition}
+        \label{def:quotient-set}
+        Пусть \((X, \sim)\) --- множество с отношением эквивалентности. Множество, элементы которого --- классы эквивалентности по отношению \(\sim\) называется \textbf{фактормножеством \(X\) по отношению \(\sim\)} и обозначается \(X / \sim\). 
+    \end{definition}
+    
+    \begin{definition}
+        \label{def:qutioent-set-canonical-map}
+        \textbf{Каноническая проекция на фактормножество} --- отображение \\ \(\pi: X \surto X / \sim,\  x \mapsto [x]\)
+    \end{definition}
+    
+    Если \(R\) --- рефлексивное транзитивное отношение, то отношение \(x \sim_R y \Leftrightarrow xRy \land yRx\) будет отношением эквивалентности 
+    
+    \begin{definition}
+        Пусть \((X, \sim)\) --- множество с отношением эквивалентности, \(Y\) --- некоторое множество. Отображение \(f \colon X \to Y\) называется \(\sim\)~\textbf{инвариантным} если оно принимает одинаковые отношения на классах эквивалентности, иначе говоря если 
+        \[
+        x \sim y \Rightarrow f(x) = f(y)
+        \]
+    \end{definition}
+    \begin{proposition}[Универсальное свойство фактормножества)]
+    Пусть \((X, \sim)\) --- множество с отношением эквивалентности. Тогда для любого множества \(Y\) и \(\sim\)~\textbf{инвариантного} отображения  \(f \colon X \to Y\) существует единственное отображение $\overline{f}$ такое что следующая диаграмма коммутативна:
+        \begin{center}
+            \tikzcdset{row sep/normal=1cm}
+            %Todo
+            \begin{tikzcd}
+                X \arrow{rd}{f} \arrow[twoheadrightarrow]{r}{\pi}  & X/\sim \arrow{d}{\overline{f}} \\  & Y
+            \end{tikzcd}
+        \end{center}
+        То есть что \(f = \pi \circ \overline{f}\).
+    \end{proposition}
+    \begin{proof}
+        Тривиально, выбором трансервали (что возможно благодаря \ref{ZFC-Choice}).
+    \end{proof}
+    
+\subsection{Отношения порядка}
+    \begin{definition}
+        \label{def:order-relations}
+        Отношение \(R\) называется отношением \textbf{предпорядка} если оно рефлексивно и транзитивно.
+        \begin{itemize}
+            \item Предпорядок \(R\) называется \textbf{частичным порядком}, если \(R\) антисимметрично.
+            \item Частичный порядок \(R\) называется \textbf{линейным порядком}, если любые два элемента сравнимы.
+        \end{itemize}
+    \end{definition}
+    
+    \begin{remark}
+        \label{rem:parent-set-of-relation}
+        Важно помнить на каком множестве определено отношение порядка. Например, на множестве \(\mathbb N\) отношение делимости антисимметрично, а на множестве \(\mathbb Z\) --- нет.
+    \end{remark}
+    
+    \begin{proposition}
+        \label{prop:antisym-sym-relation}
+        Если \(R\) - антисимметричное и симметричное одновременно, то \(R \subset \Delta\)
+    \end{proposition}
+    \begin{proof}
+        Очевидно, что \(aRb \Rightarrow a = b\). 
+    \end{proof}
+    
+    \begin{definition}
+        \label{def:maximal-minimal-elements}
+        Пусть \((X, \prec)\) --- частично упорядоченное множество.  \(A \subset X\).
+        \begin{itemize}
+            \item Элемент \(m\) называется \textbf{наименьшим} элементом \(A\) если \(\forall\, x \in A: m \prec x\)
+            \item Элемент \(m\) называется \textbf{минимальным} элементом \(A\) если \(\forall\, x \in A: x \prec m \Rightarrow x = m\)
+            \item Элемент \(m\) называется \textbf{наибольшим} элементом \(A\) если \(\forall\, x \in A: m \succ x\)
+            \item Элемент \(m\) называется \textbf{максимальным} элементом \(A\) если \(\forall\, x \in A: x \succ m \Rightarrow x = m\)
+        \end{itemize}
+    \end{definition}
+    
+    \subsubsection{Отношения предпорядка}
+    \begin{definition}
+        Пусть \((X, R)\) --- произвольное отношение на множестве \(X\). Наименьшее по включение отношение \(S\) такое что \(R \subseteq S\) и \(S\) --- отношение предпорядка называется \textbf{рефлексивно-транзитивное замыканием} отношения \((X, R)\). 
+    \end{definition}
+    \begin{remark}
+    При этом, замыкание не обязательно будет антисимметрично.
+    \end{remark}
+        \begin{definition}
+        \textbf{Диаграмма Хассе} отношения \(R\) --- наименьшее отношение \(S\), такое что рефлексивно-транзитивное замыкание \(S\) это \(R\).
+    \end{definition}
+    
+    \begin{figure}[h!]
+        \centering
+        \begin{tikzpicture}
+        [scale=.3,auto=left,every node/.style={circle,fill=blue!20}]
+        \node (n1) at (4,10) {a};
+        \node (n2) at (1,7)  {b};
+        \node (n3) at (7,7)  {c};
+        \node (n4) at (1,4) {d};
+        \node (n5) at (7,4)  {e};
+        \node (n6) at (4,1)  {f};
+        \foreach \from/\to in {n1/n2, n1/n3, n3/n5, n2/n4, n4/n6, n5/n6}
+        \draw[->,>=stealth] (\from) -- (\to);
+        \end{tikzpicture}
+        \caption{Отношение \((X, R)\)}
+        \label{fig:hasse}
+    \end{figure}
+    
+    \begin{figure}[h!]
+        \label{fig:hasse_full}
+        \centering
+        \begin{tikzpicture}
+        [scale=.3,auto=left,every node/.style={circle,fill=blue!20}]
+        \node (n1) at (4,10) {a};
+        \node (n2) at (1,7)  {b};
+        \node (n3) at (7,7)  {c};
+        \node (n4) at (1,4) {d};
+        \node (n5) at (7,4)  {e};
+        \node (n6) at (4,1)  {f};
+        \foreach \from/\to in {n1/n2, n1/n3, n3/n5, n1/n5, n2/n4, n1/n4, n4/n6, n5/n6, n2/n6, n3/n6, n1/n6}
+        \draw[->,>=stealth] (\from) -- (\to);
+        \end{tikzpicture}
+        \caption{Замыкание \((X, R)\)}
+    \end{figure}
+    
+    \begin{remark}
+        Заметим, что на диаграмме не указаны петли --- их наличие и означает рефлексивность. 
+    \end{remark}
+    
+    \textbf{Построение рефлексивного транзитивного замыкания:} 
+    
+    Положим сначала \(S = R\). После этого возьмем все пары \((aRb, bRc)\) и добавим \((a, c)\) в \(S\). Будем повторять этот процесс до тех пор, пока \(S\) не станет транзитивным отношением. 
+    
+    С другой стороны \(S\) --- пересечение всех отношений предпорядка \(\overline{R}\) на \(X\) таких что \(R \subset \overline{R}\).
+
+
+\end{document}

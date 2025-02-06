@@ -1,0 +1,363 @@
+\documentclass{article}
+\input{configuration/preamble.tex}
+
+\title{Понятие мощности множества. Четыре теоремы Кантора}
+\author{Михаил Михайлов}
+\date{\today}
+\newcommand{\ie}{т{.}~e{.}}
+\newcommand{\card}{\mathrm{card}}
+\mmzset{memo dir = images/cache/\jobname}
+\makeatletter
+\def\renewtheorem#1{%
+  \expandafter\let\csname#1\endcsname\relax
+  \expandafter\let\csname c@#1\endcsname\relax
+  \gdef\renewtheorem@envname{#1}
+  \renewtheorem@secpar
+}
+\def\renewtheorem@secpar{\@ifnextchar[{\renewtheorem@numberedlike}{\renewtheorem@nonumberedlike}}
+\def\renewtheorem@numberedlike[#1]#2{\newtheorem{\renewtheorem@envname}[#1]{#2}}
+\def\renewtheorem@nonumberedlike#1{  
+\def\renewtheorem@caption{#1}
+\edef\renewtheorem@nowithin{\noexpand\newtheorem{\renewtheorem@envname}{\renewtheorem@caption}}
+\renewtheorem@thirdpar
+}
+\def\renewtheorem@thirdpar{\@ifnextchar[{\renewtheorem@within}{\renewtheorem@nowithin}}
+\def\renewtheorem@within[#1]{\renewtheorem@nowithin[#1]}
+\makeatother
+
+\renewtheorem{theorem}{Теорема}[section]
+
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+\newpage
+\section{Функции}
+\begin{definition}
+    \label{def:function-image-preimage}
+    Пусть \(f: X \rightarrow Y\) отображение:
+    \begin{itemize}
+        \item \textbf{Образ \(A \subset X\)} --- множество \(f(A) = \set{f(a) | a \in A}\)
+        \item \textbf{Прообраз \(B \subset Y\)} --- множество \(f^{-1}(B) = \set{x \in X | f(x) \in B}\)
+    \end{itemize}
+\end{definition}
+
+\begin{definition}
+    \label{def:function-injection-surjection-bijection}
+    Пусть \(f: X \rightarrow Y\) отображение:
+    \begin{itemize}
+        \item \(f\) \textbf{инъекция} если: 
+        \[\forall\, a_1, a_2 \in X: f(a_1) = f(a_2) \Rightarrow a_1 = a_2\]
+        \item \(f\) \textbf{сюръекция} если
+        \[\forall\, b \in Y: f^{-1}(b) \neq \varnothing\]
+        \item \(f\) \textbf{биекция} если \(f\) оно сюръекция и инъекция одновременно.
+    \end{itemize}
+\end{definition}
+
+\begin{definition}
+    \label{def:left-inverse-function}
+    Если есть инъекция \(f: X \rightarrow Y\), то функция \(g: f(X) \rightarrow X\) такая что \(g(y) = f^{-1}(y)\) называется функцией \textbf{обратной} к \(f\).
+\end{definition}
+\begin{remark}
+    Строго говоря, такое определение не является каноническим. Объект определенный здесь это \textbf{левая обратная функция}. Однако, иногда удобно пользоваться именно таким понимание обратной функции.
+\end{remark}
+
+\begin{proposition}
+    \label{prop:left-inverse-injection}
+    Функция \(f\) обратима тогда и только тогда, когда она инъективна. 
+\end{proposition}
+\begin{proof}
+    Ко всякой инъективной функции уже была построена обратная выше.
+    Теперь предположим, что у \(f\) есть обратная функция, но при этом \(f\) не инъективна: т.е. существуют \(x_1 \ne x_2: f(x_1) = f(x_2)\). Тогда значение обратной функции \(g\) в точке \(f(x_1)\) не определено. Противоречие. 
+\end{proof}
+
+\begin{definition}
+    \label{def:function-restriction}
+    \textbf{Cужение функции} \(f: X \rightarrow Y\) на множество \(A \subset X\) --- функция \(f\,|_A: A \rightarrow Y\) совпадающая с \(f\) на всех элементах \(A\).  
+\end{definition}
+
+\begin{definition}
+    \label{def:function-graphics}
+    \textbf{График функции} \(f: X \rightarrow Y\) --- множество \(\Gamma_f = \set{(x, f(x) | x \in X}\).
+\end{definition}
+
+\begin{definition}
+    \label{def:composition}
+    Пусть \(f: X \rightarrow Y\) и \(g: Y \rightarrow Z\), то \textbf{композиция} \(h = g \circ f\) есть отображение \(h(x) = g(f(x))\).
+    
+    Композиция считается \textbf{полностью заданной}, если \(D(g) \subset E(f)\). 
+    
+    \textbf{Частичная композиция} функций \(f: X \rightarrow Y\) и \(g: Y_1 \rightarrow Z\), где \(Y_1 \subset Y\).
+\end{definition}
+
+\begin{proposition}
+    \label{prop:comp-properties}
+    Свойства полной композиции. Пусть \(f: X \rightarrow Y, g: Y \rightarrow Z\).
+    \begin{enumerate}
+        \item Если \(f, g\) --- инъективны, то \(g \circ f\) --- иънективно.
+        \item Если \(f, g\) --- cрюъективны, то \(g \circ f\) --- сюръективно.
+        \item Если \(g \circ f\) --- сюръективна, то \(g\) --- сюръективна.
+        \item Если \(g \circ f\) --- инъективно, то \(f\) --- инъективна.
+        \item \((g \circ f) (A) = g(f(A)), \forall\, A \subset X\).
+        \item \((g \circ f)^{-1}(A) = f^{-1}(g^{-1}(A)), \forall\, A \subset Z\)
+        \item Если \(f, g\) обратимы, то \(g \circ f\) обратима. 
+    \end{enumerate}
+\end{proposition}
+\begin{proof} Докажем каждое свойство: 
+
+    \textbf{Свойство 1}: По определению. 
+    
+    \textbf{Свойство 2}: По определению. 
+    
+    \textbf{Свойство 3}: Если \(g\) не сюръективна, то существует \(z \in Z\) такой, что \(g^{-1}(z) = \varnothing\). Но так как \(g \circ f\) сюръективна, для\(z\) существует по крайне мере один \(x\) такой что \(g(f(x)) = z\). Тогда \(f(x) \in g^{-1}(z)\). Противоречие.
+    
+    \textbf{Свойство 4}: Если \(f\) не инъективна, то \(\exists x_1 \ne x_2: f(x_1) = f(x_2)\), но тогда \(g \circ f (x_1) = g \circ f (x_2)\), т.е. \(g \circ f\) не инъективно. Противоречие. 
+    
+    \textbf{Свойство 5}: По определению. 
+    
+    \textbf{Свойство 6}: В силу свойства 5 имеем \((g \circ f)(A) = g(f(A)) \Rightarrow (g \circ f)^{-1}(Z) = f^{-1} \circ g^{-1} = f^{-1}\mleft(g^{-1}(Z)\mright)\)
+    
+    \textbf{Свойство 7}: Известно, что функция обратима тогда и только тогда, когда она инъективна (см предложение \ref{prop:left-inverse-injection}), а значит свойство равносильно свойству 1.
+\end{proof}
+
+\begin{proposition}
+    Пусть \(f: X \rightarrow Y\). Тогда 
+    \begin{itemize}
+        \item \(\forall A, B \subset X\): \(f(A \cup B) = f(A) \cup f(B)\)
+        \item \(\forall \set{A_i}_{i \in I},\, A_i \subset X\):  \(f(\bigcup_{i \in I} A_i) = \bigcup_{i \in I} f(A_i)\)
+    \end{itemize}
+    Так же, \(f\) инъективно тогда и только тогда, когда:  \(\forall A, B \subset X\): \(f(A \cap B) = f(A) \cap f(B)\)
+\end{proposition}
+\begin{proof}
+    Тривиально (используется прямое вычисление и определения)
+\end{proof}
+
+\begin{proposition}
+    Пусть \(f: X \rightarrow Y\). Тогда 
+    \begin{itemize}
+        \item \(\forall A, B \subset Y\): \(f^{-1}(A \cup B) = f^{-1}(A) \cup f^{-1}(B)\)
+        \item \(\forall A, B \subset Y\): \(f^{-1}(A \cap B) = f^{-1}(A) \cap f^{-1}(B)\)
+        \item \(\forall A, B \subset Y\): \(f^{-1}(A \setminus B) = f^{-1}(A) \setminus f^{-1}(B)\)
+        \item \(\forall A, B \subset Y\): \(f^{-1}(A \Delta B) = f^{-1}(A) \Delta f^{-1}(B)\)
+        \item \(\forall \set{A_i}_{i \in I},\, A_i \subset Y\):  \(f^{-1}(\bigcup_{i \in I} A_i) = \bigcup_{i \in I} f^{-1}(A_i)\)
+        \item \(\forall \set{A_i}_{i \in  I},\, A_i \subset Y\):  \(f(\bigcap_{i \in I} A_i) = \bigcap_{i \in  I} f(A_i)\)
+    \end{itemize}
+\end{proposition}
+\begin{proof}
+    Тривиально (используется прямое вычисление и определения).
+\end{proof}
+
+\begin{remark}
+    Если \(A\) одноточечно, \(A = \set{x_0}\), часто пишут \(f(x_0)\) вместо \(f(\set{x_0})\). Аналогично для прообраза.  
+\end{remark}
+\newpage
+
+\section{Мощность множеств}
+\begin{definition}
+    \label{def:set-cardinality-equal}
+    Мощность \(A\) \textbf{равна} мощности \(B\) тогда и только тогда, когда  существует биекция между \(A\) и \(B\).
+    \[\card A = \card B \overset{\text{\tiny def}}{\Leftrightarrow} \exists f: A \rightarrow B, \text{где \(f\) --- биекция}\]
+\end{definition}
+
+\begin{definition}
+    \label{def:set-cardinality-order}
+    Мощность \(A\) \textbf{не больше} мощности \(B\) тогда и только тогда, когда существует инъекция из \(A\) в \(B\). 
+    \[\card A \leqslant \card B \overset{\text{\tiny def}}{\Leftrightarrow} \exists f: A \rightarrow B, \text{где \(f\) --- инъекция}\]
+\end{definition}
+
+
+\begin{proposition}
+    \label{prop:set-cardinality-order}
+    Мощность \(A\) не больше мощности \(B\), тогда и только тогда, когда существует сюръекция из \(B\) в \(A\).  
+    \[\card A \leqslant \card B \Leftrightarrow \exists f: B \rightarrow A, \text{где \(f\) --- сюръекция}\]
+\end{proposition}
+\begin{proof} 
+    Докажем в обе стороны (\(A\), \(B\) не пусты): 
+
+    \fbox{\(\Leftarrow\)} Если существует сюръекция \(f: B \rightarrow A\), то чтобы получить инъекцию из \(A\) в \(B\) достаточно выбрать из каждого прообраза каждой точки \(A\) по одному элементу \(B\).   
+    
+    \fbox{\(\Rightarrow\)} Если \(\card A \leqslant \card B\), то существует инъекция \(g: A \rightarrow B\), тогда для всех точек \(x \in g(A) \subset B\) положим \(f(x) = g^{-1}(x)\), а для \(y \in B \setminus g(A)\) положим \(f(y) = a \in A\).  
+\end{proof}
+
+\begin{definition}
+    \label{def:countable-set}
+    Если \(X\) равномощно \(\N\), \(X\) называется \textbf{счетным}.
+\end{definition}
+
+\begin{definition}
+    \label{def:continuum}
+    Если \(X\) равномощно \([0; 1]\) то \(X\) имеет мощность \textbf{континуума}. 
+\end{definition}
+
+\begin{proposition}
+    \label{prop:basic-bijection}
+    \[\card (0; 1) \underset{1}{=} \card (0; 1] \underset{2}{=} \card [0; 1) \underset{3}{=} \card [0; 1]\]
+\end{proposition}
+\begin{proof}
+    Равенство \((2)\) очевидно, биекцией будет:
+    \[f(x) = \begin{cases}x,\, x \in (0; 1), \\ 1,\, x = 0 \\ 0,\, x = 1 \end{cases}\]
+    
+    Чтобы установить равенство \((1)\) и \((3)\) воспользуемся следующим отображением
+    \[f(x) = \begin{cases} \frac{x}{2},\, x \in \set{\frac{1}{2^n}, n \in \mathbb N_0} \\ x,\,\ \text{иначе}\end{cases}\]
+    
+    Понятно, что \(f\) обратима:
+    \[f^{-1}(x) = \begin{cases} 2x,\, x \in \set{\frac{1}{2^n}, n \in \mathbb N} \\ x,\,\ \text{иначе}\end{cases}\]
+    
+    Получаем: 
+    \begin{align*}
+        f\mleft((0; 1]\mright) &\underset{1}{=} (0; 1) \\
+        f\mleft([0; 1]\mright) &\underset{3}{=}  [0; 1)
+    \end{align*}
+\end{proof}
+    
+\begin{corollary}
+    \label{cor:real-numb-colloc}
+    \(\R\) имеет мощность континуума: отображение:
+    \begin{align*}
+        f(x): (0; 1) \rightarrow \R \\
+        x \mapsto \tan\mleft(\pi x + \frac{\pi}{2}\mright)
+    \end{align*}
+    будет биекцией.
+\end{corollary}
+
+\begin{theorem}[Первая теорема Кантора]
+    \label{th:first-cantor-th}
+    \[\card \N \neq \card [0;1]\]
+\end{theorem}
+\begin{proof}
+    Пусть существует биекция \(f: \N \rightarrow [0;1]\). Построим бесконечную десятичную дробь \[x = 0,x_1x_2x_3\ldots\] следующим образом: 
+    \begin{itemize}
+        \item Если первая цифра после запятой у \(f(1)\) это не 5, то положим \(x_1 = 5\). Иначе положим \(x_1 = 4\).
+        \item Если вторая цифра после запятой у \(f(2)\) это не 5, то положим \(x_2 = 5\). Иначе положим \(x_2 = 4\).
+        \item \(\ldots\)
+        \item Если \(n\)-ая цифра после запятой у \(f(n)\) это не 5, то положим \(x_n = 5\). Иначе положим \(x_n = 4\).
+    \end{itemize}
+    Так как \(f\) биекция, то найдется \(k \in \N: x = f(k)\). Так как \(x\) состоит только из 4 и 5, то у числа \(x\) единственная десятичная запись. Тогда и у числа \(f(k)\) тоже единственная десятичная запись, а значит записи \(x\) и \(f(k)\) совпадают. Но по построению \(k\)-ая цифра \(x\) не равна \(k\)-ой цифре \(f(k)\). Противоречие, а значит \(f\) не существует.
+\end{proof}
+
+
+\begin{lemma}
+    \label{lm:cantor-second-th}
+    Пусть \(h: A \rightarrow A\) --- инъекция. Пусть \(h(A) \subset E \subset A\). Тогда \(\card E = \card A\). 
+\end{lemma}
+\begin{proof}
+    Не умаляя общности, считаем что \(A\) --- бесконечно, \(h(A) \subsetneq E \subsetneq A\).
+    
+    Заметим, что \(\card h(A) = \card A\) так как \(h\) биекция между \(A\) и \(h(A)\). Рассмотрим последовательность множеств 
+    \[(A_0 = A, A_1 = h(A_0), \ldots, A_n = h(A_{n - 1}), \ldots)\]
+    
+    Покажем, что \(A_n \subset A_{n - 1}\) для любого \(n\) по индукции: база, \(n = 1\), выполнена по условию.  Пусть для всех \(1 \leqslant k \leqslant n\) выполнено что \(A_k \subset A_{k - 1}\). Тогда если \(h(A_n) \not\subset A_n\), то существует такая точка \(x\), что: 
+    \[x \in A_n \land h(x) \not\in A_n\]
+    
+    Обозначим, \(s = \max\set{i \in \N_0 | x \in A_i}\). Очевидно \(n > s \geqslant 1\) (т.к. \(h(x)\) --- образ какого-то элемента из \(A_0\)).  По определению \(s\) имеем, что 
+    \[y_0 = h(x) \in A_s \setminus A_{s + 1}\]
+    
+    Но при этом, \(x \in A_s\), а значит, по индукционному предположению, \(h(x) \in A_{s + 1}\) --- противоречие. 
+    
+    Теперь, обозначим:
+    \[C = \bigcap\limits_{i = 0}^{\infty} A_i\]
+    
+    Заметим что в силу инъективности \(h\): 
+    \[h(A_n \setminus A_{n + 1}) = h(A_n) \setminus h(A_{n + 1}) = A_{n + 1} \setminus A_{n + 2} \]
+    
+    Пусть \(P = A \setminus E,\ Q = E \setminus A_1\). Аналогично \(\set{A_n}_{n = 0}^{\infty}\) построим \(\set{P_n}_{n = 0}^{\infty}\) и \(\set{Q_n}_{n = 0}^{\infty}\). Ясно по индукции, что для любого \(n\): \(P_n \cup Q_n = A_n \setminus A_{n + 1}\). 
+    
+    Построим биекцию \(H: A \rightarrow E\):
+    \[H(x) = \begin{cases}h(x), x \in P_n \\ x, x \in Q_n, \\ x, x \in C \end{cases}\]
+\end{proof}
+    
+\begin{theorem}[Теорема Кантора-Бернштейна или вторая теорема Кантора]
+    \label{th:second-cantor-th}
+    Пусть \(A, B\) множества. Если \(\card A \leqslant \card B\) и \(\card B \leqslant \card A\) то \(\card A = \card B\) 
+\end{theorem}
+\begin{proof}
+    Очевидным образом следует из леммы \ref{lm:cantor-second-th}:
+    
+    Пусть \(f: A \rightarrow B; g: B \rightarrow A\) --- инъекции. Тогда:
+    \[g(f(A)) \subset g(B) \subset A \underset{\text{\tiny по лемме}}{\Longrightarrow} \card B = \card g(B) = \card A\]
+\end{proof}
+
+Иллюстрации: 
+\begin{figure}[h!]
+    \centering
+    \begin{tikzpicture}
+        \filldraw[fill=blue!5!white, draw=blue] (0, 0) circle(3);
+        \draw[thick, dashed, red] (0, 0) circle(2.5);
+        \filldraw[fill=blue!10!white, draw=blue] (0, 0) circle(2);
+        \filldraw[fill=blue!15!white, draw=blue!10!white] (0, 0) circle(1.5);
+        \draw[thick, dashed, blue]  (0, 0) circle(1.5);
+        \filldraw[fill=blue!20!white, draw=blue] (0, 0) circle(1);
+        \filldraw[fill=blue!25!white, draw=blue] (0, 0) circle(0.5);
+        
+        \node at (0, 0) (nodeC) {\(C\)};
+        \node at (0, 2.3) (nodeE) {\(E\)};
+        \node at (2.75, 0) (nodeA0) {\(A_0\)};
+        \node at (1.75, 0) (nodeA1) {\(A_1\)};
+        \node at (1.25, 0) (nodeA2) {\(\ldots\)};
+        \node at (0.75, 0) (nodeA2) {\(A_n\)};
+        
+        \filldraw[fill=blue!5!white, draw=blue] (7, 0) circle(3);
+        \filldraw[fill=red!10!white, draw=red,dashed] (7, 0) circle(2.5);
+        
+        \filldraw[fill=blue!10!white, draw=blue] (7, 0) circle(2);
+        \filldraw[fill=red!15!white, draw=red,dashed] (7, 0) circle(1.75);
+        
+        \filldraw[fill=blue!15!white, draw=blue] (7, 0) circle(1.5);
+        \filldraw[fill=red!20!white, draw=red,dashed] (7, 0) circle(1.25);
+        
+        \filldraw[fill=blue!20!white, draw=blue] (7, 0) circle(1);
+        \filldraw[fill=red!25!white, draw=red,dashed] (7, 0) circle(0.75);
+        
+        \filldraw[fill=blue!25!white, draw=blue] (7, 0) circle(0.5);
+        
+        \node at (7, 0) (nodeC) {\(C\)};
+        \node at (7, 2.25) (nodeQ) {\(Q_0\)};
+        \node at (7, 2.7) (nodeP) {\(P_0\)};
+        
+    \end{tikzpicture}
+    \caption{К лемме \ref{lm:cantor-second-th}}
+    \label{fig:example-lm-cantor-second-th}
+\end{figure}
+
+\begin{figure}[h!]
+ \centering
+    \begin{tikzpicture}
+        \filldraw[fill=blue!5!white, draw=blue] (0, 0) circle(3);
+        \filldraw[fill=red!10!white, draw=red] (7, 0) circle(3);
+        \filldraw[fill=red!15!white, draw=red] (7, 0) circle(2);
+        \filldraw[fill=blue!10!white, draw=blue] (0, 0) circle(2);
+        \filldraw[fill=blue!15!white, draw=blue] (0, 0) circle(1);
+        \draw[thick, ->] (0, 2.75) -- (7, 1.7);
+        \draw[thick, ->] (0, -2.75) -- (7, -1.7);
+        \draw[thick, <-] (0, 0.7) -- (7, 1.5);
+        \draw[thick, <-] (0, -0.7) -- (7, -1.5);
+
+        \node at (0, 1.5) (nodeC) {\(g(B)\)};
+        \node at (0, 2.5) (nodeE) {\(A\)};
+        \node at (0, 0) (nodeA0) {\(g(f(A))\)};
+        \node at (7, 2.5) (nodeA1) {\(B\)};
+        \node at (7, 0) (nodeA2) {\(f(A)\)};
+    \end{tikzpicture}
+    \caption{К теореме \ref{th:second-cantor-th}}
+    \label{fig:example-th-cantor-second-th}
+\end{figure}
+
+
+\begin{theorem}[Третья теорема Кантора]
+    \label{th:third-cantor-th}
+    \[\card A \neq \card 2^A\]
+\end{theorem}
+\begin{proof}
+    Предположим обратное. Тогда есть биекция: \(f: A \rightarrow 2^A\).
+    
+    Пусть \(\mathcal A \subset 2^A\) --- множество всех таких \(x\) что \(x \not\in f(x)\). Но тогда рассмотрим прообраз \(f^{-1}(\mathcal A) = x_0\): 
+    \begin{align*}
+        x_0 \in \mathcal A \Rightarrow x_0 \not\in \mathcal A \\
+        x_0 \not\in \mathcal A \Rightarrow x_0 \in \mathcal A
+    \end{align*}
+    Получаем противоречие. 
+\end{proof}
+
+\end{document}

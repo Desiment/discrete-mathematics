@@ -1,0 +1,406 @@
+\documentclass{article}
+\input{configuration/preamble.tex}
+
+\title{Понятие мощности множества. Четыре теоремы Кантора}
+\author{Михаил Михайлов}
+\date{\today}
+\newcommand{\ie}{т{.}~e{.}}
+\newcommand{\card}{\mathrm{card}}
+\mmzset{memo dir = images/cache/\jobname}
+\makeatletter
+\def\renewtheorem#1{%
+  \expandafter\let\csname#1\endcsname\relax
+  \expandafter\let\csname c@#1\endcsname\relax
+  \gdef\renewtheorem@envname{#1}
+  \renewtheorem@secpar
+}
+\def\renewtheorem@secpar{\@ifnextchar[{\renewtheorem@numberedlike}{\renewtheorem@nonumberedlike}}
+\def\renewtheorem@numberedlike[#1]#2{\newtheorem{\renewtheorem@envname}[#1]{#2}}
+\def\renewtheorem@nonumberedlike#1{  
+\def\renewtheorem@caption{#1}
+\edef\renewtheorem@nowithin{\noexpand\newtheorem{\renewtheorem@envname}{\renewtheorem@caption}}
+\renewtheorem@thirdpar
+}
+\def\renewtheorem@thirdpar{\@ifnextchar[{\renewtheorem@within}{\renewtheorem@nowithin}}
+\def\renewtheorem@within[#1]{\renewtheorem@nowithin[#1]}
+\makeatother
+
+\renewtheorem{theorem}{Теорема}[section]
+\newtheorem*{defnotation}{Нотация}
+\newtheorem{axiom}{Аксиома}
+
+
+%Logic
+\newcommand{\lxor}{\oplus}
+\newcommand{\excludeor}{\bowtie}
+%Set Theory
+\newcommand{\class}[1]{\set{#1}}
+\newcommand{\UniversalClass}{\mathfrak{V}}
+\newcommand{\InductiveClass}{\mathrm{Ind}}
+
+\newcommand{\Union}{\bigcup}
+\newcommand{\Intersect}{\bigcap}
+
+% Функции:
+\newcommand{\MapTo}[3]{#1\colon #2 \to #3}
+\newcommand{\setdiff}{\Delta}
+\newcommand{\powerset}{\mathcal{P}}
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+
+\subsubsection{Язык теории множеств}
+\textbf{Формулы} в теории множеств строятся с помощью двух \textit{атомарных формул}:
+\begin{itemize}
+    \item \(x = y\)
+    \item \(x \in y\)
+\end{itemize}
+
+И их \textbf{связок}:
+\begin{itemize}
+    \item \(\phi \land \psi\) --- "и"\,
+    \item \(\phi \lor \psi\) --- "или"\,
+    \item \(\phi \Rightarrow \psi\) --- "влечёт"\,
+    \item \(\phi \Leftrightarrow \psi\) --- "равносильно"\,
+    \item \(\neg\phi\) --- "отрицание"\,
+\end{itemize}
+
+А так же "кванторов"\,:
+\begin{itemize}
+    \item \(\forall x: \ldots\) — "для всех $x$ выполнено ..."
+    \item \(\exists x: \ldots\) --- "существует $x$ такой, что ..."\,
+\end{itemize}
+
+\begin{remark}
+    \label{rem:quantifier-relations-basic-operations}
+    Кванторы можно интерпретировать как "бесконечные формулы"\,:
+    \begin{align*}
+        &\forall x \rightsquigarrow x_1 \land x_2 \land \ldots \\
+        &\exists x \rightsquigarrow x_1 \lor  x_2 \lor  \ldots
+    \end{align*}
+\end{remark}
+
+\subsubsection{Классы и их базовые свойства}
+В этой секции \(\Phi(x)\) условие (возможно с параметрами). 
+\begin{definition}
+    \label{def:class}
+    Класс \(C\) есть все  \(x\) такие что \(\Phi(x)\).
+    \[C = \class{x : \Phi(x)}\]
+\end{definition} 
+
+Мотивация к понятию класса довольно очевидна: классы похожи на множества и поэтому с ними оперировать приятнее чем с формулами
+\begin{defnotation}
+    \(x \in C \coloneq \Phi(x)\)
+\end{defnotation}
+
+\begin{definition}
+    \label{def:class-equality}
+    Два класса \(C = \class{x : \Phi(x)}\) и \(D = \class{x : \Psi(x)}\) \textbf{равны} если \(\Phi(x) \Leftrightarrow \Psi(x)\)
+\end{definition}
+\begin{defnotation}
+    \(C = D \coloneq \Phi(x) \Leftrightarrow \Psi(x)\)
+\end{defnotation}
+
+\begin{definition}
+    \label{def:universal-class}
+    \textbf{Универсальным классом} называется класс всех множеств.
+\end{definition}
+\begin{defnotation}
+    \(\UniversalClass \coloneq \class{x: x = x}\)
+\end{defnotation}
+
+\begin{definition}
+    \label{def:subclasses}
+    Класс \(C = \class{x : \Phi(x)}\) \textbf{включен} в класс \(D = \class{x : \Psi(x)}\) если \(\Phi(x) \Rightarrow \Psi(x)\). 
+    \begin{itemize}
+        \item Если \(C\) включен в \(D\), то \(C\) \textbf{подкласс} \(D\).
+        \item Если \(C\) включен в \(D\) и \(D\) не включен в \(C\), то  \(C\) \textbf{собственный подкласс} \(D\).
+    \end{itemize}
+\end{definition}
+\begin{defnotation} \  
+    \begin{itemize}
+        \item \(C\) подкласс \(D\): \(C \subseteq D := \Phi(x) \Rightarrow \Psi(x)\).
+        \item \(C\) собственный подкласс \(D\): \(C \subset D := \left(\Phi(x) \Rightarrow \Psi(x)\right) \land \left(\Psi(x) \not\Rightarrow \Phi(x)\right)\).
+    \end{itemize}
+\end{defnotation}
+
+\begin{definition}
+    \label{def:class-operations}
+    Рассмотрим два класса \(C = \class{x : \Phi(x)}\) и \(D = \class{x : \Psi(x)}\) 
+    \begin{itemize}
+        \item Их \textbf{пересечением} называется класс \(C \cap D \coloneq \class{x: \Phi(x) \land \Psi(x)}\).
+        \item Их \textbf{объединением} называется класс \(C \cup D \coloneq \class{x: \Phi(x) \lor \Psi(x)}\).
+        \item Их \textbf{разностью} называется класс \(C \setminus D \coloneq \class{x: \Phi(x) \land \neg\Psi(x)}\)
+        \item \textbf{Объединением} класса \(C\) называется класс \(\bigcup C \coloneq \class{x: x \in S\ \text{для некоторого}\ S \in C}\)
+    \end{itemize}
+\end{definition}
+
+\begin{definition}
+    \label{def:proper-class}
+     Класс, не являющийся множеством, называется \textbf{собственным}.
+\end{definition}
+
+\begin{remark}
+    \label{rem:set-as-class}
+    Каждое множество \(S\) можно рассматривать как класс задаваемый формулой \(x \in S\). 
+    
+    Обратное, впрочем не верно. Для того что показать это, рассмотрим класс таких множеств, что не содержатся в себе: \(S = \set{x: x \not\in x}\). Если бы \(S\) было бы множеством, то было бы возможно два варианта:
+    \begin{itemize}
+        \item \(S \in S \Rightarrow S \not\in S\)
+        \item \(S \not\in S \Rightarrow S \in S\)
+    \end{itemize}
+    В обоих случаях получаем противоречие, а значит \(S\) --- собственный класс.
+\end{remark}
+
+\begin{remark}
+    \label{def:set-class-operations-symbols}
+    Несмотря на то что по отношению к классам и множествам используются одинаковые символы, эти символы несут немного разный смысл, так как у них разная область определения. Таким образом, формально запись \(x \cap C\), где \(x\) --- множество, а \(C\) класс, некорректна. Однако, в связи с замечанием \ref{rem:set-as-class}, мы можем считать каждое множество классом, и тогда такие "смешанные"\, записи можно интерпретировать как записи над классами.
+\end{remark}
+
+
+
+\subsubsection{Система ZFC}
+    \begin{defnotation}
+        \(\varnothing \coloneq \set{x : x \ne x}\)
+    \end{defnotation}
+    \begin{definition}
+        \label{def:inductive-class}
+        Множество \(X\) называется \textbf{индуктивным} если:
+        \[\varnothing \in X \land \forall u: u \in X \Rightarrow \{u, \{u\}\} \in X\]
+        
+        Класс индуктивных множеств: \(\InductiveClass\)
+    \end{definition}
+
+    \begin{axiom}[Аксиома экстенсиональности]
+        Два множества равны если их элементы совпадают:
+        \begin{equation}
+            \label{ZFC-Ext}
+            \forall X: \forall Y: \forall u: \left(u \in X \Leftrightarrow u \in Y \right) \Rightarrow X = Y \tag{Ext}
+        \end{equation}
+    \end{axiom}
+    \begin{axiom}[Аксиома пустого множества]
+        Существует пустое множество:
+        \begin{equation}
+            \label{ZFC-Empty}
+            \exists X: \forall u: u \in X \Leftrightarrow u \ne u \tag{Empty}
+        \end{equation}
+    \end{axiom}
+    \begin{axiom}[Аксиома пары]
+        Для всех \(a, b\) существует множество состоящее в точности из \(a\) и \(b\):
+        \begin{equation}
+            \label{ZFC-Pair}
+            \forall X,Y: \exists Z: \forall u: u \in Z \Leftrightarrow (u = X \lor  u = Y) \tag{Pair}
+        \end{equation}
+    \end{axiom}
+    \begin{axiom}[Схема аксиом выделения]
+        Для каждого условия \(\Phi(x)\) (возможно с параметрами) имеется своя аксиома выделения:
+        \begin{equation}
+            \label{ZFC-Sep}
+            \forall X: \exists Y: \forall u: u \in Y \Leftrightarrow (u \in X \land \Phi(u)) \tag{Sep}
+        \end{equation}
+    \end{axiom}
+    \begin{axiom}[Аксиома объединения]
+        Для любого множества \(X\) существует объединение его элементов:
+        \begin{equation}
+            \label{ZFC-Union}
+            \forall X: \exists Y: \forall u: u \in Y \Leftrightarrow \exists v: (v \in X \land u \in v) \tag{Union}
+        \end{equation}
+    \end{axiom}
+    \begin{axiom}[Аксиома степени]
+        Для любого множества \(X\) существует множество  всех подмножеств \(X\):
+        \begin{equation}
+            \label{ZFC-Power}
+            \forall X: \exists Y: \forall u: u \in Y \Leftrightarrow u \subseteq X \tag{Power}
+        \end{equation}
+    \end{axiom}
+    \begin{axiom}[Аксиома бесконечности]
+        Существует индуктивное множество:
+        \begin{equation}
+            \label{ZFC-Inf}
+            \exists X \in \InductiveClass \tag{Inf}
+        \end{equation}
+    \end{axiom}
+    \begin{axiom}[Схема аксиом подстановки]
+        Пусть \(\Phi(x,y)\) — инъективное по \(y\) условие (возможно с параметрами). Тогда для любого множества \(X\) найдется множество \(Y\) что для всякого \(y \in Y\) найдется \(x \in X\), такой что \(\Phi(x, y)\)
+        \begin{equation}
+            \label{ZFC-Repl}
+            \left(\forall x, y_1, y_2: \Phi(x_1, y) \land \Phi(x_2, y) \Rightarrow y_1 = y_2 \right) \Rightarrow  \forall X:\exists Y: \forall y: (y \in Y \Leftrightarrow \exists x: x \in X \land \Phi(x, y))) \tag{Repl}
+        \end{equation}
+    \end{axiom}
+    \begin{axiom}[Аксиома регулярности]
+        Всякое непустое множество содержит элемент, не содержащий в себе подмножество исходного множества.
+        \begin{equation}
+            \label{ZFC-Reg}
+            \forall X: X \ne \varnothing \Rightarrow (\exists u: u \in X \land X \cap u = \varnothing) \tag{Reg}
+        \end{equation}
+    \end{axiom}
+    \begin{axiom}[Аксиома выбора]
+        Для всякого семейства \(X\) непустых множеств существует функция \(f\), которая каждому множеству семейства сопоставляет один из элементов этого множества
+        \begin{equation}
+            \label{ZFC-Choice}
+            \forall X: \varnothing \not\in X \Rightarrow \left(\exists f: f: X \to \bigcup X \land \forall u \in X: f(u) \in u\right) \tag{Choice}
+        \end{equation}
+    \end{axiom}
+
+\subsubsection{Замечания к аксиомам}
+
+    \begin{remark}
+        \label{rem:zfc-ext}
+        Аксиома \ref{ZFC-Ext} выражает фундаментальную идею множества: каждое множество определяется своими элементами.
+    \end{remark}
+
+    \begin{remark}
+        \label{rem:zfc-empty}
+        Очевидно, что пустое множество единственно в силу аксиомы \ref{ZFC-Ext}. Как будет видно далее, на самом деле аксиома пустого множества не является "обязательной"\,: для того чтобы получить пустое множество надо взять любое множество и применить к нему схему аксиом выделения \ref{ZFC-Sep} с формулой \(x \ne x\). Однако существование хотя бы одного множества надо постулировать.
+    \end{remark}
+
+    \begin{remark}
+        \label{rem:sets-properties}
+        Основные свойства множеств:
+        \begin{itemize}
+            \item Либо \(x \in y\), либо \(y \in x\), либо ни то, ни другое. В частности, всегда верно \(x \not\in x\). 
+            \item \(x_1 \in x_2 \in \ldots \in x_n \Rightarrow x_n \not\in x_1\).
+        \end{itemize}
+    \end{remark}
+    \begin{proof} \ 
+
+        \fbox{1} Предположим, что \(x \in y\) и \(y \in x\). Рассмотрим \(\set{x, y}\). По аксиоме \ref{ZFC-Reg} имеем что либо \(x \cap \set{x, y} = \varnothing\), либо \(y \cap \set{x, y} = \varnothing\), либо и то, и то.
+        
+        Но при этом, так как \(y \in x\) имеем \(x \cap \set{x, y} \ne \varnothing\), т.к. пересечение содержит хотя бы \(y\). Аналогично \(y \cap \set{x, y} \ne \varnothing\), противоречие. 
+        
+        \fbox{2} Предположим, что \(x_n \in x_1\). Тогда \(\forall x_i \in A = \set{x_1, \ldots, x_n}: x_i \cap A \ne \varnothing\), противоречие с \ref{ZFC-Reg}.
+    \end{proof}
+    \begin{defnotation}
+        Существует несколько фундаментальных способов получать новые множества из имеющихся:
+        \begin{itemize}
+            \item Перечислением элементов: \(x_1, x_2, \ldots x_n \rightsquigarrow \set{x_1, x_2, \ldots, x_n}\)
+            \item Объединение двух множеств: \(X, Y \rightsquigarrow X \cup Y\)
+            \item Выделением по предикату: \(U, \Phi(x) \rightsquigarrow \set{x \in U \,|\, \Phi(x)} \subset U\)
+            \item Булеан, множество всех подмножеств: \(X \rightsquigarrow \powerset(X)\)
+        \end{itemize}
+    \end{defnotation}
+    \begin{defnotation}
+        С помощью объединения и выделения можно построить пересечение, разность и симметрическую разность множеств:
+    \begin{align*}
+        &X \cap Y \coloneq \set{x \in X \cup Y \,|\, x \in X \land x \in Y} \\
+        &X \setminus Y \coloneq \set{x \in X \cup Y \,|\, x \in X \land x \not\in Y} \\
+        &X \setdiff Y \coloneq \set{x \in X \cup Y \,|\, x \in X \lxor x \in Y}
+    \end{align*}
+    \end{defnotation}
+
+\section{Основные теоретико-множественные конструкции}
+
+\subsubsection{Аксиома пары. Упорядоченные пары}
+    \begin{definition}
+        \label{def:singleton}
+        \textbf{Синглтон} \(\set{a} \coloneq \set{a, a}\)
+    \end{definition}
+    \begin{remark}
+        \label{rem:singleton-properties}
+        Cинглтон --- множество (следует из \ref{ZFC-Pair}).  Более того, из \ref{ZFC-Ext} следует: \(a = b \Leftrightarrow \set{a} = \set{b}\). Понятно также, что синглтон не равен своему содержанию, если это так, то каждый элемент \(\set{a}\) принадлежит \(a\), в частности \(a \in a\), что противоречит \ref{rem:sets-properties}.    
+    \end{remark}
+
+    \begin{definition}
+        \label{def:ordered-pair}
+        Упорядоченная пара --- множество: \((a, b) \coloneq \set{\set{a}, \set{a,b}}\).
+    \end{definition}
+    \begin{remark}
+        \label{rem:pair-properties}
+        Неформально говоря, упорядоченная пара — это множество, в котором один элемент отмечен как первый, а другой как второй. Существуют другие способы определить упорядоченную пару, например:
+        \begin{align}
+            &(a, b) \coloneq \set{a, \set{a, b}}\ \text{упрощенный вариант определения} \\
+            &(a, b):= \set{\set{a},\set{b, \set{\varnothing}}}\ \text{по Куратовскому}
+        \end{align}
+        
+        Из \ref{ZFC-Pair} следует, что упорядоченная пара --- множество.
+    \end{remark}
+    \begin{proposition}[Основное свойство упорядоченной пары]
+        \label{prop:pair-main-property}
+        \[(a, b) = (c,d) \Leftrightarrow a = c \land b = d\]
+    \end{proposition}
+    \begin{proof}
+        \[(a, b) = (c, d) \Leftrightarrow \set{\set{a},\set{a, b}} = \set{\set{c},\set{c, d}} \Leftrightarrow a = c \land b = d\]
+
+        Второй переход требует некоторых пояснений: из \ref{ZFC-Ext} следует, что либо \(\set{a} = \set{c, d}\), либо \(\set{a} = \set{c}\). 
+        \begin{itemize}
+            \item В первом случае $c = d = a = b$. 
+            \item Во втором случае по замечанию \ref{rem:singleton-properties}: \(a = c\). Тогда, \(\set{a, b} = \set{c, d} = \set{a, d}\) и по \ref{ZFC-Ext} получаем что \(b = d\).
+        \end{itemize}
+    \end{proof}
+
+    \begin{definition}
+        \label{def:ordered-cortege}
+        \textbf{Упорядоченной \(n\)-кой} называется множество:
+        \begin{itemize}
+            \item  \((a_1, a_2)\) при \(n=2\)
+            \item \(((a_1, \ldots, a_{n-1}), a_n)\) при \(n > 2\)
+        \end{itemize}
+    \end{definition}
+    \begin{remark}
+        \label{rem:ordered-pair-universal-property}
+        Очевидно, что определение упорядоченной \(n\)-ки не единственно. Например, можно брать вместо \((a_1, a_2, a_3) \coloneq ((a_1, a_2), a_3)\) другое определение упорядоченной тройки: \((a_1, a_2, a_3) \coloneq (a_1, (a_2, a_3))\). Однако, и то, и другое определение обладают основным свойством:
+        \[(a_1, a_2, a_3, \ldots, a_n) = (b_1, b_2, b_3, \ldots, b_n) \Leftrightarrow \begin{cases} a_1 = b_1 \\ \ldots\\ a_n = b_n\end{cases}\]
+    \end{remark}
+
+\subsubsection{Булеан множества}
+
+    TBD: Example of Boolean
+
+    \begin{proposition}
+        \label{prop:powerset-notsubset-set}
+        Не существует такого множества \(X\), что \(\powerset(X) \subset X\).
+    \end{proposition}
+    \begin{proof}
+        Пусть такое множество \(X\) существует.
+        Мы знаем, что \(X \in \powerset(X) \subset X\). Это значит что \(X \in X\), что противоречит \ref{rem:sets-properties}.
+    \end{proof}
+
+    С помощью булеана можно получить все конечные множества:
+    \[\varnothing;\ 2^\varnothing = \set{\varnothing}; 2^{\set{\varnothing}} = \set{\varnothing, \set{\varnothing}}; \ldots\]
+    \begin{remark}
+        Чтобы получать не только степени двойки, можно объединять разные множества: так например множество из 3-х элементов можно получить следующим образом 
+        \[\set{\varnothing, \set{\varnothing}, \set{\varnothing, \set{\varnothing}}}\] 
+    \end{remark}
+    Введем обозначения
+    \begin{align}
+        &0 := \varnothing \\
+        &1 := \set{\varnothing}\\
+        &2 := \set{\varnothing, \set{\varnothing}} \\
+        &\dots \\
+        &n := \set{0, 1, \ldots, n - 1}
+    \end{align}
+    Тогда постулируется существование множества \(\mathbb N \eqdef \set{0, 1, 2, \ldots}\). 
+
+\subsubsection{Декартово произведение множеств}
+    У каждого множества \(X\) есть множество всех его подмножеств \(\powerset(X)\). 
+
+    Заметим, что если \(a \in X,\, b \in Y\), то \((a, b) \in 2^{2^{X \cup Y}}\). Поэтому, используя \ref{ZFC-Sep}, получаем следующую конструкцию: 
+    \begin{definition}
+        \label{def:decart-product}
+        Декартово произведение множеств \(X\) и \(Y\) это множество всех таких пар \((x, y)\) что \(x \in X\), \(y \in Y\). 
+        
+        Обозначается как: \(X \times Y \coloneq \{(a,b) \in 2^{2^{X \cup Y}}\,|\, a \in X \land b \in Y\}\)
+    \end{definition}
+    \begin{definition}
+        \label{def:decart-product-of-n-sets}
+        Аналогично можем определить декартово произведение \(n\) множеств
+        \begin{enumerate}
+            \item \(X_1 \times X_2 \times\ldots\times X_n \coloneq (X_1 \times X_2 \times\ldots\times X_{n-1})\times X_n\).
+            \item \(X_1 \times X_2 \times\ldots\times X_n \coloneq \set{(x_1,\ldots,x_n) \in T_n\,|\, x_1 \in X_1 \land\ldots\land x_n \in X_n}\), где \(T_n = \powerset(\powerset(T_{n-1}\cup X_n))\), \(T_1 = X_1\)
+        \end{enumerate}
+    \end{definition}
+    \begin{remark}
+        \label{rem:equal-defs-of-decart-product}
+        Определения \ref{def:decart-product-of-n-sets}.1 и  \ref{def:decart-product-of-n-sets}.2 равносильны так как в обоих случаях итоговое множество состоит из одних и тех же элементов.
+    \end{remark}
+    \begin{defnotation}
+        \(X^n \coloneq \underset{n\ \text{раз}}{X \times\ldots\times X}\)
+    \end{defnotation}
+
+    TBD: Images, examples
+
+    
+
+\end{document}
