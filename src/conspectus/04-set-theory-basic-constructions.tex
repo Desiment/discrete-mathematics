@@ -50,46 +50,47 @@
 \maketitle
 \tableofcontents
 
-
-\subsubsection{Язык теории множеств}
+\section{Обзор особенностей построения теории множеств}
+\subsection{Теория множеств как язык}
 \textbf{Формулы} в теории множеств строятся с помощью двух \textit{атомарных формул}:
 \begin{itemize}
     \item \(x = y\)
     \item \(x \in y\)
 \end{itemize}
-
 И их \textbf{связок}:
 \begin{itemize}
-    \item \(\phi \land \psi\) --- "и"\,
-    \item \(\phi \lor \psi\) --- "или"\,
-    \item \(\phi \Rightarrow \psi\) --- "влечёт"\,
-    \item \(\phi \Leftrightarrow \psi\) --- "равносильно"\,
-    \item \(\neg\phi\) --- "отрицание"\,
+    \item \(\phi \land \psi\) --- \enquote{и}
+    \item \(\phi \lor \psi\) --- \enquote{или}
+    \item \(\phi \Rightarrow \psi\) --- \enquote{влечёт}
+    \item \(\phi \Leftrightarrow \psi\) --- \enquote{равносильно}
+    \item \(\neg\phi\) --- \enquote{отрицание}
 \end{itemize}
-
-А так же "кванторов"\,:
+А так же кванторов:
 \begin{itemize}
-    \item \(\forall x: \ldots\) — "для всех $x$ выполнено ..."
-    \item \(\exists x: \ldots\) --- "существует $x$ такой, что ..."\,
+    \item \(\forall x: \ldots\) --- \enquote{для всех $x$ выполнено ...}
+    \item \(\exists x: \ldots\) --- \enquote{существует $x$ такой, что ...}.
 \end{itemize}
-
 \begin{remark}
     \label{rem:quantifier-relations-basic-operations}
-    Кванторы можно интерпретировать как "бесконечные формулы"\,:
+    Кванторы можно интерпретировать как \enquote{бесконечные формулы}:
     \begin{align*}
         &\forall x \rightsquigarrow x_1 \land x_2 \land \ldots \\
         &\exists x \rightsquigarrow x_1 \lor  x_2 \lor  \ldots
     \end{align*}
 \end{remark}
 
-\subsubsection{Классы и их базовые свойства}
-В этой секции \(\Phi(x)\) условие (возможно с параметрами). 
+\subsection{О моделях теории множеств}
+Когда мы говорим о наборе аксиом ZFC, интуитивным представляется что этот набор 
+
+\subsection{Классы и их базовые свойства}
+В этой секции \(\Phi(x)\) условие (возможно с параметрами, \ie под записью \(\Phi(x)\) подразумевается \(\Phi(x, p_1, \ldots, p_n)\)). 
 \begin{definition}
     \label{def:class}
-    Класс \(C\) есть все  \(x\) такие что \(\Phi(x)\).
-    \[C = \class{x : \Phi(x)}\]
+    Класс \(C\) есть все \(x\) такие что \(\Phi(x)\).
+    \[
+        C = \class{x : \Phi(x)}
+    \]
 \end{definition} 
-
 Мотивация к понятию класса довольно очевидна: классы похожи на множества и поэтому с ними оперировать приятнее чем с формулами
 \begin{defnotation}
     \(x \in C \coloneq \Phi(x)\)
@@ -161,7 +162,7 @@
 
 
 
-\subsubsection{Система ZFC}
+\section{Система ZFC}
     \begin{defnotation}
         \(\varnothing \coloneq \set{x : x \ne x}\)
     \end{defnotation}
