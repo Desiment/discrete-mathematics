@@ -1,54 +1,15 @@
 \documentclass{article}
 \input{configuration/preamble.tex}
+\mmzset{memo dir = images/cache/\jobname}
 
 \title{Понятие мощности множества. Четыре теоремы Кантора}
 \author{Михаил Михайлов}
 \date{\today}
-\newcommand{\ie}{т{.}~e{.}}
-\newcommand{\card}{\mathrm{card}}
-\mmzset{memo dir = images/cache/\jobname}
-\makeatletter
-\def\renewtheorem#1{%
-  \expandafter\let\csname#1\endcsname\relax
-  \expandafter\let\csname c@#1\endcsname\relax
-  \gdef\renewtheorem@envname{#1}
-  \renewtheorem@secpar
-}
-\def\renewtheorem@secpar{\@ifnextchar[{\renewtheorem@numberedlike}{\renewtheorem@nonumberedlike}}
-\def\renewtheorem@numberedlike[#1]#2{\newtheorem{\renewtheorem@envname}[#1]{#2}}
-\def\renewtheorem@nonumberedlike#1{  
-\def\renewtheorem@caption{#1}
-\edef\renewtheorem@nowithin{\noexpand\newtheorem{\renewtheorem@envname}{\renewtheorem@caption}}
-\renewtheorem@thirdpar
-}
-\def\renewtheorem@thirdpar{\@ifnextchar[{\renewtheorem@within}{\renewtheorem@nowithin}}
-\def\renewtheorem@within[#1]{\renewtheorem@nowithin[#1]}
-\makeatother
 
-\renewtheorem{theorem}{Теорема}[section]
-\newtheorem*{defnotation}{Нотация}
-\newtheorem{axiom}{Аксиома}
-
-
-%Logic
-\newcommand{\lxor}{\oplus}
-\newcommand{\excludeor}{\bowtie}
-%Set Theory
-\newcommand{\class}[1]{\set{#1}}
-\newcommand{\UniversalClass}{\mathfrak{V}}
-\newcommand{\InductiveClass}{\mathrm{Ind}}
-
-\newcommand{\Union}{\bigcup}
-\newcommand{\Intersect}{\bigcap}
-
-% Функции:
-\newcommand{\MapTo}[3]{#1\colon #2 \to #3}
-\newcommand{\setdiff}{\Delta}
-\newcommand{\powerset}{\mathcal{P}}
 \begin{document}
-
 \maketitle
 \tableofcontents
+\newpage
 
 \section{Обзор особенностей построения теории множеств}
 \subsection{Теория множеств как язык}
