@@ -1,11 +1,11 @@
 \documentclass{article}
 \input{configuration/preamble.tex}
 
-\title{Понятие мощности множества. Четыре теоремы Кантора}
+\title{Понятие мощности множества. Три теоремы Кантора}
 \author{Михаил Михайлов}
 \date{\today}
 \newcommand{\ie}{т{.}~e{.}}
-\newcommand{\card}{\mathrm{card}}
+\DeclareMathOperator{\card}{card}
 \mmzset{memo dir = images/cache/\jobname}
 \makeatletter
 \def\renewtheorem#1{%
@@ -26,7 +26,7 @@
 \makeatother
 
 \renewtheorem{theorem}{Теорема}[section]
-
+\DeclareMathOperator{\id}{id}
 
 \begin{document}
 
@@ -35,43 +35,6 @@
 
 \newpage
 \section{Функции}
-\begin{definition}
-    \label{def:function-image-preimage}
-    Пусть \(f: X \rightarrow Y\) отображение:
-    \begin{itemize}
-        \item \textbf{Образ \(A \subset X\)} --- множество \(f(A) = \set{f(a) | a \in A}\)
-        \item \textbf{Прообраз \(B \subset Y\)} --- множество \(f^{-1}(B) = \set{x \in X | f(x) \in B}\)
-    \end{itemize}
-\end{definition}
-
-\begin{definition}
-    \label{def:function-injection-surjection-bijection}
-    Пусть \(f: X \rightarrow Y\) отображение:
-    \begin{itemize}
-        \item \(f\) \textbf{инъекция} если: 
-        \[\forall\, a_1, a_2 \in X: f(a_1) = f(a_2) \Rightarrow a_1 = a_2\]
-        \item \(f\) \textbf{сюръекция} если
-        \[\forall\, b \in Y: f^{-1}(b) \neq \varnothing\]
-        \item \(f\) \textbf{биекция} если \(f\) оно сюръекция и инъекция одновременно.
-    \end{itemize}
-\end{definition}
-
-\begin{definition}
-    \label{def:left-inverse-function}
-    Если есть инъекция \(f: X \rightarrow Y\), то функция \(g: f(X) \rightarrow X\) такая что \(g(y) = f^{-1}(y)\) называется функцией \textbf{обратной} к \(f\).
-\end{definition}
-\begin{remark}
-    Строго говоря, такое определение не является каноническим. Объект определенный здесь это \textbf{левая обратная функция}. Однако, иногда удобно пользоваться именно таким понимание обратной функции.
-\end{remark}
-
-\begin{proposition}
-    \label{prop:left-inverse-injection}
-    Функция \(f\) обратима тогда и только тогда, когда она инъективна. 
-\end{proposition}
-\begin{proof}
-    Ко всякой инъективной функции уже была построена обратная выше.
-    Теперь предположим, что у \(f\) есть обратная функция, но при этом \(f\) не инъективна: т.е. существуют \(x_1 \ne x_2: f(x_1) = f(x_2)\). Тогда значение обратной функции \(g\) в точке \(f(x_1)\) не определено. Противоречие. 
-\end{proof}
 
 \begin{definition}
     \label{def:function-restriction}
@@ -80,8 +43,66 @@
 
 \begin{definition}
     \label{def:function-graphics}
-    \textbf{График функции} \(f: X \rightarrow Y\) --- множество \(\Gamma_f = \set{(x, f(x) | x \in X}\).
+    \textbf{Графиком функции} \(f: X \rightarrow Y\) называется множество \(\Gamma_f = \set{(x, f(x)) | x \in X}\).
 \end{definition}
+
+
+\subsection{Образ, прообраз и их свойства}
+\begin{definition}
+    \label{def:function-image-preimage}
+    Пусть \(f: X \rightarrow Y\) отображение.
+    \begin{itemize}
+        \item \textbf{Образ множества \(A \subset X\)} называется множество \(f(A) = \set{f(a) | a \in A}\);
+        \item \textbf{Прообразом множества \(B \subset Y\)} называется множество \(f^{-1}(B) = \set{x \in X | f(x) \in B}\);
+    \end{itemize}
+\end{definition}
+
+
+\begin{proposition}[Свойства образа]
+    Пусть \(f: X \rightarrow Y\). Тогда 
+    \begin{itemize}
+        \item \(\forall A, B \subset X\): \(f(A \cup B) = f(A) \cup f(B)\)
+        \item \(\forall \set{A_i}_{i \in I},\, A_i \subset X\):  \(f(\bigcup_{i \in I} A_i) = \bigcup_{i \in I} f(A_i)\)
+    \end{itemize}
+    Так же, \(f\) инъективно тогда и только тогда, когда:  \(\forall A, B \subset X\): \(f(A \cap B) = f(A) \cap f(B)\)
+\end{proposition}
+\begin{proof}
+    Тривиально (используется прямое вычисление и определения)
+\end{proof}
+
+\begin{proposition}[Свойства прообраза]
+    Пусть \(f: X \rightarrow Y\). Тогда 
+    \begin{itemize}
+        \item \(\forall A, B \subset Y\): \(f^{-1}(A \cup B) = f^{-1}(A) \cup f^{-1}(B)\)
+        \item \(\forall A, B \subset Y\): \(f^{-1}(A \cap B) = f^{-1}(A) \cap f^{-1}(B)\)
+        \item \(\forall A, B \subset Y\): \(f^{-1}(A \setminus B) = f^{-1}(A) \setminus f^{-1}(B)\)
+        \item \(\forall A, B \subset Y\): \(f^{-1}(A \Delta B) = f^{-1}(A) \Delta f^{-1}(B)\)
+        \item \(\forall \set{A_i}_{i \in I},\, A_i \subset Y\):  \(f^{-1}(\bigcup_{i \in I} A_i) = \bigcup_{i \in I} f^{-1}(A_i)\)
+        \item \(\forall \set{A_i}_{i \in  I},\, A_i \subset Y\):  \(f(\bigcap_{i \in I} A_i) = \bigcap_{i \in  I} f(A_i)\)
+    \end{itemize}
+\end{proposition}
+\begin{proof}
+    Тривиально (используется прямое вычисление и определения).
+\end{proof}
+
+\begin{remark}
+    Если \(A\) одноточечно, \(A = \set{x_0}\), часто пишут \(f(x_0)\) вместо \(f(\set{x_0})\). Аналогично для прообраза.  
+\end{remark}
+
+\subsection{Инъективные, сюръективные и биективные отображения}
+\begin{definition}
+    \label{def:function-injection-surjection-bijection}
+    Пусть \(f: X \rightarrow Y\) отображение:
+    \begin{itemize}
+        \item Говорят что \(f\) --- \textbf{инъекция}, если: 
+        \[\forall\, a_1, a_2 \in X: f(a_1) = f(a_2) \Rightarrow a_1 = a_2\]
+        \item Говорят что  \(f\) --- \textbf{сюръекция} если
+        \[\forall\, b \in Y: f^{-1}(b) \neq \varnothing\]
+        \item Говорят что  \(f\) --- \textbf{биекция} если \(f\) оно сюръекция и инъекция одновременно.
+    \end{itemize}
+\end{definition}
+
+\subsection{Композиция функций и её свойства}
 
 \begin{definition}
     \label{def:composition}
@@ -122,51 +143,73 @@
     \textbf{Свойство 7}: Известно, что функция обратима тогда и только тогда, когда она инъективна (см предложение \ref{prop:left-inverse-injection}), а значит свойство равносильно свойству 1.
 \end{proof}
 
-\begin{proposition}
-    Пусть \(f: X \rightarrow Y\). Тогда 
-    \begin{itemize}
-        \item \(\forall A, B \subset X\): \(f(A \cup B) = f(A) \cup f(B)\)
-        \item \(\forall \set{A_i}_{i \in I},\, A_i \subset X\):  \(f(\bigcup_{i \in I} A_i) = \bigcup_{i \in I} f(A_i)\)
-    \end{itemize}
-    Так же, \(f\) инъективно тогда и только тогда, когда:  \(\forall A, B \subset X\): \(f(A \cap B) = f(A) \cap f(B)\)
-\end{proposition}
-\begin{proof}
-    Тривиально (используется прямое вычисление и определения)
-\end{proof}
+
+\subsection{Обратные отображения}
+\begin{definition}
+    \label{def:left-inverse-function}
+    Если есть инъекция \(f: X \rightarrow Y\), то функция \(g: f(X) \rightarrow X\) такая что \(g(f(x)) = x\) называется функцией, \textbf{левой обратной} к \(f\).
+\end{definition}
 
 \begin{proposition}
-    Пусть \(f: X \rightarrow Y\). Тогда 
-    \begin{itemize}
-        \item \(\forall A, B \subset Y\): \(f^{-1}(A \cup B) = f^{-1}(A) \cup f^{-1}(B)\)
-        \item \(\forall A, B \subset Y\): \(f^{-1}(A \cap B) = f^{-1}(A) \cap f^{-1}(B)\)
-        \item \(\forall A, B \subset Y\): \(f^{-1}(A \setminus B) = f^{-1}(A) \setminus f^{-1}(B)\)
-        \item \(\forall A, B \subset Y\): \(f^{-1}(A \Delta B) = f^{-1}(A) \Delta f^{-1}(B)\)
-        \item \(\forall \set{A_i}_{i \in I},\, A_i \subset Y\):  \(f^{-1}(\bigcup_{i \in I} A_i) = \bigcup_{i \in I} f^{-1}(A_i)\)
-        \item \(\forall \set{A_i}_{i \in  I},\, A_i \subset Y\):  \(f(\bigcap_{i \in I} A_i) = \bigcap_{i \in  I} f(A_i)\)
-    \end{itemize}
+    \label{prop:left-inverse-injection}
+    У функция \(f\) есть левая обратная тогда и только тогда, когда она инъективна. 
 \end{proposition}
 \begin{proof}
-    Тривиально (используется прямое вычисление и определения).
+    Ко всякой инъективной функции уже была построена обратная выше.
+    Теперь предположим, что у \(f\) есть обратная функция, но при этом \(f\) не инъективна: т.е. существуют \(x_1 \ne x_2: f(x_1) = f(x_2)\). Тогда значение обратной функции \(g\) в точке \(f(x_1)\) не определено. Противоречие. 
 \end{proof}
 
-\begin{remark}
-    Если \(A\) одноточечно, \(A = \set{x_0}\), часто пишут \(f(x_0)\) вместо \(f(\set{x_0})\). Аналогично для прообраза.  
-\end{remark}
 \newpage
 
 \section{Мощность множеств}
+
+Нформально, мощность множества это такое обобщение идеи \textit{числа}, чтобы говорить о размере множества, то есть о количестве элементов в нем. Формально это некоторое расширение множества натуральных чисел, которое позволяет сравнивать между собой \enquote{разные} бесконечности.
+
+
+Для конечных множеств мощность это просто количество элементов в множестве, например, множество \(\set{a, b}\) имеет мощность 2. Но как быть с бесконечными множествами? Тут уже количество элементов не посчитать обычным способом. Георг Кантор занимался теорией множеств и ввел понятие мощности. Идея, которую использовал Кантор, была следующая: если между двумя множествами есть биекция (взаимно-однозначное соответствие), то эти множества должны иметь одинаковую мощность. Например, натуральные числа и чётные числа: каждому натуральному \(n\) можно поставить в соответствие \(2n\), и такое отображение будет биекцией. Значит, их мощности равны, хотя интуитивно кажется, что чётных чисел меньше.
+
+На первый взгляд возникает \enquote{парадокс}: часть множества равна по мощности целому. Однако, это просто особенность бесконечных множеств. Кантор, показал, что существуют разные \enquote{уровни} бесконечности. Например, множество действительных чисел имеет большую мощность, чем натуральные: между этим двумя множествами нет биекции. До Кантора математики не очень формально подходили к бесконечностям. Кантор систематизировал понятие бесконечности, ввёл сравнение через биекции, показал, что бесконечности бывают разными. Это, вызвало споры, но в итоге стало основой для теории множеств и современной математики.
+
+Мы не будем пока вводить формально мощность как объект, расширяющий понятие числа, а будем думать про мощность в контексте двух множеств и пытаться их сравнивать между собой.
+
 \begin{definition}
     \label{def:set-cardinality-equal}
     Мощность \(A\) \textbf{равна} мощности \(B\) тогда и только тогда, когда  существует биекция между \(A\) и \(B\).
-    \[\card A = \card B \overset{\text{\tiny def}}{\Leftrightarrow} \exists f: A \rightarrow B, \text{где \(f\) --- биекция}\]
+    \[
+        \card A = \card B \overset{\text{\tiny def}}{\Leftrightarrow} \exists f: A \rightarrow B, \text{где \(f\) --- биекция}
+    \]
 \end{definition}
+\begin{proposition}
+    Множество натуральных чисел равномощно множеству четных натуральных чисел: 
+    \[
+        \card \N = \card \N_{\text{чет}}
+    \]
+\end{proposition}
+\begin{proof}
+    Рассмотрим отображение 
+    \begin{align*}
+        & f \colon \N \to \N_{\text{чет}} \\
+        &n \mapsto 2n
+    \end{align*}
+    и проверим что оно является биекцией. Для этого рассмотрим отображение:
+    \begin{align*}
+        & g \colon \N_{\text{чет}} \to N \\
+        & n \mapsto \frac{n}{2}
+    \end{align*}
+    Легко видеть что \(f \circ g = \id_{\N_{\text{чет}}}\) и \(g \circ f = \id_{\N}\), а значит \(g\) это обратная к \(f\), поэтому \(f\) биекция (по предложению TODO)
+\end{proof}
 
 \begin{definition}
     \label{def:set-cardinality-order}
     Мощность \(A\) \textbf{не больше} мощности \(B\) тогда и только тогда, когда существует инъекция из \(A\) в \(B\). 
     \[\card A \leqslant \card B \overset{\text{\tiny def}}{\Leftrightarrow} \exists f: A \rightarrow B, \text{где \(f\) --- инъекция}\]
 \end{definition}
-
+\begin{remark}
+    В частности если \(A \subseteq B\), то существует инъекция \(f \colon A \injto B\) которая просто отображает \(A\) в себя: \(f(a) = a\), поэтому мощность подмножества не может быть строго больше мощности множества.
+\end{remark}
+\begin{remark}
+    Разумно ожидать что если \(\card A \leq \card B\) и \(\card B \leq \card A\), то \(\card A = \card B\). Это действительно так, однако, это совсем нетривиальный результат.
+\end{remark}
 
 \begin{proposition}
     \label{prop:set-cardinality-order}
@@ -191,6 +234,7 @@
     Если \(X\) равномощно \([0; 1]\) то \(X\) имеет мощность \textbf{континуума}. 
 \end{definition}
 
+\subsection{Бесконечные множества}
 \begin{proposition}
     \label{prop:basic-bijection}
     \[\card (0; 1) \underset{1}{=} \card (0; 1] \underset{2}{=} \card [0; 1) \underset{3}{=} \card [0; 1]\]
@@ -222,6 +266,7 @@
     будет биекцией.
 \end{corollary}
 
+\subsection{Теорема Кантора о неравномощности отрезка и натурального ряда}
 \begin{theorem}[Первая теорема Кантора]
     \label{th:first-cantor-th}
     \[\card \N \neq \card [0;1]\]
@@ -237,6 +282,7 @@
     Так как \(f\) биекция, то найдется \(k \in \N: x = f(k)\). Так как \(x\) состоит только из 4 и 5, то у числа \(x\) единственная десятичная запись. Тогда и у числа \(f(k)\) тоже единственная десятичная запись, а значит записи \(x\) и \(f(k)\) совпадают. Но по построению \(k\)-ая цифра \(x\) не равна \(k\)-ой цифре \(f(k)\). Противоречие, а значит \(f\) не существует.
 \end{proof}
 
+\subsection{Теорема Кантора-Бернштейна}
 
 \begin{lemma}
     \label{lm:cantor-second-th}
@@ -344,6 +390,7 @@
     \label{fig:example-th-cantor-second-th}
 \end{figure}
 
+\subsection{Теорема Кантора о неравномощности множества и его булеана}
 
 \begin{theorem}[Третья теорема Кантора]
     \label{th:third-cantor-th}
@@ -359,5 +406,28 @@
     \end{align*}
     Получаем противоречие. 
 \end{proof}
+
+\section{Иерархия бесконечностей}
+
+\subsection{Счетные множества}
+\begin{theorem}
+    Подмножество счетного множества не более чем счетно
+\end{theorem}
+\begin{theorem}
+    Конечное декартово произведение счетных множеств счетно
+\end{theorem}
+\begin{theorem}
+    Счетное объединение не более чем счетных множеств счетно
+\end{theorem}
+
+Пример использования аксиомы выбора
+
+\subsection{Несчетные множества и континуум}
+
+О разнице между несчетностью и континуумом. 
+
+Мощности строго больше континуума. Иерархия алефов
+
+О промежуточных мощностях. Гипотеза континуума. 
 
 \end{document}
