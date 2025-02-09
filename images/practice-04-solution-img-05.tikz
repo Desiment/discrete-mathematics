@@ -1,0 +1,291 @@
+
+
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+%uncomment if require: \path (0,464); %set diagram left start at 0, and has height of 464
+
+%Shape: Rectangle [id:dp8009720042982136] 
+\draw  [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,draw opacity=1 ][dash pattern={on 4.5pt off 4.5pt}][line width=0.75]  (150.76,66.42) -- (186.32,66.42) -- (186.32,137.84) -- (150.76,137.84) -- cycle ;
+%Shape: Rectangle [id:dp24501027588177715] 
+\draw  [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,draw opacity=1 ][dash pattern={on 4.5pt off 4.5pt}][line width=0.75]  (212.61,43.84) -- (248.17,43.84) -- (248.17,160.42) -- (212.61,160.42) -- cycle ;
+%Straight Lines [id:da02713143326049461] 
+\draw    (169.17,83.17) -- (230.17,59.17) ;
+%Straight Lines [id:da5815476983165748] 
+\draw    (169.17,105.17) -- (230.17,81.17) ;
+%Straight Lines [id:da15920397398352937] 
+\draw    (169.17,125.17) -- (230.17,101.17) ;
+%Straight Lines [id:da031235067112925563] 
+\draw    (169.17,125.17) -- (230.17,146.17) ;
+%Straight Lines [id:da9650729709273957] 
+\draw    (169.17,105.17) -- (230.17,126.17) ;
+%Straight Lines [id:da09537481172085416] 
+\draw    (169.17,83.17) -- (230.17,102.17) ;
+%Shape: Circle [id:dp5583380115496315] 
+\draw  [fill={rgb, 255:red, 255; green, 255; blue, 255 }  ,fill opacity=1 ] (222,81.17) .. controls (222,76.66) and (225.66,73) .. (230.17,73) .. controls (234.68,73) and (238.33,76.66) .. (238.33,81.17) .. controls (238.33,85.68) and (234.68,89.33) .. (230.17,89.33) .. controls (225.66,89.33) and (222,85.68) .. (222,81.17) -- cycle ;
+%Shape: Circle [id:dp4263936554739016] 
+\draw  [fill={rgb, 255:red, 255; green, 255; blue, 255 }  ,fill opacity=1 ] (222,102.17) .. controls (222,97.66) and (225.66,94) .. (230.17,94) .. controls (234.68,94) and (238.33,97.66) .. (238.33,102.17) .. controls (238.33,106.68) and (234.68,110.33) .. (230.17,110.33) .. controls (225.66,110.33) and (222,106.68) .. (222,102.17) -- cycle ;
+%Shape: Circle [id:dp17919514239626344] 
+\draw  [fill={rgb, 255:red, 255; green, 255; blue, 255 }  ,fill opacity=1 ] (222,123.17) .. controls (222,118.66) and (225.66,115) .. (230.17,115) .. controls (234.68,115) and (238.33,118.66) .. (238.33,123.17) .. controls (238.33,127.68) and (234.68,131.33) .. (230.17,131.33) .. controls (225.66,131.33) and (222,127.68) .. (222,123.17) -- cycle ;
+%Shape: Circle [id:dp290054683905961] 
+\draw  [fill={rgb, 255:red, 255; green, 255; blue, 255 }  ,fill opacity=1 ] (222,59.17) .. controls (222,54.66) and (225.66,51) .. (230.17,51) .. controls (234.68,51) and (238.33,54.66) .. (238.33,59.17) .. controls (238.33,63.68) and (234.68,67.33) .. (230.17,67.33) .. controls (225.66,67.33) and (222,63.68) .. (222,59.17) -- cycle ;
+%Shape: Circle [id:dp7763033663602461] 
+\draw  [fill={rgb, 255:red, 255; green, 255; blue, 255 }  ,fill opacity=1 ] (222,146.17) .. controls (222,141.66) and (225.66,138) .. (230.17,138) .. controls (234.68,138) and (238.33,141.66) .. (238.33,146.17) .. controls (238.33,150.68) and (234.68,154.33) .. (230.17,154.33) .. controls (225.66,154.33) and (222,150.68) .. (222,146.17) -- cycle ;
+%Shape: Rectangle [id:dp1296384343852126] 
+\draw  [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,draw opacity=1 ][dash pattern={on 4.5pt off 4.5pt}][line width=0.75]  (296.24,11) -- (331.79,11) -- (331.79,193.26) -- (296.24,193.26) -- cycle ;
+%Shape: Circle [id:dp0813868397855888] 
+\draw   (306,79.17) .. controls (306,74.66) and (309.66,71) .. (314.17,71) .. controls (318.68,71) and (322.33,74.66) .. (322.33,79.17) .. controls (322.33,83.68) and (318.68,87.33) .. (314.17,87.33) .. controls (309.66,87.33) and (306,83.68) .. (306,79.17) -- cycle ;
+%Shape: Circle [id:dp5866139457751283] 
+\draw   (306,100.17) .. controls (306,95.66) and (309.66,92) .. (314.17,92) .. controls (318.68,92) and (322.33,95.66) .. (322.33,100.17) .. controls (322.33,104.68) and (318.68,108.33) .. (314.17,108.33) .. controls (309.66,108.33) and (306,104.68) .. (306,100.17) -- cycle ;
+%Shape: Circle [id:dp17724808286937188] 
+\draw   (306,121.17) .. controls (306,116.66) and (309.66,113) .. (314.17,113) .. controls (318.68,113) and (322.33,116.66) .. (322.33,121.17) .. controls (322.33,125.68) and (318.68,129.33) .. (314.17,129.33) .. controls (309.66,129.33) and (306,125.68) .. (306,121.17) -- cycle ;
+%Shape: Circle [id:dp8004332145885156] 
+\draw   (306,57.17) .. controls (306,52.66) and (309.66,49) .. (314.17,49) .. controls (318.68,49) and (322.33,52.66) .. (322.33,57.17) .. controls (322.33,61.68) and (318.68,65.33) .. (314.17,65.33) .. controls (309.66,65.33) and (306,61.68) .. (306,57.17) -- cycle ;
+%Shape: Circle [id:dp9562300542640927] 
+\draw   (306,144.17) .. controls (306,139.66) and (309.66,136) .. (314.17,136) .. controls (318.68,136) and (322.33,139.66) .. (322.33,144.17) .. controls (322.33,148.68) and (318.68,152.33) .. (314.17,152.33) .. controls (309.66,152.33) and (306,148.68) .. (306,144.17) -- cycle ;
+%Shape: Circle [id:dp6040024406527569] 
+\draw   (306,35.17) .. controls (306,30.66) and (309.66,27) .. (314.17,27) .. controls (318.68,27) and (322.33,30.66) .. (322.33,35.17) .. controls (322.33,39.68) and (318.68,43.33) .. (314.17,43.33) .. controls (309.66,43.33) and (306,39.68) .. (306,35.17) -- cycle ;
+%Shape: Circle [id:dp6594567658471977] 
+\draw   (306,167.17) .. controls (306,162.66) and (309.66,159) .. (314.17,159) .. controls (318.68,159) and (322.33,162.66) .. (322.33,167.17) .. controls (322.33,171.68) and (318.68,175.33) .. (314.17,175.33) .. controls (309.66,175.33) and (306,171.68) .. (306,167.17) -- cycle ;
+%Shape: Rectangle [id:dp11555980871870664] 
+\draw  [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,draw opacity=1 ][dash pattern={on 4.5pt off 4.5pt}][line width=0.75]  (476,140.44) -- (440.45,140.44) -- (440.45,69.02) -- (476,69.02) -- cycle ;
+%Shape: Rectangle [id:dp25314266886308845] 
+\draw  [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,draw opacity=1 ][dash pattern={on 4.5pt off 4.5pt}][line width=0.75]  (414.15,163.02) -- (378.6,163.02) -- (378.6,46.44) -- (414.15,46.44) -- cycle ;
+%Straight Lines [id:da5373477734812577] 
+\draw    (457.6,123.69) -- (396.6,147.69) ;
+%Straight Lines [id:da1867936731209443] 
+\draw    (457.6,101.69) -- (396.6,125.69) ;
+%Straight Lines [id:da2659141879058389] 
+\draw    (457.6,81.69) -- (396.6,105.69) ;
+%Straight Lines [id:da15251365899224378] 
+\draw    (457.6,81.69) -- (396.6,60.69) ;
+%Straight Lines [id:da8275552619075606] 
+\draw    (457.6,101.69) -- (396.6,80.69) ;
+%Straight Lines [id:da37249120117193213] 
+\draw    (457.6,123.69) -- (396.6,104.69) ;
+%Shape: Circle [id:dp7385886513861666] 
+\draw  [fill={rgb, 255:red, 255; green, 255; blue, 255 }  ,fill opacity=1 ] (404.76,125.69) .. controls (404.76,130.2) and (401.11,133.86) .. (396.6,133.86) .. controls (392.09,133.86) and (388.43,130.2) .. (388.43,125.69) .. controls (388.43,121.18) and (392.09,117.53) .. (396.6,117.53) .. controls (401.11,117.53) and (404.76,121.18) .. (404.76,125.69) -- cycle ;
+%Shape: Circle [id:dp19941305171438728] 
+\draw  [fill={rgb, 255:red, 255; green, 255; blue, 255 }  ,fill opacity=1 ] (404.76,104.69) .. controls (404.76,109.2) and (401.11,112.86) .. (396.6,112.86) .. controls (392.09,112.86) and (388.43,109.2) .. (388.43,104.69) .. controls (388.43,100.18) and (392.09,96.53) .. (396.6,96.53) .. controls (401.11,96.53) and (404.76,100.18) .. (404.76,104.69) -- cycle ;
+%Shape: Circle [id:dp8087035720817184] 
+\draw  [fill={rgb, 255:red, 255; green, 255; blue, 255 }  ,fill opacity=1 ] (404.76,83.69) .. controls (404.76,88.2) and (401.11,91.86) .. (396.6,91.86) .. controls (392.09,91.86) and (388.43,88.2) .. (388.43,83.69) .. controls (388.43,79.18) and (392.09,75.53) .. (396.6,75.53) .. controls (401.11,75.53) and (404.76,79.18) .. (404.76,83.69) -- cycle ;
+%Shape: Circle [id:dp5843544497978974] 
+\draw  [fill={rgb, 255:red, 255; green, 255; blue, 255 }  ,fill opacity=1 ] (404.76,147.69) .. controls (404.76,152.2) and (401.11,155.86) .. (396.6,155.86) .. controls (392.09,155.86) and (388.43,152.2) .. (388.43,147.69) .. controls (388.43,143.18) and (392.09,139.53) .. (396.6,139.53) .. controls (401.11,139.53) and (404.76,143.18) .. (404.76,147.69) -- cycle ;
+%Shape: Circle [id:dp9132274032273979] 
+\draw  [fill={rgb, 255:red, 255; green, 255; blue, 255 }  ,fill opacity=1 ] (404.76,60.69) .. controls (404.76,65.2) and (401.11,68.86) .. (396.6,68.86) .. controls (392.09,68.86) and (388.43,65.2) .. (388.43,60.69) .. controls (388.43,56.18) and (392.09,52.53) .. (396.6,52.53) .. controls (401.11,52.53) and (404.76,56.18) .. (404.76,60.69) -- cycle ;
+%Straight Lines [id:da025525737715966113] 
+\draw    (513.33,101.69) -- (457.6,81.69) ;
+%Straight Lines [id:da5245231382222784] 
+\draw    (513.33,101.69) -- (457.6,101.69) ;
+%Straight Lines [id:da7641325765832703] 
+\draw    (513.33,101.69) -- (457.6,123.69) ;
+%Straight Lines [id:da8260069533465813] 
+\draw    (169.17,104.17) -- (124.33,104.17) ;
+%Shape: Circle [id:dp4507712125283063] 
+\draw  [fill={rgb, 255:red, 255; green, 255; blue, 255 }  ,fill opacity=1 ] (465.76,123.69) .. controls (465.76,128.2) and (462.11,131.86) .. (457.6,131.86) .. controls (453.09,131.86) and (449.43,128.2) .. (449.43,123.69) .. controls (449.43,119.18) and (453.09,115.53) .. (457.6,115.53) .. controls (462.11,115.53) and (465.76,119.18) .. (465.76,123.69) -- cycle ;
+%Shape: Circle [id:dp45212940848613004] 
+\draw  [fill={rgb, 255:red, 255; green, 255; blue, 255 }  ,fill opacity=1 ] (465.76,102.69) .. controls (465.76,107.2) and (462.11,110.86) .. (457.6,110.86) .. controls (453.09,110.86) and (449.43,107.2) .. (449.43,102.69) .. controls (449.43,98.18) and (453.09,94.53) .. (457.6,94.53) .. controls (462.11,94.53) and (465.76,98.18) .. (465.76,102.69) -- cycle ;
+%Shape: Circle [id:dp3978548520293399] 
+\draw  [fill={rgb, 255:red, 255; green, 255; blue, 255 }  ,fill opacity=1 ] (465.76,81.69) .. controls (465.76,86.2) and (462.11,89.86) .. (457.6,89.86) .. controls (453.09,89.86) and (449.43,86.2) .. (449.43,81.69) .. controls (449.43,77.18) and (453.09,73.53) .. (457.6,73.53) .. controls (462.11,73.53) and (465.76,77.18) .. (465.76,81.69) -- cycle ;
+%Straight Lines [id:da5801483110540322] 
+\draw    (169.17,83.17) -- (122.33,95) ;
+%Straight Lines [id:da2701702242508961] 
+\draw    (169.17,125.17) -- (120.33,114) ;
+%Shape: Circle [id:dp7434759518100225] 
+\draw  [fill={rgb, 255:red, 255; green, 255; blue, 255 }  ,fill opacity=1 ] (161,83.17) .. controls (161,78.66) and (164.66,75) .. (169.17,75) .. controls (173.68,75) and (177.33,78.66) .. (177.33,83.17) .. controls (177.33,87.68) and (173.68,91.33) .. (169.17,91.33) .. controls (164.66,91.33) and (161,87.68) .. (161,83.17) -- cycle ;
+%Shape: Circle [id:dp8839376291578331] 
+\draw  [fill={rgb, 255:red, 255; green, 255; blue, 255 }  ,fill opacity=1 ] (161,104.17) .. controls (161,99.66) and (164.66,96) .. (169.17,96) .. controls (173.68,96) and (177.33,99.66) .. (177.33,104.17) .. controls (177.33,108.68) and (173.68,112.33) .. (169.17,112.33) .. controls (164.66,112.33) and (161,108.68) .. (161,104.17) -- cycle ;
+%Shape: Circle [id:dp8495263482462652] 
+\draw  [fill={rgb, 255:red, 255; green, 255; blue, 255 }  ,fill opacity=1 ] (161,125.17) .. controls (161,120.66) and (164.66,117) .. (169.17,117) .. controls (173.68,117) and (177.33,120.66) .. (177.33,125.17) .. controls (177.33,129.68) and (173.68,133.33) .. (169.17,133.33) .. controls (164.66,133.33) and (161,129.68) .. (161,125.17) -- cycle ;
+%Shape: Rectangle [id:dp6029382236063974] 
+\draw  [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,draw opacity=1 ][dash pattern={on 4.5pt off 4.5pt}][line width=0.75]  (151.76,288.42) -- (187.32,288.42) -- (187.32,359.84) -- (151.76,359.84) -- cycle ;
+%Shape: Rectangle [id:dp1540848865676825] 
+\draw  [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,draw opacity=1 ][dash pattern={on 4.5pt off 4.5pt}][line width=0.75]  (213.61,265.84) -- (249.17,265.84) -- (249.17,382.42) -- (213.61,382.42) -- cycle ;
+%Straight Lines [id:da15601832924718928] 
+\draw    (170.17,305.17) -- (231.17,281.17) ;
+%Straight Lines [id:da5373832625686603] 
+\draw    (170.17,327.17) -- (231.17,303.17) ;
+%Straight Lines [id:da15823382459977764] 
+\draw    (170.17,347.17) -- (231.17,323.17) ;
+%Straight Lines [id:da7510304904138276] 
+\draw    (170.17,347.17) -- (231.17,368.17) ;
+%Straight Lines [id:da4101976760489989] 
+\draw    (170.17,327.17) -- (231.17,348.17) ;
+%Straight Lines [id:da49885962482250656] 
+\draw    (170.17,305.17) -- (231.17,324.17) ;
+%Shape: Circle [id:dp7021721179888987] 
+\draw  [fill={rgb, 255:red, 255; green, 255; blue, 255 }  ,fill opacity=1 ] (223,303.17) .. controls (223,298.66) and (226.66,295) .. (231.17,295) .. controls (235.68,295) and (239.33,298.66) .. (239.33,303.17) .. controls (239.33,307.68) and (235.68,311.33) .. (231.17,311.33) .. controls (226.66,311.33) and (223,307.68) .. (223,303.17) -- cycle ;
+%Shape: Circle [id:dp4347304865929664] 
+\draw  [fill={rgb, 255:red, 255; green, 255; blue, 255 }  ,fill opacity=1 ] (223,324.17) .. controls (223,319.66) and (226.66,316) .. (231.17,316) .. controls (235.68,316) and (239.33,319.66) .. (239.33,324.17) .. controls (239.33,328.68) and (235.68,332.33) .. (231.17,332.33) .. controls (226.66,332.33) and (223,328.68) .. (223,324.17) -- cycle ;
+%Shape: Circle [id:dp8582135472542969] 
+\draw  [fill={rgb, 255:red, 255; green, 255; blue, 255 }  ,fill opacity=1 ] (223,345.17) .. controls (223,340.66) and (226.66,337) .. (231.17,337) .. controls (235.68,337) and (239.33,340.66) .. (239.33,345.17) .. controls (239.33,349.68) and (235.68,353.33) .. (231.17,353.33) .. controls (226.66,353.33) and (223,349.68) .. (223,345.17) -- cycle ;
+%Shape: Circle [id:dp6280909870753615] 
+\draw  [fill={rgb, 255:red, 255; green, 255; blue, 255 }  ,fill opacity=1 ] (223,281.17) .. controls (223,276.66) and (226.66,273) .. (231.17,273) .. controls (235.68,273) and (239.33,276.66) .. (239.33,281.17) .. controls (239.33,285.68) and (235.68,289.33) .. (231.17,289.33) .. controls (226.66,289.33) and (223,285.68) .. (223,281.17) -- cycle ;
+%Shape: Circle [id:dp4207701761312532] 
+\draw  [fill={rgb, 255:red, 255; green, 255; blue, 255 }  ,fill opacity=1 ] (223,368.17) .. controls (223,363.66) and (226.66,360) .. (231.17,360) .. controls (235.68,360) and (239.33,363.66) .. (239.33,368.17) .. controls (239.33,372.68) and (235.68,376.33) .. (231.17,376.33) .. controls (226.66,376.33) and (223,372.68) .. (223,368.17) -- cycle ;
+%Shape: Rectangle [id:dp4655718488263063] 
+\draw  [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,draw opacity=1 ][dash pattern={on 4.5pt off 4.5pt}][line width=0.75]  (277.24,233) -- (312.79,233) -- (312.79,415.26) -- (277.24,415.26) -- cycle ;
+%Shape: Rectangle [id:dp3284600739253869] 
+\draw  [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,draw opacity=1 ][dash pattern={on 4.5pt off 4.5pt}][line width=0.75]  (477,362.44) -- (441.45,362.44) -- (441.45,291.02) -- (477,291.02) -- cycle ;
+%Shape: Rectangle [id:dp9698952505312597] 
+\draw  [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,draw opacity=1 ][dash pattern={on 4.5pt off 4.5pt}][line width=0.75]  (415.15,385.02) -- (379.6,385.02) -- (379.6,268.44) -- (415.15,268.44) -- cycle ;
+%Straight Lines [id:da7940875771891978] 
+\draw    (458.6,345.69) -- (397.6,369.69) ;
+%Straight Lines [id:da525392736079809] 
+\draw    (458.6,323.69) -- (397.6,347.69) ;
+%Straight Lines [id:da4000026191056718] 
+\draw    (458.6,303.69) -- (397.6,327.69) ;
+%Straight Lines [id:da14283213227171276] 
+\draw    (458.6,303.69) -- (397.6,282.69) ;
+%Straight Lines [id:da04555562575045413] 
+\draw    (458.6,323.69) -- (397.6,302.69) ;
+%Straight Lines [id:da06318381386139271] 
+\draw    (458.6,345.69) -- (397.6,326.69) ;
+%Shape: Circle [id:dp6767950909109306] 
+\draw  [fill={rgb, 255:red, 255; green, 255; blue, 255 }  ,fill opacity=1 ] (405.76,347.69) .. controls (405.76,352.2) and (402.11,355.86) .. (397.6,355.86) .. controls (393.09,355.86) and (389.43,352.2) .. (389.43,347.69) .. controls (389.43,343.18) and (393.09,339.53) .. (397.6,339.53) .. controls (402.11,339.53) and (405.76,343.18) .. (405.76,347.69) -- cycle ;
+%Shape: Circle [id:dp7654054754518955] 
+\draw  [fill={rgb, 255:red, 255; green, 255; blue, 255 }  ,fill opacity=1 ] (405.76,326.69) .. controls (405.76,331.2) and (402.11,334.86) .. (397.6,334.86) .. controls (393.09,334.86) and (389.43,331.2) .. (389.43,326.69) .. controls (389.43,322.18) and (393.09,318.53) .. (397.6,318.53) .. controls (402.11,318.53) and (405.76,322.18) .. (405.76,326.69) -- cycle ;
+%Shape: Circle [id:dp44930745554673557] 
+\draw  [fill={rgb, 255:red, 255; green, 255; blue, 255 }  ,fill opacity=1 ] (405.76,305.69) .. controls (405.76,310.2) and (402.11,313.86) .. (397.6,313.86) .. controls (393.09,313.86) and (389.43,310.2) .. (389.43,305.69) .. controls (389.43,301.18) and (393.09,297.53) .. (397.6,297.53) .. controls (402.11,297.53) and (405.76,301.18) .. (405.76,305.69) -- cycle ;
+%Shape: Circle [id:dp15643591851445793] 
+\draw  [fill={rgb, 255:red, 255; green, 255; blue, 255 }  ,fill opacity=1 ] (405.76,369.69) .. controls (405.76,374.2) and (402.11,377.86) .. (397.6,377.86) .. controls (393.09,377.86) and (389.43,374.2) .. (389.43,369.69) .. controls (389.43,365.18) and (393.09,361.53) .. (397.6,361.53) .. controls (402.11,361.53) and (405.76,365.18) .. (405.76,369.69) -- cycle ;
+%Shape: Circle [id:dp8016743167305951] 
+\draw  [fill={rgb, 255:red, 255; green, 255; blue, 255 }  ,fill opacity=1 ] (405.76,282.69) .. controls (405.76,287.2) and (402.11,290.86) .. (397.6,290.86) .. controls (393.09,290.86) and (389.43,287.2) .. (389.43,282.69) .. controls (389.43,278.18) and (393.09,274.53) .. (397.6,274.53) .. controls (402.11,274.53) and (405.76,278.18) .. (405.76,282.69) -- cycle ;
+%Straight Lines [id:da4031110415318415] 
+\draw    (514.33,323.69) -- (458.6,303.69) ;
+%Straight Lines [id:da0692382732832062] 
+\draw    (514.33,323.69) -- (458.6,323.69) ;
+%Straight Lines [id:da8711894348046938] 
+\draw    (514.33,323.69) -- (458.6,345.69) ;
+%Straight Lines [id:da627484134452001] 
+\draw    (170.17,326.17) -- (125.33,326.17) ;
+%Shape: Circle [id:dp8528353748695083] 
+\draw  [fill={rgb, 255:red, 255; green, 255; blue, 255 }  ,fill opacity=1 ] (466.76,345.69) .. controls (466.76,350.2) and (463.11,353.86) .. (458.6,353.86) .. controls (454.09,353.86) and (450.43,350.2) .. (450.43,345.69) .. controls (450.43,341.18) and (454.09,337.53) .. (458.6,337.53) .. controls (463.11,337.53) and (466.76,341.18) .. (466.76,345.69) -- cycle ;
+%Shape: Circle [id:dp767157285746987] 
+\draw  [fill={rgb, 255:red, 255; green, 255; blue, 255 }  ,fill opacity=1 ] (466.76,324.69) .. controls (466.76,329.2) and (463.11,332.86) .. (458.6,332.86) .. controls (454.09,332.86) and (450.43,329.2) .. (450.43,324.69) .. controls (450.43,320.18) and (454.09,316.53) .. (458.6,316.53) .. controls (463.11,316.53) and (466.76,320.18) .. (466.76,324.69) -- cycle ;
+%Shape: Circle [id:dp8812891243344927] 
+\draw  [fill={rgb, 255:red, 255; green, 255; blue, 255 }  ,fill opacity=1 ] (466.76,303.69) .. controls (466.76,308.2) and (463.11,311.86) .. (458.6,311.86) .. controls (454.09,311.86) and (450.43,308.2) .. (450.43,303.69) .. controls (450.43,299.18) and (454.09,295.53) .. (458.6,295.53) .. controls (463.11,295.53) and (466.76,299.18) .. (466.76,303.69) -- cycle ;
+%Straight Lines [id:da9865925132344553] 
+\draw    (170.17,305.17) -- (123.33,317) ;
+%Straight Lines [id:da3304409131427688] 
+\draw    (170.17,347.17) -- (121.33,336) ;
+%Shape: Circle [id:dp40335497971049006] 
+\draw  [fill={rgb, 255:red, 255; green, 255; blue, 255 }  ,fill opacity=1 ] (162,305.17) .. controls (162,300.66) and (165.66,297) .. (170.17,297) .. controls (174.68,297) and (178.33,300.66) .. (178.33,305.17) .. controls (178.33,309.68) and (174.68,313.33) .. (170.17,313.33) .. controls (165.66,313.33) and (162,309.68) .. (162,305.17) -- cycle ;
+%Shape: Circle [id:dp6498963337107981] 
+\draw  [fill={rgb, 255:red, 255; green, 255; blue, 255 }  ,fill opacity=1 ] (162,326.17) .. controls (162,321.66) and (165.66,318) .. (170.17,318) .. controls (174.68,318) and (178.33,321.66) .. (178.33,326.17) .. controls (178.33,330.68) and (174.68,334.33) .. (170.17,334.33) .. controls (165.66,334.33) and (162,330.68) .. (162,326.17) -- cycle ;
+%Shape: Circle [id:dp6180084194792432] 
+\draw  [fill={rgb, 255:red, 255; green, 255; blue, 255 }  ,fill opacity=1 ] (162,347.17) .. controls (162,342.66) and (165.66,339) .. (170.17,339) .. controls (174.68,339) and (178.33,342.66) .. (178.33,347.17) .. controls (178.33,351.68) and (174.68,355.33) .. (170.17,355.33) .. controls (165.66,355.33) and (162,351.68) .. (162,347.17) -- cycle ;
+%Shape: Rectangle [id:dp5509473230040656] 
+\draw  [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,draw opacity=1 ][dash pattern={on 4.5pt off 4.5pt}][line width=0.75]  (318.24,232.65) -- (353.79,232.65) -- (353.79,414.9) -- (318.24,414.9) -- cycle ;
+%Straight Lines [id:da9889471899204758] 
+\draw    (295.17,257.17) -- (336.17,256.81) ;
+%Straight Lines [id:da5461372828788453] 
+\draw    (295.17,279.17) -- (336.17,278.81) ;
+%Straight Lines [id:da6118238897354047] 
+\draw    (295.17,301.17) -- (336.17,300.81) ;
+%Straight Lines [id:da6952900059209406] 
+\draw    (295.17,322.17) -- (336.17,321.81) ;
+%Straight Lines [id:da8424071020657071] 
+\draw    (295.17,343.17) -- (336.17,342.81) ;
+%Straight Lines [id:da5640098813324228] 
+\draw    (295.17,366.17) -- (336.17,365.81) ;
+%Straight Lines [id:da43203210139163417] 
+\draw    (295.17,389.17) -- (336.17,388.81) ;
+%Straight Lines [id:da5045332539800558] 
+\draw    (295.17,389.17) -- (336.17,365.81) ;
+%Straight Lines [id:da4700204051762624] 
+\draw    (295.17,366.17) -- (336.17,342.81) ;
+%Straight Lines [id:da2981610994245669] 
+\draw    (295.17,343.17) -- (336.17,321.81) ;
+%Straight Lines [id:da5319834566774011] 
+\draw    (295.17,322.17) -- (336.17,300.81) ;
+%Straight Lines [id:da38389369276607765] 
+\draw    (295.17,301.17) -- (336.17,278.81) ;
+%Straight Lines [id:da4499237119815864] 
+\draw    (295.17,279.17) -- (336.17,256.81) ;
+%Straight Lines [id:da7058827153091076] 
+\draw    (295.17,257.17) -- (336.17,278.81) ;
+%Straight Lines [id:da9358298289950198] 
+\draw    (295.17,279.17) -- (336.17,300.81) ;
+%Straight Lines [id:da640197324648843] 
+\draw    (295.17,300.17) -- (336.17,321.81) ;
+%Straight Lines [id:da8675963447359063] 
+\draw    (295.17,322.17) -- (336.17,342.81) ;
+%Straight Lines [id:da9309352212018411] 
+\draw    (295.17,343.17) -- (336.17,365.81) ;
+%Straight Lines [id:da7376034834738896] 
+\draw    (295.17,366.17) -- (336.17,388.81) ;
+%Shape: Circle [id:dp31250146617862784] 
+\draw  [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ][fill={rgb, 255:red, 255; green, 255; blue, 255 }  ,fill opacity=1 ] (287,301.17) .. controls (287,296.66) and (290.66,293) .. (295.17,293) .. controls (299.68,293) and (303.33,296.66) .. (303.33,301.17) .. controls (303.33,305.68) and (299.68,309.33) .. (295.17,309.33) .. controls (290.66,309.33) and (287,305.68) .. (287,301.17) -- cycle ;
+%Shape: Circle [id:dp4552616270443277] 
+\draw  [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ][fill={rgb, 255:red, 255; green, 255; blue, 255 }  ,fill opacity=1 ] (287,322.17) .. controls (287,317.66) and (290.66,314) .. (295.17,314) .. controls (299.68,314) and (303.33,317.66) .. (303.33,322.17) .. controls (303.33,326.68) and (299.68,330.33) .. (295.17,330.33) .. controls (290.66,330.33) and (287,326.68) .. (287,322.17) -- cycle ;
+%Shape: Circle [id:dp48620740741190227] 
+\draw  [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ][fill={rgb, 255:red, 255; green, 255; blue, 255 }  ,fill opacity=1 ] (287,343.17) .. controls (287,338.66) and (290.66,335) .. (295.17,335) .. controls (299.68,335) and (303.33,338.66) .. (303.33,343.17) .. controls (303.33,347.68) and (299.68,351.33) .. (295.17,351.33) .. controls (290.66,351.33) and (287,347.68) .. (287,343.17) -- cycle ;
+%Shape: Circle [id:dp1465441200270885] 
+\draw  [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ][fill={rgb, 255:red, 255; green, 255; blue, 255 }  ,fill opacity=1 ] (287,279.17) .. controls (287,274.66) and (290.66,271) .. (295.17,271) .. controls (299.68,271) and (303.33,274.66) .. (303.33,279.17) .. controls (303.33,283.68) and (299.68,287.33) .. (295.17,287.33) .. controls (290.66,287.33) and (287,283.68) .. (287,279.17) -- cycle ;
+%Shape: Circle [id:dp4863633091911077] 
+\draw  [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ][fill={rgb, 255:red, 255; green, 255; blue, 255 }  ,fill opacity=1 ] (287,366.17) .. controls (287,361.66) and (290.66,358) .. (295.17,358) .. controls (299.68,358) and (303.33,361.66) .. (303.33,366.17) .. controls (303.33,370.68) and (299.68,374.33) .. (295.17,374.33) .. controls (290.66,374.33) and (287,370.68) .. (287,366.17) -- cycle ;
+%Shape: Circle [id:dp2315103273245589] 
+\draw  [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ][fill={rgb, 255:red, 255; green, 255; blue, 255 }  ,fill opacity=1 ] (287,257.17) .. controls (287,252.66) and (290.66,249) .. (295.17,249) .. controls (299.68,249) and (303.33,252.66) .. (303.33,257.17) .. controls (303.33,261.68) and (299.68,265.33) .. (295.17,265.33) .. controls (290.66,265.33) and (287,261.68) .. (287,257.17) -- cycle ;
+%Shape: Circle [id:dp6351230020250445] 
+\draw  [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ][fill={rgb, 255:red, 255; green, 255; blue, 255 }  ,fill opacity=1 ] (287,389.17) .. controls (287,384.66) and (290.66,381) .. (295.17,381) .. controls (299.68,381) and (303.33,384.66) .. (303.33,389.17) .. controls (303.33,393.68) and (299.68,397.33) .. (295.17,397.33) .. controls (290.66,397.33) and (287,393.68) .. (287,389.17) -- cycle ;
+%Shape: Circle [id:dp09291555945416019] 
+\draw  [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ][fill={rgb, 255:red, 255; green, 255; blue, 255 }  ,fill opacity=1 ] (328,300.81) .. controls (328,296.3) and (331.66,292.65) .. (336.17,292.65) .. controls (340.68,292.65) and (344.33,296.3) .. (344.33,300.81) .. controls (344.33,305.32) and (340.68,308.98) .. (336.17,308.98) .. controls (331.66,308.98) and (328,305.32) .. (328,300.81) -- cycle ;
+%Shape: Circle [id:dp8623169986589241] 
+\draw  [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ][fill={rgb, 255:red, 255; green, 255; blue, 255 }  ,fill opacity=1 ] (328,321.81) .. controls (328,317.3) and (331.66,313.65) .. (336.17,313.65) .. controls (340.68,313.65) and (344.33,317.3) .. (344.33,321.81) .. controls (344.33,326.32) and (340.68,329.98) .. (336.17,329.98) .. controls (331.66,329.98) and (328,326.32) .. (328,321.81) -- cycle ;
+%Shape: Circle [id:dp8673945763228621] 
+\draw  [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ][fill={rgb, 255:red, 255; green, 255; blue, 255 }  ,fill opacity=1 ] (328,342.81) .. controls (328,338.3) and (331.66,334.65) .. (336.17,334.65) .. controls (340.68,334.65) and (344.33,338.3) .. (344.33,342.81) .. controls (344.33,347.32) and (340.68,350.98) .. (336.17,350.98) .. controls (331.66,350.98) and (328,347.32) .. (328,342.81) -- cycle ;
+%Shape: Circle [id:dp3689314558852692] 
+\draw  [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ][fill={rgb, 255:red, 255; green, 255; blue, 255 }  ,fill opacity=1 ] (328,278.81) .. controls (328,274.3) and (331.66,270.65) .. (336.17,270.65) .. controls (340.68,270.65) and (344.33,274.3) .. (344.33,278.81) .. controls (344.33,283.32) and (340.68,286.98) .. (336.17,286.98) .. controls (331.66,286.98) and (328,283.32) .. (328,278.81) -- cycle ;
+%Shape: Circle [id:dp0463944131608518] 
+\draw  [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ][fill={rgb, 255:red, 255; green, 255; blue, 255 }  ,fill opacity=1 ] (328,365.81) .. controls (328,361.3) and (331.66,357.65) .. (336.17,357.65) .. controls (340.68,357.65) and (344.33,361.3) .. (344.33,365.81) .. controls (344.33,370.32) and (340.68,373.98) .. (336.17,373.98) .. controls (331.66,373.98) and (328,370.32) .. (328,365.81) -- cycle ;
+%Shape: Circle [id:dp24301378971136733] 
+\draw  [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ][fill={rgb, 255:red, 255; green, 255; blue, 255 }  ,fill opacity=1 ] (328,256.81) .. controls (328,252.3) and (331.66,248.65) .. (336.17,248.65) .. controls (340.68,248.65) and (344.33,252.3) .. (344.33,256.81) .. controls (344.33,261.32) and (340.68,264.98) .. (336.17,264.98) .. controls (331.66,264.98) and (328,261.32) .. (328,256.81) -- cycle ;
+%Shape: Circle [id:dp31701939040536264] 
+\draw  [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ][fill={rgb, 255:red, 255; green, 255; blue, 255 }  ,fill opacity=1 ] (328,388.81) .. controls (328,384.3) and (331.66,380.65) .. (336.17,380.65) .. controls (340.68,380.65) and (344.33,384.3) .. (344.33,388.81) .. controls (344.33,393.32) and (340.68,396.98) .. (336.17,396.98) .. controls (331.66,396.98) and (328,393.32) .. (328,388.81) -- cycle ;
+
+% Text Node
+\draw (344,94) node [anchor=north west][inner sep=0.75pt]   [align=left] {$\displaystyle \cdots $};
+% Text Node
+\draw (160.92,144.79) node [anchor=north west][inner sep=0.75pt]   [align=left] {$\displaystyle C_{n}^{k}$};
+% Text Node
+\draw (214.98,170.02) node [anchor=north west][inner sep=0.75pt]   [align=left] {$\displaystyle C_{n}^{k+1}$};
+% Text Node
+\draw (261,94) node [anchor=north west][inner sep=0.75pt]   [align=left] {$\displaystyle \cdots $};
+% Text Node
+\draw (299.98,198.02) node [anchor=north west][inner sep=0.75pt]   [align=left] {$\displaystyle C_{n}^{n/2}$};
+% Text Node
+\draw  [fill={rgb, 255:red, 255; green, 255; blue, 255 }  ,fill opacity=1 ]  (74, 105) circle [x radius= 15, y radius= 15]   ;
+\draw (67,96) node [anchor=north west][inner sep=0.75pt]   [align=left] {$\displaystyle \emptyset $};
+% Text Node
+\draw  [fill={rgb, 255:red, 255; green, 255; blue, 255 }  ,fill opacity=1 ]  (513.5, 103) circle [x radius= 15.31, y radius= 15.31]   ;
+\draw (506,94) node [anchor=north west][inner sep=0.75pt]   [align=left] {$\displaystyle U$};
+% Text Node
+\draw (98,94) node [anchor=north west][inner sep=0.75pt]   [align=left] {$\displaystyle \cdots $};
+% Text Node
+\draw (558,94) node [anchor=north west][inner sep=0.75pt]   [align=left] {$\displaystyle n$ четно};
+% Text Node
+\draw (161.92,366.79) node [anchor=north west][inner sep=0.75pt]   [align=left] {$\displaystyle C_{n}^{k}$};
+% Text Node
+\draw (215.98,392.02) node [anchor=north west][inner sep=0.75pt]   [align=left] {$\displaystyle C_{n}^{k+1}$};
+% Text Node
+\draw (250,316) node [anchor=north west][inner sep=0.75pt]   [align=left] {$\displaystyle \cdots $};
+% Text Node
+\draw (259.98,420.02) node [anchor=north west][inner sep=0.75pt]   [align=left] {$\displaystyle C_{n}^{( n-1) /2}$};
+% Text Node
+\draw  [fill={rgb, 255:red, 255; green, 255; blue, 255 }  ,fill opacity=1 ]  (75, 327) circle [x radius= 15, y radius= 15]   ;
+\draw (68,318) node [anchor=north west][inner sep=0.75pt]   [align=left] {$\displaystyle \emptyset $};
+% Text Node
+\draw  [fill={rgb, 255:red, 255; green, 255; blue, 255 }  ,fill opacity=1 ]  (514.5, 325) circle [x radius= 15.31, y radius= 15.31]   ;
+\draw (507,316) node [anchor=north west][inner sep=0.75pt]   [align=left] {$\displaystyle U$};
+% Text Node
+\draw (99,316) node [anchor=north west][inner sep=0.75pt]   [align=left] {$\displaystyle \cdots $};
+% Text Node
+\draw (559,316) node [anchor=north west][inner sep=0.75pt]   [align=left] {$\displaystyle n$ нечетно};
+% Text Node
+\draw (320.24,419.9) node [anchor=north west][inner sep=0.75pt]   [align=left] {$\displaystyle C_{n}^{( n+1) /2}$};
+% Text Node
+\draw (353,313) node [anchor=north west][inner sep=0.75pt]   [align=left] {$\displaystyle \cdots $};
+
+
+\end{tikzpicture}

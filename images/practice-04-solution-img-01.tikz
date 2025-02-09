@@ -1,0 +1,188 @@
+
+
+% Pattern Info
+ 
+\tikzset{
+pattern size/.store in=\mcSize, 
+pattern size = 5pt,
+pattern thickness/.store in=\mcThickness, 
+pattern thickness = 0.3pt,
+pattern radius/.store in=\mcRadius, 
+pattern radius = 1pt}
+\makeatletter
+\pgfutil@ifundefined{pgf@pattern@name@_qnea83anj}{
+\pgfdeclarepatternformonly[\mcThickness,\mcSize]{_qnea83anj}
+{\pgfqpoint{0pt}{0pt}}
+{\pgfpoint{\mcSize}{\mcSize}}
+{\pgfpoint{\mcSize}{\mcSize}}
+{
+\pgfsetcolor{\tikz@pattern@color}
+\pgfsetlinewidth{\mcThickness}
+\pgfpathmoveto{\pgfqpoint{0pt}{\mcSize}}
+\pgfpathlineto{\pgfpoint{\mcSize+\mcThickness}{-\mcThickness}}
+\pgfpathmoveto{\pgfqpoint{0pt}{0pt}}
+\pgfpathlineto{\pgfpoint{\mcSize+\mcThickness}{\mcSize+\mcThickness}}
+\pgfusepath{stroke}
+}}
+\makeatother
+
+% Pattern Info
+ 
+\tikzset{
+pattern size/.store in=\mcSize, 
+pattern size = 5pt,
+pattern thickness/.store in=\mcThickness, 
+pattern thickness = 0.3pt,
+pattern radius/.store in=\mcRadius, 
+pattern radius = 1pt}
+\makeatletter
+\pgfutil@ifundefined{pgf@pattern@name@_edvje448i}{
+\pgfdeclarepatternformonly[\mcThickness,\mcSize]{_edvje448i}
+{\pgfqpoint{0pt}{0pt}}
+{\pgfpoint{\mcSize}{\mcSize}}
+{\pgfpoint{\mcSize}{\mcSize}}
+{
+\pgfsetcolor{\tikz@pattern@color}
+\pgfsetlinewidth{\mcThickness}
+\pgfpathmoveto{\pgfqpoint{0pt}{\mcSize}}
+\pgfpathlineto{\pgfpoint{\mcSize+\mcThickness}{-\mcThickness}}
+\pgfpathmoveto{\pgfqpoint{0pt}{0pt}}
+\pgfpathlineto{\pgfpoint{\mcSize+\mcThickness}{\mcSize+\mcThickness}}
+\pgfusepath{stroke}
+}}
+\makeatother
+
+% Pattern Info
+ 
+\tikzset{
+pattern size/.store in=\mcSize, 
+pattern size = 5pt,
+pattern thickness/.store in=\mcThickness, 
+pattern thickness = 0.3pt,
+pattern radius/.store in=\mcRadius, 
+pattern radius = 1pt}
+\makeatletter
+\pgfutil@ifundefined{pgf@pattern@name@_d0r4p2brr}{
+\pgfdeclarepatternformonly[\mcThickness,\mcSize]{_d0r4p2brr}
+{\pgfqpoint{0pt}{0pt}}
+{\pgfpoint{\mcSize}{\mcSize}}
+{\pgfpoint{\mcSize}{\mcSize}}
+{
+\pgfsetcolor{\tikz@pattern@color}
+\pgfsetlinewidth{\mcThickness}
+\pgfpathmoveto{\pgfqpoint{0pt}{\mcSize}}
+\pgfpathlineto{\pgfpoint{\mcSize+\mcThickness}{-\mcThickness}}
+\pgfpathmoveto{\pgfqpoint{0pt}{0pt}}
+\pgfpathlineto{\pgfpoint{\mcSize+\mcThickness}{\mcSize+\mcThickness}}
+\pgfusepath{stroke}
+}}
+\makeatother
+
+% Pattern Info
+ 
+\tikzset{
+pattern size/.store in=\mcSize, 
+pattern size = 5pt,
+pattern thickness/.store in=\mcThickness, 
+pattern thickness = 0.3pt,
+pattern radius/.store in=\mcRadius, 
+pattern radius = 1pt}
+\makeatletter
+\pgfutil@ifundefined{pgf@pattern@name@_vjcexptr3}{
+\pgfdeclarepatternformonly[\mcThickness,\mcSize]{_vjcexptr3}
+{\pgfqpoint{0pt}{0pt}}
+{\pgfpoint{\mcSize}{\mcSize}}
+{\pgfpoint{\mcSize}{\mcSize}}
+{
+\pgfsetcolor{\tikz@pattern@color}
+\pgfsetlinewidth{\mcThickness}
+\pgfpathmoveto{\pgfqpoint{0pt}{\mcSize}}
+\pgfpathlineto{\pgfpoint{\mcSize+\mcThickness}{-\mcThickness}}
+\pgfpathmoveto{\pgfqpoint{0pt}{0pt}}
+\pgfpathlineto{\pgfpoint{\mcSize+\mcThickness}{\mcSize+\mcThickness}}
+\pgfusepath{stroke}
+}}
+\makeatother
+
+% Pattern Info
+ 
+\tikzset{
+pattern size/.store in=\mcSize, 
+pattern size = 5pt,
+pattern thickness/.store in=\mcThickness, 
+pattern thickness = 0.3pt,
+pattern radius/.store in=\mcRadius, 
+pattern radius = 1pt}
+\makeatletter
+\pgfutil@ifundefined{pgf@pattern@name@_8q6s5rsjg}{
+\pgfdeclarepatternformonly[\mcThickness,\mcSize]{_8q6s5rsjg}
+{\pgfqpoint{0pt}{0pt}}
+{\pgfpoint{\mcSize}{\mcSize}}
+{\pgfpoint{\mcSize}{\mcSize}}
+{
+\pgfsetcolor{\tikz@pattern@color}
+\pgfsetlinewidth{\mcThickness}
+\pgfpathmoveto{\pgfqpoint{0pt}{\mcSize}}
+\pgfpathlineto{\pgfpoint{\mcSize+\mcThickness}{-\mcThickness}}
+\pgfpathmoveto{\pgfqpoint{0pt}{0pt}}
+\pgfpathlineto{\pgfpoint{\mcSize+\mcThickness}{\mcSize+\mcThickness}}
+\pgfusepath{stroke}
+}}
+\makeatother
+
+% Pattern Info
+ 
+\tikzset{
+pattern size/.store in=\mcSize, 
+pattern size = 5pt,
+pattern thickness/.store in=\mcThickness, 
+pattern thickness = 0.3pt,
+pattern radius/.store in=\mcRadius, 
+pattern radius = 1pt}
+\makeatletter
+\pgfutil@ifundefined{pgf@pattern@name@_7491r6cyp}{
+\pgfdeclarepatternformonly[\mcThickness,\mcSize]{_7491r6cyp}
+{\pgfqpoint{0pt}{0pt}}
+{\pgfpoint{\mcSize}{\mcSize}}
+{\pgfpoint{\mcSize}{\mcSize}}
+{
+\pgfsetcolor{\tikz@pattern@color}
+\pgfsetlinewidth{\mcThickness}
+\pgfpathmoveto{\pgfqpoint{0pt}{\mcSize}}
+\pgfpathlineto{\pgfpoint{\mcSize+\mcThickness}{-\mcThickness}}
+\pgfpathmoveto{\pgfqpoint{0pt}{0pt}}
+\pgfpathlineto{\pgfpoint{\mcSize+\mcThickness}{\mcSize+\mcThickness}}
+\pgfusepath{stroke}
+}}
+\makeatother
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+%uncomment if require: \path (0,576); %set diagram left start at 0, and has height of 576
+
+%Shape: Grid [id:dp5299032081284161] 
+\draw  [draw opacity=0] (142.53,137) -- (542.53,137) -- (542.53,337) -- (142.53,337) -- cycle ; \draw  [color={rgb, 255:red, 155; green, 155; blue, 155 }  ,draw opacity=1 ] (162.53,137) -- (162.53,337)(182.53,137) -- (182.53,337)(202.53,137) -- (202.53,337)(222.53,137) -- (222.53,337)(242.53,137) -- (242.53,337)(262.53,137) -- (262.53,337)(282.53,137) -- (282.53,337)(302.53,137) -- (302.53,337)(322.53,137) -- (322.53,337)(342.53,137) -- (342.53,337)(362.53,137) -- (362.53,337)(382.53,137) -- (382.53,337)(402.53,137) -- (402.53,337)(422.53,137) -- (422.53,337)(442.53,137) -- (442.53,337)(462.53,137) -- (462.53,337)(482.53,137) -- (482.53,337)(502.53,137) -- (502.53,337)(522.53,137) -- (522.53,337) ; \draw  [color={rgb, 255:red, 155; green, 155; blue, 155 }  ,draw opacity=1 ] (142.53,157) -- (542.53,157)(142.53,177) -- (542.53,177)(142.53,197) -- (542.53,197)(142.53,217) -- (542.53,217)(142.53,237) -- (542.53,237)(142.53,257) -- (542.53,257)(142.53,277) -- (542.53,277)(142.53,297) -- (542.53,297)(142.53,317) -- (542.53,317) ; \draw  [color={rgb, 255:red, 155; green, 155; blue, 155 }  ,draw opacity=1 ] (142.53,137) -- (542.53,137) -- (542.53,337) -- (142.53,337) -- cycle ;
+%Shape: Axis 2D [id:dp005469313539779419] 
+\draw  (95.67,337) -- (564.33,337)(142.53,109.9) -- (142.53,362.23) (557.33,332) -- (564.33,337) -- (557.33,342) (137.53,116.9) -- (142.53,109.9) -- (147.53,116.9)  ;
+%Shape: Square [id:dp5573643004971882] 
+\draw  [color={rgb, 255:red, 163; green, 33; blue, 33 }  ,draw opacity=1 ][fill={rgb, 255:red, 208; green, 2; blue, 27 }  ,fill opacity=0.5 ] (262.53,237) -- (282.53,237) -- (282.53,257) -- (262.53,257) -- cycle ;
+%Shape: Rectangle [id:dp5736670886189332] 
+\draw  [pattern=_qnea83anj,pattern size=6pt,pattern thickness=0.75pt,pattern radius=0pt, pattern color={rgb, 255:red, 0; green, 0; blue, 0}] (142.53,257) -- (262.53,257) -- (262.53,337) -- (142.53,337) -- cycle ;
+%Shape: Rectangle [id:dp49370563231832] 
+\draw  [pattern=_edvje448i,pattern size=6pt,pattern thickness=0.75pt,pattern radius=0pt, pattern color={rgb, 255:red, 0; green, 0; blue, 0}] (282.53,137) -- (542.53,137) -- (542.53,237) -- (282.53,237) -- cycle ;
+%Shape: Rectangle [id:dp6736124269311758] 
+\draw  [pattern=_d0r4p2brr,pattern size=6pt,pattern thickness=0.75pt,pattern radius=0pt, pattern color={rgb, 255:red, 251; green, 0; blue, 0}] (282.53,237) -- (542.53,237) -- (542.53,257) -- (282.53,257) -- cycle ;
+%Shape: Rectangle [id:dp3007415079144151] 
+\draw  [pattern=_vjcexptr3,pattern size=6pt,pattern thickness=0.75pt,pattern radius=0pt, pattern color={rgb, 255:red, 251; green, 0; blue, 0}] (142.53,237) -- (262.53,237) -- (262.53,257) -- (142.53,257) -- cycle ;
+%Shape: Rectangle [id:dp8605013919599938] 
+\draw  [pattern=_8q6s5rsjg,pattern size=6pt,pattern thickness=0.75pt,pattern radius=0pt, pattern color={rgb, 255:red, 251; green, 0; blue, 0}] (262.53,137) -- (282.53,137) -- (282.53,237) -- (262.53,237) -- cycle ;
+%Shape: Rectangle [id:dp8063034689030659] 
+\draw  [pattern=_7491r6cyp,pattern size=6pt,pattern thickness=0.75pt,pattern radius=0pt, pattern color={rgb, 255:red, 251; green, 0; blue, 0}] (262.53,257) -- (282.53,257) -- (282.53,337) -- (262.53,337) -- cycle ;
+
+% Text Node
+\draw (264.53,340) node [anchor=north west][inner sep=0.75pt]   [align=left] {$\displaystyle n_{0}$};
+% Text Node
+\draw (119.53,238) node [anchor=north west][inner sep=0.75pt]   [align=left] {$\displaystyle m_{0}$};
+
+
+\end{tikzpicture}
