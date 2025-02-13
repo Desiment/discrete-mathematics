@@ -2,21 +2,43 @@
 
 % Generic interfaces
 \RequirePackage{mathcommand}
-
+\RequirePackage{mathtools}  
 % AMS packages
 \RequirePackage{amsmath}
 \RequirePackage{amsfonts}
 \RequirePackage{amssymb}
 
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%      FONTS      %%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
 \RequirePackage{upgreek}
+\RequirePackage{dsfont}
+\RequirePackage{euscript}
+
+
 % Additional fonts and symbols
 
 %% Importing usefull MnSymbol glyphs
 %% Source: https://tex.stackexchange.com/questions/450691/create-diamond-with-a-dash-in-it/450703#450703
-%\def\MnSymbolGlyphs#1{% IF ONE NEEDS TO LOCATE GLYPHS
-%  \usepackage{fonttable}%
-%  \AtBeginDocument{\fonttable{MnSymbol#110}}%
-%}
+
+%%% MnSymbol Font Table
+% \fonttable{MnSymbolA12}
+% \newpage
+% \fonttable{MnSymbolB12}
+% \newpage
+% \fonttable{MnSymbolC12}
+% \newpage
+% \fonttable{MnSymbolD12}
+% \newpage
+% \fonttable{MnSymbolE12}
+% \newpage
+% \fonttable{MnSymbolF12}
+
+
 %\def\ImportFromMnSymbol#1{%
 %  \DeclareFontFamily{U} {MnSymbol#1}{}
 %  \DeclareFontShape{U}{MnSymbol#1}{m}{n}{
@@ -40,114 +62,109 @@
 %\newcommand\DeclareMnSymbol[4]{\DeclareMathSymbol{#1}{#2}{MnSy#3}{#4}}
 %%%%
 
-\RequirePackage{dsfont}
-\RequirePackage{euscript}
 
-% Patches
-\RequirePackage{mathtools}  % bundle of useful patches
-\RequirePackage{stackrel}   % patch for diffuclt opearator limits, etc
-\RequirePackage{relsize}    % patch for scaleable sums, integrals products etc
-\RequirePackage{mleftright} % patch for typographically correct braces
-\RequirePackage[d]{esvect}  % patch for vector arrows
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%     PATCHES     %%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Typesetting theorems %%
-%%%%%%%%%%%%%%%%%%%%%%%%%%
-\RequirePackage{amsthm}
-
-\theoremstyle{plain}
-\newtheorem{theorem*}{Теорема}
-\newtheorem{proposition*}{Предложение}
-\newtheorem{corollary*}{Следствие}
-\newtheorem{lemma*}{Лемма}
-
-\theoremstyle{definition}
-\newtheorem{definition*}{Определение}
-\newtheorem*{remark*}{Замечение}
-
-%%%% Plain Environments:
-
-\theoremstyle{plain}
-\newtheorem{theorem}{Теорема}[subsection]
-\newtheorem{proposition}[theorem]{Предложение}
-\newtheorem{corollary}[theorem]{Следствие}
-\newtheorem{lemma}[theorem]{Лемма}
-
-\theoremstyle{definition}
-\newtheorem{definition}[theorem]{Определение}
-\newtheorem{remark}[theorem]{Замечение}
+% patch for diffuclt opearator limits, etc
+\RequirePackage{stackrel}   
+% patch for scaleable sums, integrals products etc
+\RequirePackage{scalerel} 
+\RequirePackage{exscale}
+% patch for typographically inline fractions
+\RequirePackage{xfrac}
+% patch for typographically correct braces
+\RequirePackage{mleftright} 
+% patch for vector arrows
+\RequirePackage[d]{esvect}  
 
 
-%%%% Strange environments
-\theoremstyle{definition}
-\newtheorem{?}{Задача}
-\newtheorem{example}[?]{Пример}
-\newtheorem*{notation}{Нотация}
+%% mathtools default behaviour is that *-command use auto-scaling
+%% while non-* do not. Here we switch behaviour
+\newcommand\swapifbranches[3]{#1{#3}{#2}}
+\makeatletter
+\MHInternalSyntaxOn
+\patchcmd{\DeclarePairedDelimiter}{\@ifstar}{\swapifbranches\@ifstar}{}{}
+\patchcmd{\DeclarePairedDelimiterXPP}{\@ifstar}{\swapifbranches\@ifstar}{}{}
+\MHInternalSyntaxOff
+\makeatother
 
-\renewenvironment{proof}[1][\text{Доказательство} \\]{
-  \par
-  \pushQED{\qed}%
-  \normalfont
-  \topsep0pt \partopsep3pt
-  \trivlist
-  \item[\hskip\labelsep
-        \itshape
-        #1\@addpunct{.}]\ignorespaces
-}{
-  \popQED\endtrivlist\@endpefalse
-  \addvspace{6pt plus 6pt} % some space after
-}
-
-\newenvironment{commentary}{%
-  \par
-  \begingroup
-  {\color{gray}Комментарий}
-}{
-  \par
-  \endgroup
-}
-
-%%%%%%%%%%%%%%%%%%%%%
-%% Custom commands %%
-%%%%%%%%%%%%%%%%%%%%%
-% Correct bracing 
+%% Correct bracing in commands
 \newmathcommand{\leftoperatorbrace}{\mleft(}
 \newmathcommand{\rightoperatorbrace}{\mright)}
-\newmathcommand{\leftoperatorbracket}{\mleft[]}
+\newmathcommand{\leftoperatorbracket}{\mleft[}
 \newmathcommand{\rightoperatorbracket}{\mright]}
 
+%% Improve sizing of - and + in supscripts/subscripts
+%%%% TODO: improve hardcoring
+\newcommand{\medminus}{\mathop{\mathsmaller{-}}}
+\newcommand{\medplus}{\mathop{\mathsmaller{+}}}
+\newcommand{\pinfty}{{\raisebox{0.05ex}{\scaleobj{0.45}{+}}}\infty}
+\newcommand{\ninfty}{{\raisebox{0.05ex}{\scaleobj{0.45}{-}}}\infty}
 
-%%%% Expl3 magick
-% May be really buggy ^.^
-% Especially on a wrong input
+%% Force usage of \leqslant and \geqslant instead of
+%% \leq and \geq
+\disablecommand{\leq\geq}
+\suggestcommand{\leq}{Use the better looking \leqslant.}
+\suggestcommand{\geq}{Use the better looking \geqslant.}
+
+
+%%%% Introduce some commons  
+\let\Proj\relax
+\DeclareMathOperator{\Proj}{Proj}
+\DeclareMathOperator{\argmax}{argmax}
+\DeclareMathOperator{\argmin}{argmin}
+\newmathcommand{\loc}{\mathrm{loc}}
+\newmathcommand{\const}{\mathrm{const}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%% CUSTOM COMMANDS %%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 
 \ExplSyntaxOn
-% DeclarePairedSplitDelimiter --- same as DeclarePairedDelimiter
-% but also alignes vertical bar inside your command, see examples of set command.
+
+% Trick to define PIE commands that can absorbs PIE first and only then produce arguments.
+% Define your command as usual PIE command (so, PIE's aren't expanded or parsed);
+% BUT PIE's will be respectevly #1, #2 and #3 (for details see mathcommand docs).
+% Then use this command to allow firstly parse PIEF and only then parse arguments;
+\NewDocumentCommand{\piefication}{m}{
+    \exp_args:Nc\NewCommandCopy{old_\cs_to_str:N#1}{#1}
+    \cs_set:cpn{internal_\cs_to_str:N#1:w}{\exp_args:Nc\__mathcommand_absorb_PIE:nw{old_\cs_to_str:N#1}}
+    \exp_args:Nnc\RenewCommandCopy{#1}{internal_\cs_to_str:N#1:w}
+}
+
+% \DeclarePairedSplitDelimiter --- same as DeclarePairedDelimiter
+% but also alignes vertical bar inside your command, see examples
+% of set command. 
+%% WARNING:: If you use | inside sush delimeter it will fail. E.g.
+%% \set{ x \in \R | |x| > 1}
+%% will result in error. Use \lvert and \rvert instead, or abs:
+%% \set{ x \in \X | \abs{x} > 1}
 \NewDocumentCommand{\DeclarePairedSplitDelimiter}{mmm}{
-    % internal delimiters
+    %% Firstly we define internal variants in case when there is split, and when there is none
     \exp_args:Nc\DeclarePairedDelimiter{internal_base_\cs_to_str:N#1}{#2}{#3}
     \exp_args:Nc\DeclarePairedDelimiterX{internal_split_\cs_to_str:N#1}[2]{#2}{#3}
     {##1 \nonscript\:\delimsize\vert\allowbreak\nonscript\:\mathopen{} ##2}
-
-    % internal version of command
+    %% Now we create internal version of command
     \exp_args:Nc\NewDocumentCommand{internal_\cs_to_str:N#1}{omm}{
         \IfNoValueTF{##1}{
             \IfNoValueTF{##3}{
-                \use:c{internal_base_\cs_to_str:N#1}*{##2}
+                \use:c{internal_base_\cs_to_str:N#1}{##2}
             }{
-                \use:c{internal_split_\cs_to_str:N#1}*{##2}{##3}
+                \use:c{internal_split_\cs_to_str:N#1}{##2}{##3}
             }
         }{
             \IfNoValueTF{##3}{
-                \use:c{internal_base_\cs_to_str:N#1}[##1]{##2}
+                \use:c{internal_base_\cs_to_str:N#1}*[##1]{##2}
             }{
-                \use:c{internal_split_\cs_to_str:N#1}[##1]{##2}{##3}
+                \use:c{internal_split_\cs_to_str:N#1}*[##1]{##2}{##3}
             }
         }
     }
-    % latex2e interface
+    %% Finaly, create latex2e interface
     \NewDocumentCommand{#1}{o >{\SplitArgument{1}{|} } m}{
         \IfNoValueTF{##1}{
             \use:c{internal_\cs_to_str:N#1}##2
@@ -157,294 +174,243 @@
     }
 }
 
-% Trick to define PIE commands that can absorbs PIE first and only then produce arguments.
-% Define your command as usual PIE command (so, PIE's aren't expanded or parsed);
-% BUT PIE's will be respectevly #1, #2 and #3 (for details see mathcommand docs).
-% Then use this command to allow firstly parse PIEF and only then parse arguments;
-\NewDocumentCommand{\MakePIEF}{m}{
-    \exp_args:Nc\NewCommandCopy{old_\cs_to_str:N#1}{#1}
-    \cs_set:cpn{internal_\cs_to_str:N#1:w}{\exp_args:Nc\__mathcommand_absorb_PIE:nw{old_\cs_to_str:N#1}}
-    \exp_args:Nnc\RenewCommandCopy{#1}{internal_\cs_to_str:N#1:w}
-}
-
-%Variant commands
-%\GenerateVariant{\VariantName}{\templatecommand}{template-value}
-% Just currying and evaluation at first argument
-\NewDocumentCommand\GenerateVarianT{mmm}{
-    \NewDocumentCommand{#1}{}{#2{#3}}
-}
-% Same for two parameters
-\NewDocumentCommand\GenerateVarianTT{mmmm}{
-    \NewDocumentCommand{#1}{}{#2{#3}{#4}}
-}
-
-%ToDo: think about generic non-expl3 way for doing this. E.g
-%\NewTemplateMacro<\parameter1, \parameter2, ...>
-%\templatename{signature}
-%{code of macro}
-%\NewTemplateInstance{\instance}{\templatename}{\parameter1value, \parametervalue2}
+% \NewTemplateCommand creates a template-macro
+% \TemplateInstance specifies template-args
+\NewDocumentCommand{\NewTemplateCommand}{m r<> m m}{\NewDocumentCommand{#1}{#2#3}{#4}}
+\NewDocumentCommand{\TemplateInstance}{m m  >{\SplitList {,}}r<>}{\NewDocumentCommand{#1}{}{#2#3}}
+\NewDocumentCommand{\TemplateInstancePIE}{m m  >{\SplitList {,}}r<>}{\NewDocumentCommand{#1}{}{#2#3}\piefication{#1}}
 
 \ExplSyntaxOff
 
+%%%%%%%%%%%%%%%%%%%%%
+%% Custom commands %%
+%%%%%%%%%%%%%%%%%%%%%
 
-%%%% Some enhancements
-\newmathcommand{\eqdef}{%
-    \mathrel{{\stackrel{\mbox{\tiny def}}{=}}}%
-}
 
-% Inline fraction
-\newmathcommand{\lfrac}[2]{#1 / #2}
+% %%%% Some enhancements
+% \newmathcommand{\eqdef}{%
+%     \mathrel{{\stackrel{\mbox{\tiny def}}{=}}}%
+% }
 
-% ToDo: use mathcommand suggest
-\renewcommand*{\leq}{\leqslant}
-\renewcommand*{\geq}{\geqslant}
+% % Inline fraction
+% \newmathcommand{\lfrac}[2]{#1 / #2}
 
-% Shortcuts for math mode
-\renewmathcommand{\i}{\imath}
-\renewmathcommand{\j}{\jmath}
+% % Shortcuts for math mode
+% \renewmathcommand{\i}{\imath}
+% \renewmathcommand{\j}{\jmath}
 
 % Bigger operators
-\newmathcommandPIE{\TemplateScaleOperator}[2]{{\relscale{#2}#1\IfEmptyTF{#3\GetIndex{#4}\GetExponent{#5}}{}{\limits#4#5#3}}}
+%\sum_{}^{f}[[ ]]\mleft(....\mright.'
 
-\GenerateVarianT{\nsum}{\TemplateScaleOperator}{\sum}
-\GenerateVarianT{\nint}{\TemplateScaleOperator}{\int}
+\ExplSyntaxOn
+\NewTemplateCommand\tmpl_scalable_operation<m>{mmmd''}{
+    \IfNoValueTF{#5}{
+        #1\limits#3#4#2
+    }{
+        \scalerel{#1\limits#3#4#2}{#5}
+    }
+}
+\TemplateInstancePIEsum\tmpl_scalable_operation<\sum_symbol>
+\TemplateInstancePIE\int\tmpl_scalable_operation<\int_symbol>
+\TemplateInstancePIE\prod\tmpl_scalable_operation<\prod_symbol>
 
-%\MakePIEF{\nsum}
-
+\ExplSyntaxOff
 
 %%%%%%%%%%%%%%%%%%%
 %% Math commands %%
 %%%%%%%%%%%%%%%%%%%
 
-%%%% Basic algebraic structures
-\newcommand*{\field}[1]{\mathbb{#1}}
-\newmathcommand{\N}{\field{N}}
-\newmathcommand{\Z}{\field{Z}}
-\newmathcommand{\Q}{\field{Q}}
-\newmathcommand{\R}{\field{R}}
-\newmathcommand{\K}{\field{K}}
-\newmathcommand{\C}{\field{C}} % ensure that hyperref is loaded
-\renewmathcommand{\H}{\field{H}} % ensure that hyperref is loaded
+%%%%
+%% Foundations: Logic, set theory, topology %%
+%%%%
 
+%%%% Logic
+\newmathcommand{\excludeor}{\mathbin{\star}}
 
-%%%% Foundations:
+%%%% Set theory
 \DeclarePairedSplitDelimiter{\set}{\{}{\}}
-
-\newmathcommand{\im}{\mathop{\mathrm{im}}}   % image
-\newmathcommand{\dom}{\mathop{\mathrm{dom}}} % domain
-\newmathcommand{\cod}{\mathop{\mathrm{cod}}} % codomain
-
-\newmathcommand{\injto}{\lhookrightarrow}
+% Class is a collection of sets
+\newmathcommand{\class}[1]{\set{#1}}
+% Class of all sets and class of all inductive sets
+\newmathcommand{\UniversalClass}{\mathfrak{V}}
+\newmathcommand{\InductiveClass}{\mathrm{Ind}}
+% Cardinality of a set
+\DeclareMathOperator{\card}{card}
+% Use \varnothing as notation for empty set
+\disablecommand{\emptyset}
+\suggestcommand{\emptyset}{Use the better looking \varnothing.}
+% Some operations on sets
+\let\setminus\relax
+\let\complement\relax
+\newmathcommand{\setminus}{\mathbin{\circleddash}}
+\newmathcommand{\symdiff}{\mathbin{\triangle}}
+\NewCommandCopy{\compl}{\complement}
+\newmathcommand{\complement}[1]{\overline{#1}}
+\DeclareMathOperator{\powerset}{\mathcal{P}}
+% Functions and relations
+\let\im\relax
+\let\ker\relax
+\DeclareMathOperator{\im}{im}   % image
+\DeclareMathOperator{\dom}{dom} % domain
+\DeclareMathOperator{\cod}{cod} % codomain
+\DeclareMathOperator{\ran}{ran} % range (same as codomain)
+\DeclareMathOperator{\ker}{ker} % kernel
+\DeclareMathOperator{\field}{field} % field of relation
+% Standart mappings
+\DeclareMathOperator{\id}{id} % identity
+\DeclareMathOperator{\ind}{\mathds{1}} % indicator function
+% Injective, surjective and bijective mappings
+\newmathcommand{\injto}{\hookrightarrow}
 \newmathcommand{\surto}{\twoheadrightarrow}
 \newmathcommand{\bijto}{\leftrightarrow}
 
-\newmathcommand{\Map}[3]{#1\colon #2 \to #3}
-\newmathcommand{\Inj}[3]{#1\colon #2 \injto #3}
-\newmathcommand{\Sur}[3]{#1\colon #2 \surto #3}
-\newmathcommand{\Bij}[3]{#1\colon #2 \bijto #3}
-
-
-\newmathcommand{\Cl}{\mathop{\mathrm{Cl}}}   % closure
-\newmathcommand{\Fr}{\mathop{\mathrm{Fr}}}   % boundary
-\newmathcommand{\Int}{\mathop{\mathrm{Int}}} % interior
-\newmathcommand{\Out}{\mathop{\mathrm{Out}}} % outerior
-
-\newmathcommand{\Borel}{\mathcal{B}}     % Algebra of borel sets
-\newmathcommand{\Cylindric}{\mathcal{C}} % Cylindirc set builded from given algebra
+%%%% Topology
+\DeclareMathOperator{\Cl}{Cl}   % closure
+\DeclareMathOperator{\Fr}{Fr}   % boundary
+\DeclareMathOperator{\Int}{Int} % interior
+\DeclareMathOperator{\Out}{Out} % outerior
 \DeclareMathOperator{\Hom}{Hom} % Hom-sets
+\newmathcommand{\Borel}{\mathcal{B}}     % Algebra of borel sets
+\newmathcommand{\Cylindr}{\mathcal{C}} % Cylindirc set builded from given algebra
 
 
-%%%% Some complex numbers
+%%%%
+%% Algebra
+%%%%
+
+%%%% Complex numbers
 \let\Re=\undefined
 \let\Im=\undefined
-
 \newmathcommand{\Re}{\mathop{\mathrm{Re}}}  % Real part
 \newmathcommand{\Im}{\mathop{\mathrm{Im}}}  % Imaginary part
 \newmathcommand{\conj}[1]{\overline{#1}}    % Complex conjugate
-
 \DeclarePairedDelimiter\abs{\lvert}{\rvert} % Absolute value
-\DeclarePairedDelimiterX\interval[2]{\langle}{\rangle}{#1;#2} % interval
 
-%%%% Linear algebra stuff
+%%%% Basic algebraic structures
+\newcommand*{\bbstruct}[1]{\mathbb{#1}}
+\newmathcommand{\N}{\bbstruct{N}}
+\newmathcommand{\Z}{\bbstruct{Z}}
+\newmathcommand{\Q}{\bbstruct{Q}}
+\newmathcommand{\R}{\bbstruct{R}}
+\newmathcommand{\C}{\bbstruct{C}}
+\ifdefined\H%
+    \renewmathcommand{\H}{\bbstruct{H}}
+\else
+    \newmathcommand{\H}{\bbstruct{H}}
+\fi
+
+%%%% Linear algebra:
+% norm, scalar and cross product
 \DeclarePairedDelimiterX\norm[1]\lVert\rVert{\ifblank{#1}{\:\cdot\:}{#1}} % Vector norm
-\DeclarePairedDelimiterX\spr[2]{\langle}{\rangle}{#1,#2} % Scalar product
-\DeclarePairedDelimiterX\cpr[2]{\lbrack}{\rbrack}{#1,#2} % Cross product
-
-
-% Changing \vec to \vv
+\DeclarePairedDelimiterX\spr[2]{\langle}{\rangle}{\ifblank{#1}{\:\cdot\:}{#1},\ifblank{#2}{\:\cdot\:}{#2}} % Scalar product
+\DeclarePairedDelimiterX\cpr[2]{\lbrack}{\rbrack}{\ifblank{#1}{\:\cdot\:}{#1},\ifblank{#2}{\:\cdot\:}{#2}} % Cross product
+% Changing \vv to \vec and generating shorthands for vectors:
+% \va is \vec{a}, \vb is \vec{b} and so on
 \RenewCommandCopy{\vec}{\vv}
 \let\vv\relax
-
-%TODO piefication for automatic sub/sup-script detection
-\LoopCommands{abcdefghklmnopqrstuvwxyz}[v#1]{\newmathcommand#2{\mathbf{#1}}}
-\newmathcommand{\vi}{\mathbf{i}}
-\newmathcommand{\vj}{\mathbf{j}}
-
+\LoopCommands{abcdefghklmnopqrstuvwxyz}[v#1]{\newmathcommand#2{\vec{#1}}}
+\newmathcommand{\vi}{\vec{\imath}}
+\newmathcommand{\vj}{\vec{\jmath}}
+% matrix operations
 \DeclareMathOperator{\tr}{tr}     % trace
 \DeclareMathOperator{\rk}{rank}   % rank
 \DeclareMathOperator{\perm}{perm} % permament
-
-\newmathcommand{\dsum}{\oplus}   % direct sum
+% direct sum and tensor product
+\newmathcommand{\tsum}{\oplus}   % direct sum
 \newmathcommand{\tprod}{\otimes} % tensorproduct
 
 
-%%%% Classical algebra
-\declaremathcommand{\gcd}{\mathop{}\!\mathrm{gcd}} % Greatest common divisior
-\declaremathcommand{\lcm}{\mathop{}\!\mathrm{lcm}} % lowest common multiple
-
+%%%% Number theory
+% gcd, lcm
+\let\gcd\relax
+\DeclareMathOperator{\gcd}{gcd} % Greatest common divisior
+\DeclareMathOperator{\lcm}{lcm} % lowest common multiple
 % Paired delimeters for ceil and floor
 \DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}     
 \DeclarePairedDelimiter{\floor}{\lfloor}{\rfloor}  
 
 
-%%%% Calcus
+%%%%
+%% Calcus
+%%%%
+
+%%%% Commons
+\DeclarePairedDelimiterX\interval[2]{\langle}{\rangle}{#1;#2} % interval
 \DeclareMathOperator{\sign}{sign}   % signum function
 \DeclareMathOperator{\supp}{supp}   % funtction support
 \newmathcommand{\dif}{\mathop{}\!d} % Small differntial
 \newmathcommand{\Dif}{\mathop{}\!D} % Big differntial
 
-%Template comand for derivative fractions
-% Signature is Symbol-Frac-Args where 
-%    Symbol either d or \partial;
-%    Frac one of the \lfrac; \tfrac; \dfrac; \frac;
-% Template variants futher will be PIEFyed so 
-% args are given in form Prime-Index-Exponent-Numerator-Denominator
-\NewDocumentCommand{\TemplateDerivativeFrac}{m m mmm mm}{
-    \IfEmptyTF{#3}{
-        #2{#1#5#6}{#1#7#5#4}
-    }{
-        \PackageError{Primes are not allowed to be before \verb|od|-like commands}
-    }
+%%%% Derivative fractions
+\ExplSyntaxOn
+% Generic template
+\NewTemplateCommand\tmpl_derivative_frac<mm>{mmm mm}{
+    \IfEmptyTF{#3}{#2{#1#5#6}{#1#7#5#4}}{\PackageError{Primes are not allowed to be before \verb|od|-like commands}}
 }
 
-% Ordinary derivarives
-\GenerateVarianTT{\od}{\TemplateDerivativeFrac}{d}{\frac}
-\GenerateVarianTT{\lod}{\TemplateDerivativeFrac}{d}{\lfrac}
-\GenerateVarianTT{\tod}{\TemplateDerivativeFrac}{d}{\tfrac}
-\GenerateVarianTT{\dod}{\TemplateDerivativeFrac}{d}{\dfrac}
-\MakePIEF{\lod}\MakePIEF{\tod}\MakePIEF{\dod}\MakePIEF{\od}
+\TemplateInstance\od\tmpl_derivative_frac<\dif, \frac>
+\piefication{\od}
+\TemplateInstance\lod\tmpl_derivative_frac<\dif, \sfrac>
+\piefication{\lod}
+\TemplateInstance\tod\tmpl_derivative_frac<\dif, \tfrac>
+\piefication{\tod}
+\TemplateInstance\dod\tmpl_derivative_frac<\dif, \dfrac>
+\piefication{\dod}
 
-% Partial derivarives
-\GenerateVarianTT{\pd}{\TemplateDerivativeFrac}{\partial}{\frac}
-\GenerateVarianTT{\lpd}{\TemplateDerivativeFrac}{\partial}{\lfrac}
-\GenerateVarianTT{\tpd}{\TemplateDerivativeFrac}{\partial}{\tfrac}
-\GenerateVarianTT{\dpd}{\TemplateDerivativeFrac}{\partial}{\dfrac}
-\MakePIEF{\lpd}\MakePIEF{\tpd}\MakePIEF{\dpd}\MakePIEF{\pd}
+\TemplateInstance\pd\tmpl_derivative_frac<\partial, \frac>
+\piefication{\pd}
+\TemplateInstance\lpd\tmpl_derivative_frac<\partial, \sfrac>
+\piefication{\lpd}
+\TemplateInstance\tpd\tmpl_derivative_frac<\partial, \tfrac>
+\piefication{\tpd}
+\TemplateInstance\dpd\tmpl_derivative_frac<\partial, \dfrac>
+\piefication{\dpd}
+\ExplSyntaxOff
 
-% Multivariable derivatives
+
+%%%% Multivariable derivatives
 \let\div\relax
 \DeclareMathOperator{\grad}{grad}
 \DeclareMathOperator{\rot}{rot}
 \DeclareMathOperator{\div}{div}
 
-%%% Mathematical Physics and Functional Calcus
-\newmathcommand{\dist}{\mathrm{dist}}
+%% Combinatorics
 
-\newmathcommand{\Mes}{\mathfrak{M}}
-\newmathcommand{\Espace}{\mathcal{E}}
-\newmathcommand{\Sspace}{\mathcal{S}}
-\newmathcommand{\Dspace}{\mathcal{D}}
+% Binomial with repetiions
+% Falling factorials
+% 
 
-
-
-%%% Prob Theory
+%% Probability and statistics
 \DeclarePairedSplitDelimiter{\BracesSplit}()
 \DeclarePairedSplitDelimiter{\BraketSplit}[]
-\declaremathcommand{\Law}[1]{\operatorname{Law}\BracesSplit{#1}}
-\RenewDocumentCommand{\P}{d()}{
-    \IfNoValueTF{#1}{\mathbb P}{\mathbb P\BracesSplit{#1}}
-}
-\NewDocumentCommand{\E}{d[]}{
-    \IfNoValueTF{#1}{\mathbb E}{\mathbb E\BraketSplit{#1}}
-}
-\NewDocumentCommand{\D}{d[]}{
-    \IfNoValueTF{#1}{\mathbb D}{\mathbb D\BraketSplit{#1}}
-}
-\NewDocumentCommand{\Skew}{d[]}{
-    \IfNoValueTF{#1}{\mathrm{Skew}}{\mathrm{Skew}\BraketSplit{#1}}
-}
-\NewDocumentCommand{\Kurt}{d[]}{
-    \IfNoValueTF{#1}{\mathrm{Kurt}}{\mathrm{Kurt}\BraketSplit{#1}}
-}
 
-\NewDocumentCommand{\Med}{d[]}{
-    \IfNoValueTF{#1}{\mathrm{Med}}{\mathrm{Med}\BraketSplit{#1}}
+% Template for \P-like commands
+\NewDocumentCommand{\ConditionalFunctional}{mm}{
+    \NewDocumentCommand{#1}{mmm d()}{
+        \IfNoValueTF{##4}{#2##1##2##3}{#2##1##2##3\BracesSplit{##4}}
+    }
+    \piefication{#1}
 }
-\NewDocumentCommand{\IQR}{d[]}{
-    \IfNoValueTF{#1}{\mathrm{IQR}}{\mathrm{IQR}\BraketSplit{#1}}
+% Template for \E-like commands
+\NewDocumentCommand{\ConditionalFunctionalOperator}{mm}{
+    \NewDocumentCommand{#1}{mmm d[]}{
+        \IfNoValueTF{##4}{#2##1##2##3}{#2##1##2##3\BraketSplit{##4}}
+    }
+    \piefication{#1}
 }
-\NewDocumentCommand{\Mode}{d[]}{
-    \IfNoValueTF{#1}{\mathrm{Mode}}{\mathrm{Mode}\BraketSplit{#1}}
-}
-\NewDocumentCommand{\std}{d[]}{
-    \IfNoValueTF{#1}{\mathrm{std}}{\mathrm{std}\BraketSplit{#1}}
-}
-\NewDocumentCommand{\mad}{d[]}{
-    \IfNoValueTF{#1}{\mathrm{mad}}{\mathrm{mad}\BraketSplit{#1}}
-}
-
-
-\DeclarePairedDelimiterX\covbraces[2]{(}{)}{#1,#2} % Scalar product
+\let\P\relax 
+\ConditionalFunctional{\P}{\mathbb{P}}
+\ConditionalFunctional{\Law}{\mathrm{Law}}
+\ConditionalFunctionalOperator{\E}{\mathbb{E}}
+\ConditionalFunctionalOperator{\D}{\mathbb{D}}
+\ConditionalFunctionalOperator{\Skew}{\mathrm{skew}}
+\ConditionalFunctionalOperator{\Kurt}{\mathrm{kurt}}
+\ConditionalFunctionalOperator{\Median}{\mathrm{median}}
+% Covariance operator
+\DeclarePairedDelimiterX\covbraces[2](){#1,#2} 
 \newmathcommand{\Cov}[2]{\mathrm{Cov}\covbraces{#1}{#2}}
-
-\newmathcommand{\BiLaplace}{\mathcal{B}}
-\newmathcommand{\Mellin}{\mathcal{M}}
-
-\newcommand{\distto}{\xrightarrow[]{\mathrm{dist}}}
-
-
-\newcommand{\uniformto}{\rightrightarrows}
-\newcommand{\locuniformto}{\overset{\text{\smaller{loc}}}{\rightrightarrows}}
-
-\newcommand{\W}{\mathcal{W}}
-\DeclareMathOperator{\VertexSet}{Vert}
-
-\newcommand{\BorelBound}{\Borel_{\mathrm{b}}}
-\newcommand{\BorelLeb}{\Borel_{\mathrm{m}}}
-
-
-\newcommand{\as}{п{.}н.~}
-\newcommand{\iid}{н{.}о{.}р{.}}
-\newcommand{\iidrv}{н{.}о{.}р{.}с{.}в{.}}
-
-\let\Proj\relax
-\DeclareMathOperator{\Proj}{Proj}
-
-
-% Typing + and - in sup/sub script
-\newcommand{\medminus}{\scalebox{0.6}[0.7]{\(-\)}}
-\newcommand{\medplus}{\scalebox{0.4}[0.5]{\(+\)}}
-
-\newcommand{\pinfty}{\medplus\infty}
-\newcommand{\ninfty}{\medminus\infty}
-
-\newmathcommand{\const}{\mathrm{const}}
-\newmathcommand{\loc}{\mathrm{loc}}
-
-\makeatletter
-\newcommand*\bigcdot{\mathpalette\bigcdot@{.5}}
-\newcommand*\bigcdot@[2]{\mathbin{\vcenter{\hbox{\scalebox{#2}{$\m@th#1\bullet$}}}}}
-\makeatother
-
-\newcommand{\ind}{\mathds{1}}
-
-\newcommand{\cadlag}{c\`adl\`ag}
-
-
-\newmathcommand{\Poiss}{\mathrm{Poiss}}
-\newmathcommand{\Exp}{\mathrm{Exp}}
+% Common scripts
 \newmathcommand{\Uniform}{\mathcal{U}}
 \newmathcommand{\Normal}{\mathcal{N}}
-
-
-\newmathcommand{\pmf}{f}
-\newmathcommand{\pdf}{f}
-\newmathcommand{\cdf}{F}
-\newmathcommand{\ppf}{\omega}
-\newmathcommand{\sdf}{S}
-\newmathcommand{\hrdf}{h}
-\newmathcommand{\chdf}{H}
-\newmathcommand{\MGF}{M}
-
-\DeclareMathOperator{\argmax}{argmax}
-\DeclareMathOperator{\argmin}{argmin}
+\newmathcommand{\Poiss}{\mathrm{Poiss}}
+\newmathcommand{\Exp}{\mathrm{Exp}}
