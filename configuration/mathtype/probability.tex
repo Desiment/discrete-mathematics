@@ -1,0 +1,35 @@
+
+%% Probability and statistics
+\DeclarePairedSplitDelimiter{\BracesSplit}()
+\DeclarePairedSplitDelimiter{\BraketSplit}[]
+
+% Template for \P-like commands
+\NewDocumentCommand{\ConditionalFunctional}{mm}{
+    \NewDocumentCommand{#1}{mmm d()}{
+        \IfNoValueTF{##4}{#2##1##2##3}{#2##1##2##3\BracesSplit{##4}}
+    }
+    \piefication{#1}
+}
+% Template for \E-like commands
+\NewDocumentCommand{\ConditionalFunctionalOperator}{mm}{
+    \NewDocumentCommand{#1}{mmm d[]}{
+        \IfNoValueTF{##4}{#2##1##2##3}{#2##1##2##3\BraketSplit{##4}}
+    }
+    \piefication{#1}
+}
+\let\P\relax 
+\ConditionalFunctional{\P}{\mathbb{P}}
+\ConditionalFunctional{\Law}{\mathrm{Law}}
+\ConditionalFunctionalOperator{\E}{\mathbb{E}}
+\ConditionalFunctionalOperator{\D}{\mathbb{D}}
+\ConditionalFunctionalOperator{\Skew}{\mathrm{skew}}
+\ConditionalFunctionalOperator{\Kurt}{\mathrm{kurt}}
+\ConditionalFunctionalOperator{\Median}{\mathrm{median}}
+% Covariance operator
+\DeclarePairedDelimiterX\covbraces[2](){#1,#2} 
+\newmathcommand{\Cov}[2]{\mathrm{Cov}\covbraces{#1}{#2}}
+% Common 
+\newmathcommand{\Uniform}{\mathcal{U}}
+\newmathcommand{\Normal}{\mathcal{N}}
+\newmathcommand{\Poiss}{\mathrm{Poiss}}
+\newmathcommand{\Exp}{\mathrm{Exp}}
